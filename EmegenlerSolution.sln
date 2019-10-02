@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataSource", "DataSource\DataSource.csproj", "{D5E7FCDF-7D5D-4D34-BE54-EEAE8849AF56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmegenlerTests", "EmegenlerTests\EmegenlerTests.csproj", "{660DC1CF-DB16-46D4-BB08-6BD581DB48D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmegenlerTests", "EmegenlerTests\EmegenlerTests.csproj", "{660DC1CF-DB16-46D4-BB08-6BD581DB48D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmegenlerMvcTest", "EmegenlerMvcTest\EmegenlerMvcTest.csproj", "{FDEDCEC7-2EDB-41C2-86DB-CA0F1A48ED19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{660DC1CF-DB16-46D4-BB08-6BD581DB48D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660DC1CF-DB16-46D4-BB08-6BD581DB48D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{660DC1CF-DB16-46D4-BB08-6BD581DB48D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEDCEC7-2EDB-41C2-86DB-CA0F1A48ED19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEDCEC7-2EDB-41C2-86DB-CA0F1A48ED19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEDCEC7-2EDB-41C2-86DB-CA0F1A48ED19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEDCEC7-2EDB-41C2-86DB-CA0F1A48ED19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,12 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>
-      netstandard2.0;netcoreapp2.2;netcoreapp3.0
+      netcoreapp2.2;netcoreapp3.0
     </TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Logic\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
   </ItemGroup>
 
 </Project>
