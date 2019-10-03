@@ -34,6 +34,9 @@
       <Version>3.0.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
   
 
   

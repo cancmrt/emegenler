@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataSource.MssqlServer;
+using Emegenler.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +32,7 @@ namespace EmegenlerMvcTest
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddEmegenlerToSqlServer(options => options.UseSqlServer());
+            services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=ProjenInline; User Id=sa; Password=1234;");
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -51,6 +52,8 @@ namespace EmegenlerMvcTest
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseEmegenler();
 
             app.UseMvc(routes =>
             {
