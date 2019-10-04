@@ -1,4 +1,5 @@
 ﻿using DataSource;
+using Emegenler.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Domain.Models
+namespace Emegenler.Domains.Models
 {
-    public class Role
+    public class EmegenlerRole
     {
         [Key]
         public int RoledId { get; set; }

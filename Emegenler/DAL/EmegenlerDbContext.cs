@@ -1,10 +1,10 @@
-﻿using Domain.Models;
+﻿using Emegenler.Domains.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataSource
+namespace Emegenler.DAL
 {
     public class EmegenlerDbContext:DbContext
     {
@@ -12,7 +12,8 @@ namespace DataSource
         {
             
         }
-        public DbSet<Policy> Policies { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        public DbSet<EmegenlerPolicy> EmegenlerPolicies { get; set; }
+        public DbSet<EmegenlerRole> EmegenlerRoles { get; set; }
+        public DbSet<EmegenlerUserRoleIdentifier> EmegenlerUserRoles { get; set; }
     }
 }

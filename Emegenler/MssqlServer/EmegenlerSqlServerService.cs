@@ -1,4 +1,5 @@
 ﻿using Emegenler;
+using Emegenler.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,7 +13,7 @@ namespace DataSource.MssqlServer
         public static IServiceCollection AddEmegenlerToSqlServer(this IServiceCollection services, string SqlServerConnectionString)
         {
             services.AddDbContext<EmegenlerDbContext>(options => options.UseSqlServer(SqlServerConnectionString));
-            services.AddScoped<IEmegenlerAuth, EmegenlerAuth>();
+            services.AddScoped<IEmegenler, EmegenlerContrete>();
             
             return services;
         }

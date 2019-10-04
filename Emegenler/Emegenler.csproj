@@ -37,12 +37,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
-  
-
-  
   <ItemGroup>
-    <ProjectReference Include="..\DataSource\DataSource.csproj" />
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <Folder Include="DAL\Migrations\" />
   </ItemGroup>
 
 </Project>
