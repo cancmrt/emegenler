@@ -13,7 +13,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Emegenler\Emegenler.csproj" />
+    <ProjectReference Include="..\Guard.Emegenler\Guard.Emegenler.csproj" />
   </ItemGroup>
 
 </Project>

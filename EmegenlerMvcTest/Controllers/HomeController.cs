@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EmegenlerMvcTest.Models;
+using Guard.Emegenler.FluentInterface.Policy;
 
 namespace EmegenlerMvcTest.Controllers
 {
@@ -12,6 +13,11 @@ namespace EmegenlerMvcTest.Controllers
     {
         public IActionResult Index()
         {
+            EmegenlerPolicyBuilder
+                .CreateAuth("aaa")
+                .AsUser()
+                .OnPage(typeof(HomeController))
+                .AccessGranted();
             return View();
         }
 
