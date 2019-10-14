@@ -12,6 +12,10 @@ namespace Guard.Emegenler.DAL
         {
             
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("Emegenler");
+        }
         public DbSet<EmegenlerPolicy> EmegenlerPolicies { get; set; }
         public DbSet<EmegenlerRole> EmegenlerRoles { get; set; }
         public DbSet<EmegenlerUserRoleIdentifier> EmegenlerUserRoles { get; set; }

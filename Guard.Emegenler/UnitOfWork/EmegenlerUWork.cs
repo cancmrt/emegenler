@@ -15,15 +15,9 @@ namespace Guard.Emegenler
         public EmegenlerPolicyRepository Policies { get; set; }
         public EmegenlerRoleRepository Roles { get; set; }
         public EmegenlerUserRoleIdentifierRepository UserRoles { get; set; }
-        public EmegenlerUWork(IServiceProvider serviceProvider)
+        public EmegenlerUWork(EmegenlerDbContext context)
         {
-            using (var serviceScope = serviceProvider.CreateScope())
-            {
-                _context = serviceScope.ServiceProvider.GetService<EmegenlerDbContext>();
-                Policies = new EmegenlerPolicyRepository(_context);
-                Roles = new EmegenlerRoleRepository(_context);
-                UserRoles = new EmegenlerUserRoleIdentifierRepository(_context);
-            }
+            _context = context;
         }
 
         

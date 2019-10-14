@@ -10,6 +10,6 @@ namespace Guard.Emegenler.Domains.Models
         [Key]
         public int RoleIdentifierId { get; set; }
         public string UserIdentifier { get; set; }
-        public int RoleId { get; set; }
+        public string RoleIdentifier { get; set; }
     }
 }

@@ -13,11 +13,6 @@ namespace EmegenlerMvcTest.Controllers
     {
         public IActionResult Index()
         {
-            EmegenlerPolicyBuilder
-                .CreateAuth("aaa")
-                .AsUser()
-                .OnPage(typeof(HomeController))
-                .AccessGranted();
             return View();
         }
 

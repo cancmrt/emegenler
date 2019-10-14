@@ -1,4 +1,4 @@
-﻿using Guard.Emegenler.Domains.Models.Enums;
+﻿using Guard.Emegenler.FluentInterface.Policy.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,10 +10,10 @@ namespace Guard.Emegenler.Domains.Models
     {
         [Key]
         public int PolicyId { get; set; }
-        public string RoleIdentifier { get; set; }
-        public string UserIdentifier { get; set; }
+        public AuthBase AuthBase { get; set; }
+        public string AuthBaseIdentifier { get; set; }
         public string PolicyElement { get; set; }
-        public string PolicyElementSelector { get; set; }
-        public string AuthRole { get; set; }
+        public string PolicyElementIdentifier { get; set; }
+        public string AccessProtocol { get; set; }
     }
 }
