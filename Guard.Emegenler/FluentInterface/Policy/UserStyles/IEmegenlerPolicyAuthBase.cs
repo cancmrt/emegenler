@@ -7,7 +7,7 @@ namespace Guard.Emegenler.FluentInterface.Policy.UserStyles
 {
     public interface IEmegenlerPolicyAuthBase
     {
-        IEmegenlerPolicyAccess OnUser(string userIdentifier);
-        IEmegenlerPolicyAccess OnRole(string roleIdentifier);
+        IEmegenlerPolicyAccess WithUser(string userIdentifier);
+        IEmegenlerPolicyAccess WithRole(string roleIdentifier);
     }
 }

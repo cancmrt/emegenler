@@ -25,11 +25,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
+    <ProjectReference Include="..\Guard.Emegenler\Guard.Emegenler.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Guard.Emegenler\Guard.Emegenler.csproj" />
+    <Compile Update="Features\FluentApis\FluentPolicy.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FluentPolicy.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\FluentApis\FluentPolicy.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FluentPolicy.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>

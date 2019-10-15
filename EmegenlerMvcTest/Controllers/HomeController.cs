@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EmegenlerMvcTest.Models;
 using Guard.Emegenler.FluentInterface.Policy;
+using Guard.Emegenler.FluentInterface;
 
 namespace EmegenlerMvcTest.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(IFluentApi api)
         {
+            api.Policy.Create().WithUser("").AddLink("").Readonly();
             return View();
         }
 

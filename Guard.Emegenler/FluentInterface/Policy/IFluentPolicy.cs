@@ -7,6 +7,6 @@ namespace Guard.Emegenler.FluentInterface.Policy
 {
     public interface IFluentPolicy
     {
-        IEmegenlerPolicyAuthBase PolicyCreate();
+        IEmegenlerPolicyAuthBase Create();
     }
 }

@@ -30,7 +30,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             _uWork = uWork;
         }
 
-        public IEmegenlerPolicyAuthBase PolicyCreate()
+        public IEmegenlerPolicyAuthBase Create()
         {
             return this;
         }
@@ -130,14 +130,14 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
-        public IEmegenlerPolicyAccess OnUser(string userIdentifier)
+        public IEmegenlerPolicyAccess WithUser(string userIdentifier)
         {
             emegenlerPolicy.AuthBase = AuthBase.User;
             emegenlerPolicy.AuthBaseIdentifier = userIdentifier;
             return this;
         }
 
-        public IEmegenlerPolicyAccess OnRole(string roleIdentifier)
+        public IEmegenlerPolicyAccess WithRole(string roleIdentifier)
         {
             emegenlerPolicy.AuthBase = AuthBase.Role;
             emegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
