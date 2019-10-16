@@ -6,9 +6,9 @@ using System.Text;
 
 namespace EmegenlerTests.FakeContext
 {
-    public static class FakeContextGenerator
+    public class FakeContextGenerator
     {
-        public static EmegenlerDbContext GetContext()
+        public  EmegenlerDbContext GetContext()
         {
             
             DbContextOptions<EmegenlerDbContext> options;

@@ -22,12 +22,13 @@ namespace Guard.Emegenler.FluentInterface.Policy
         IEmegenlerPolicyButtonAccess,
         IEmegenlerPolicyLinkAccess
     {
-        IEmegenlerUWork _uWork;
-        private EmegenlerPolicy emegenlerPolicy;
+        private IEmegenlerUWork _uWork { get; set; }
+        private EmegenlerPolicy emegenlerPolicy { get; set; }
 
         public FluentPolicy(IEmegenlerUWork uWork)
         {
             _uWork = uWork;
+            emegenlerPolicy = new EmegenlerPolicy();
         }
 
         public IEmegenlerPolicyAuthBase Create()
@@ -87,6 +88,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
         ///IEmegenlerPolicyElement start
         public IEmegenlerPolicyButtonAccess AddButton(string buttonIdentifier)
         {
+            if (String.IsNullOrEmpty(buttonIdentifier))
+            {
+                throw new NullReferenceException("AddButton method button identifier cannot be null or empty");
+            }
             emegenlerPolicy.PolicyElement = "Button";
             emegenlerPolicy.PolicyElementIdentifier = buttonIdentifier;
             return this;
@@ -94,6 +99,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyComponentAccess AddComponent(string componentIdentifier)
         {
+            if (String.IsNullOrEmpty(componentIdentifier))
+            {
+                throw new NullReferenceException("AddComponent method component identifier cannot be null or empty");
+            }
             emegenlerPolicy.PolicyElement = "Component";
             emegenlerPolicy.PolicyElementIdentifier = componentIdentifier;
             return this;
@@ -102,6 +111,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyFormAccess AddForm(string formIdentifier)
         {
+            if (String.IsNullOrEmpty(formIdentifier))
+            {
+                throw new NullReferenceException("AddForm method form identifier cannot be null or empty");
+            }
             emegenlerPolicy.PolicyElement = "Form";
             emegenlerPolicy.PolicyElementIdentifier = formIdentifier;
             return this;
@@ -111,6 +124,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyInputAccess AddInput(string inputIdentifier)
         {
+            if (String.IsNullOrEmpty(inputIdentifier))
+            {
+                throw new NullReferenceException("AddInput method input identifier cannot be null or empty");
+            }
             emegenlerPolicy.PolicyElement = "Input";
             emegenlerPolicy.PolicyElementIdentifier = inputIdentifier;
             return this;
@@ -118,6 +135,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyLinkAccess AddLink(string linkIdentifier)
         {
+            if(String.IsNullOrEmpty(linkIdentifier))
+            {
+                throw new NullReferenceException("AddLink method link identifier cannot be null or empty");
+            }
             emegenlerPolicy.PolicyElement = "Link";
             emegenlerPolicy.PolicyElementIdentifier = linkIdentifier;
             return this;
@@ -125,6 +146,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyPageAccess AddPage(Type controllerIdentifier)
         {
+            if(controllerIdentifier == null)
+            {
+                throw new NullReferenceException("AddPage method type of controller cannot be null");
+            }
             emegenlerPolicy.PolicyElement = "Page";
             emegenlerPolicy.PolicyElementIdentifier = controllerIdentifier.FullName;
             return this;
@@ -132,6 +157,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyAccess WithUser(string userIdentifier)
         {
+            if(String.IsNullOrEmpty(userIdentifier))
+            {
+                throw new NullReferenceException("WithUser method user identifier cannot be null or empty");
+            }
             emegenlerPolicy.AuthBase = AuthBase.User;
             emegenlerPolicy.AuthBaseIdentifier = userIdentifier;
             return this;
@@ -139,6 +168,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IEmegenlerPolicyAccess WithRole(string roleIdentifier)
         {
+            if(String.IsNullOrEmpty(roleIdentifier))
+            {
+                throw new NullReferenceException("WithRole method role identifier cannot be null or empty");
+            }
             emegenlerPolicy.AuthBase = AuthBase.Role;
             emegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
             return this;

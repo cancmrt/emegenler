@@ -8,12 +8,10 @@ namespace Guard.Emegenler.FluentInterface
 {
     public class FluentApi: IFluentApi
     {
-        private  IEmegenlerUWork _uWork { get; set; }
         public IFluentPolicy Policy { get; set; }
         public FluentApi(IEmegenlerUWork uWork)
         {
-            _uWork = uWork;
-            Policy = new FluentPolicy(_uWork);
+            Policy = new FluentPolicy(uWork);
         }
     }
 }
