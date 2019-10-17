@@ -158,7 +158,7 @@
 	 @Create
 	 Scenario: Try to create policy with null RoleIdentifier
 	 When api.Policy.Create().WithRole(null).AddPage(typeof(FakeClass)).AccessGranted(); called on WithRole method with null RoleIdentifier prop
-	 Then NullReferanceException throws by WithRole method with empty RoleIdentifier prop
+	 Then NullReferanceException throws by WithRole method with null RoleIdentifier prop
 
 	 @Create
 	 Scenario: Try to create policy with null PageType

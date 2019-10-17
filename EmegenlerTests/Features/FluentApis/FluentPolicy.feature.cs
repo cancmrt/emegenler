@@ -869,7 +869,7 @@ namespace EmegenlerTests.Features.FluentApis
   testRunner.When("api.Policy.Create().WithRole(null).AddPage(typeof(FakeClass)).AccessGranted(); ca" +
                     "lled on WithRole method with null RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 161
-  testRunner.Then("NullReferanceException throws by WithRole method with empty RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("NullReferanceException throws by WithRole method with null RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
