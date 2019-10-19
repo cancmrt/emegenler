@@ -38,6 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\Migrations\" />
+    <Folder Include="FluentInterface\Role\" />
+    <Folder Include="FluentInterface\UserRoleIdentifier\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

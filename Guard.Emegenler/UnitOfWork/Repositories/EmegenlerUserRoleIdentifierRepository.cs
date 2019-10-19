@@ -1,6 +1,7 @@
 ﻿using DataSource;
 using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
+using Guard.Emegenler.MethodReturner;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,16 +15,38 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
         {
             _context = context;
         }
-        public void Add(EmegenlerUserRoleIdentifier newUserRoleIdentifier)
+        public Returner<EmegenlerUserRoleIdentifier> Insert(EmegenlerUserRoleIdentifier newUserRoleIdentifier)
         {
             try
             {
-                _context.Set<EmegenlerUserRoleIdentifier>().Add(newUserRoleIdentifier);
-                _context.SaveChanges();
+                if(newUserRoleIdentifier != null)
+                {
+                    if(newUserRoleIdentifier.RoleIdentifierId != 0)
+                    {
+                        _context.Set<EmegenlerUserRoleIdentifier>().Update(newUserRoleIdentifier);
+                        _context.SaveChanges();
+                        _context.Entry(newUserRoleIdentifier).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(newUserRoleIdentifier);
+                    }
+                    else
+                    {
+                        _context.Set<EmegenlerUserRoleIdentifier>().Add(newUserRoleIdentifier);
+                        _context.SaveChanges();
+                        _context.Entry(newUserRoleIdentifier).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(newUserRoleIdentifier);
+                    }
+                    
+                }
+                else
+                {
+                    return Returner<EmegenlerUserRoleIdentifier>.FailReturn(new NullReferenceException("You cannot send null value on EmegenlerUserRoleIdentifierRepository.Add"));
+                }
+
+               
             }
             catch(Exception exception)
             {
-                throw exception;
+                return Returner<EmegenlerUserRoleIdentifier>.FailReturn(exception);
             }
         }
     }

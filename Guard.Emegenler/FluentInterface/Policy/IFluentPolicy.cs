@@ -1,4 +1,5 @@
-﻿using Guard.Emegenler.FluentInterface.Policy.UserStyles;
+﻿using Guard.Emegenler.Domains.Models;
+using Guard.Emegenler.FluentInterface.Policy.UserStyles;
 using System;
 using System.Collections.Generic;
 using System.Text;

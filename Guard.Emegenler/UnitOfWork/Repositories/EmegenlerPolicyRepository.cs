@@ -1,6 +1,7 @@
 ﻿using DataSource;
 using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
+using Guard.Emegenler.MethodReturner;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,17 +15,39 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
         {
             _context = context;
         }
-        public void Add(EmegenlerPolicy newEmegenlerPolicy)
+        public Returner<EmegenlerPolicy> Insert(EmegenlerPolicy newEmegenlerPolicy)
         {
             try
             {
-                _context.Set<EmegenlerPolicy>().Add(newEmegenlerPolicy);
-                _context.SaveChanges();
+                if(newEmegenlerPolicy != null)
+                {
+                    if(newEmegenlerPolicy.PolicyId != 0)
+                    {
+                        _context.Set<EmegenlerPolicy>().Update(newEmegenlerPolicy);
+                        _context.SaveChanges();
+                        _context.Entry(newEmegenlerPolicy).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        return Returner<EmegenlerPolicy>.SuccessReturn(newEmegenlerPolicy);
+                    }
+                    else
+                    {
+                        _context.Set<EmegenlerPolicy>().Add(newEmegenlerPolicy);
+                        _context.SaveChanges();
+                        _context.Entry(newEmegenlerPolicy).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        return Returner<EmegenlerPolicy>.SuccessReturn(newEmegenlerPolicy);
+                    }
+                    
+                }
+                else
+                {
+                    return Returner<EmegenlerPolicy>.FailReturn(new NullReferenceException("You cannot send null value on EmegenlerPolicyRepository.Add"));
+                }
+               
             }
             catch(Exception exception)
             {
-                throw exception;
+                return Returner<EmegenlerPolicy>.FailReturn(exception);
             }
         }
+
     }
 }
