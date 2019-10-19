@@ -142,6 +142,87 @@ testRunner.Then("Insert method should throw NullReferenceException", ((string)(n
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Get Method take EmegenlerPolicyId to get EmegenlerPolicy entity.")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Get Method take EmegenlerPolicyId to get EmegenlerPolicy entity.")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Get")]
+        public virtual void GetMethodTakeEmegenlerPolicyIdToGetEmegenlerPolicyEntity_()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Method take EmegenlerPolicyId to get EmegenlerPolicy entity.", null, new string[] {
+                        "NormalCase-Get"});
+#line 24
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 25
+testRunner.When("We pass valid EmegenlerPolicyId to Get method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 26
+testRunner.Then("Get method should return valid EmegenlerPolicy entity with result success on vali" +
+                    "d EmegenlerPolicyId", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take zero as EmegenlerPolicyId")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Get method take zero as EmegenlerPolicyId")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Get")]
+        public virtual void GetMethodTakeZeroAsEmegenlerPolicyId()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take zero as EmegenlerPolicyId", null, new string[] {
+                        "ExceptionalCase-Get"});
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 30
+testRunner.When("We pass zero value as EmegenlerPolicyId to Get method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 31
+testRunner.Then("Get method should return state is fail and return Exception on EmegenlerPolicyId " +
+                    "is zero", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take negative as EmegenlerPolicyId")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Get method take negative as EmegenlerPolicyId")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Get")]
+        public virtual void GetMethodTakeNegativeAsEmegenlerPolicyId()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take negative as EmegenlerPolicyId", null, new string[] {
+                        "ExceptionalCase-Get"});
+#line 34
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 35
+testRunner.When("We pass negative value as EmegenlerPolicyId to Get method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+testRunner.Then("Get method should return state is fail and return Exception on EmegenlerPolicyId " +
+                    "is negative", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take valid EmegenlerPolicyId but id record not found in our databaser")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Get method take valid EmegenlerPolicyId but id record not found in our databaser")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Get")]
+        public virtual void GetMethodTakeValidEmegenlerPolicyIdButİdRecordNotFoundİnOurDatabaser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take valid EmegenlerPolicyId but id record not found in our databaser", null, new string[] {
+                        "ExceptionalCase-Get"});
+#line 39
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 40
+testRunner.When("We pass valid id value as EmegenlerPolicyId to Get valid EmegenlerPolicyId from G" +
+                    "et method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+testRunner.Then("Get method should return state is fail and return KeyNotFoundException on Emegenl" +
+                    "erPolicyId is valid but record not found in our database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

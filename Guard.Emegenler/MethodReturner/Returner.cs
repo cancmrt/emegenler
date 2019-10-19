@@ -17,12 +17,14 @@ namespace Guard.Emegenler.MethodReturner
             ReturnerBase.SuccessState = true;
             ReturnerBase.FailState = false;
             ReturnerBase.SuccessData = returnData;
+            ReturnerBase.FailData = null;
             return ReturnerBase;
             
         }
         public static Returner<T> FailReturn(Exception exception)
         {
             ReturnerBase.SuccessState = false;
+            ReturnerBase.SuccessData = default(T);
             ReturnerBase.FailState = true;
             ReturnerBase.FailData = exception;
             return ReturnerBase;

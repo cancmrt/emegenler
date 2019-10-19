@@ -2,8 +2,10 @@
 using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Guard.Emegenler.UnitOfWork.Repositories
@@ -44,6 +46,35 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
                
             }
             catch(Exception exception)
+            {
+                return Returner<EmegenlerPolicy>.FailReturn(exception);
+            }
+        }
+
+        public Returner<EmegenlerPolicy> Get(int policyId)
+        {
+            try
+            {
+                if (policyId > 0)
+                {
+                    EmegenlerPolicy resultEntity = _context.EmegenlerPolicies.Where(ep =>ep.PolicyId == policyId).AsNoTracking().FirstOrDefault();
+                    if(resultEntity != null)
+                    {
+                        return Returner<EmegenlerPolicy>.SuccessReturn(resultEntity);
+                    }
+                    else
+                    {
+                        return Returner<EmegenlerPolicy>.FailReturn(new KeyNotFoundException("Record not found on EmegenlerPolicy table with sended id:"+policyId.ToString()));
+                    }
+
+                }
+                else
+                {
+                    return Returner<EmegenlerPolicy>.FailReturn(new IndexOutOfRangeException("You cannot send zero or negative value on EmegenlerPolicyRepository.Get"));
+                }
+
+            }
+            catch (Exception exception)
             {
                 return Returner<EmegenlerPolicy>.FailReturn(exception);
             }

@@ -73,6 +73,64 @@ namespace EmegenlerTests.RepositoryTests
             result.IsFail().Should().BeTrue();
             result.GetException().Should().NotBeNull();
         }
+        [When(@"We pass valid EmegenlerPolicyId to Get method")]
+        public void WhenWePassValidEmegenlerPolicyIdToGetMethod()
+        {
+            result = repo.Get(1000);
+        }
+
+        [Then(@"Get method should return valid EmegenlerPolicy entity with result success on valid EmegenlerPolicyId")]
+        public void ThenGetMethodShouldReturnValidEmegenlerPolicyEntityWithResultSuccessOnValidEmegenlerPolicyId()
+        {
+            result.IsSuccess().Should().BeTrue();
+            result.GetData().Should().NotBeNull();
+        }
+
+        [When(@"We pass zero value as EmegenlerPolicyId to Get method")]
+        public void WhenWePassZeroValueAsEmegenlerPolicyIdToGetMethod()
+        {
+            result = repo.Get(0);
+        }
+
+        [Then(@"Get method should return state is fail and return Exception on EmegenlerPolicyId is zero")]
+        public void ThenGetMethodShouldReturnStateİsFailAndReturnExceptionOnEmegenlerPolicyIdİsZero()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass negative value as EmegenlerPolicyId to Get method")]
+        public void WhenWePassNegativeValueAsEmegenlerPolicyIdToGetMethod()
+        {
+            result = repo.Get(-1);
+        }
+
+        [Then(@"Get method should return state is fail and return Exception on EmegenlerPolicyId is negative")]
+        public void ThenGetMethodShouldReturnStateİsFailAndReturnExceptionOnEmegenlerPolicyIdİsNegative()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid id value as EmegenlerPolicyId to Get valid EmegenlerPolicyId from Get method")]
+        public void WhenWePassValidİdValueAsEmegenlerPolicyIdToGetValidEmegenlerPolicyIdFromGetMethod()
+        {
+            result = repo.Get(45);
+        }
+
+        [Then(@"Get method should return state is fail and return KeyNotFoundException on EmegenlerPolicyId is valid but record not found in our database")]
+        public void ThenGetMethodShouldReturnStateİsFailAndReturnKeyNotFoundExceptionOnEmegenlerPolicyIdİsValidButRecordNotFoundİnOurDatabase()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
 
     }
 }

@@ -19,3 +19,23 @@ Then Insert method should edit EmegenlerPolicy and save to db after that should 
 Scenario: If we pass null value to our Insert method, method should throw NullReferenceException
 When We pass null value to Insert method
 Then Insert method should throw NullReferenceException
+
+@NormalCase-Get
+Scenario: Get Method take EmegenlerPolicyId to get EmegenlerPolicy entity.
+When We pass valid EmegenlerPolicyId to Get method
+Then Get method should return valid EmegenlerPolicy entity with result success on valid EmegenlerPolicyId
+
+@ExceptionalCase-Get
+Scenario: Get method take zero as EmegenlerPolicyId
+When We pass zero value as EmegenlerPolicyId to Get method
+Then Get method should return state is fail and return Exception on EmegenlerPolicyId is zero
+
+@ExceptionalCase-Get
+Scenario: Get method take negative as EmegenlerPolicyId
+When We pass negative value as EmegenlerPolicyId to Get method
+Then Get method should return state is fail and return Exception on EmegenlerPolicyId is negative
+
+@ExceptionalCase-Get
+Scenario: Get method take valid EmegenlerPolicyId but id record not found in our databaser
+When We pass valid id value as EmegenlerPolicyId to Get valid EmegenlerPolicyId from Get method
+Then Get method should return state is fail and return KeyNotFoundException on EmegenlerPolicyId is valid but record not found in our database
