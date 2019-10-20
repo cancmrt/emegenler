@@ -223,6 +223,113 @@ testRunner.Then("Get method should return state is fail and return KeyNotFoundEx
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Take method getting page and pageSize attiribute if method take valid page and pa" +
+            "geSize attirubute, method should return List of EmegenlerPoliciy entities")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Take method getting page and pageSize attiribute if method take valid page and pa" +
+            "geSize attirubute, method should return List of EmegenlerPoliciy entities")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Take")]
+        public virtual void TakeMethodGettingPageAndPageSizeAttiributeİfMethodTakeValidPageAndPageSizeAttirubuteMethodShouldReturnListOfEmegenlerPoliciyEntities()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method getting page and pageSize attiribute if method take valid page and pa" +
+                    "geSize attirubute, method should return List of EmegenlerPoliciy entities", null, new string[] {
+                        "NormalCase-Take"});
+#line 44
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 45
+testRunner.When("We pass valid page and pageSize take method on EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 46
+testRunner.Then("Take method should return List of EmegenlerPolicy entites from EmegenlerPolicyRep" +
+                    "ository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method getting valid page but pageSize value is zero")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Take method getting valid page but pageSize value is zero")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettingValidPageButPageSizeValueİsZero()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method getting valid page but pageSize value is zero", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 49
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 50
+testRunner.When("We pass valid page attirubute but pageSize attirubute value is zero on EmegenlerP" +
+                    "olicyRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+testRunner.Then("Take method should return fail status and should return Exception on zero value w" +
+                    "ith pageSize attiribute from EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method gettig valid page attiribute but pageSize attirubute is negative")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Take method gettig valid page attiribute but pageSize attirubute is negative")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettigValidPageAttiributeButPageSizeAttirubuteİsNegative()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method gettig valid page attiribute but pageSize attirubute is negative", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 53
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 54
+testRunner.When("We pass valid page attiribute but pageSize attirubute value is negative on Emegen" +
+                    "lerPolicyRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 55
+testRunner.Then("Take method should return fail status and should return Exception on negative val" +
+                    "ue with pageSize attirubute from EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method getting valid pageSize but page value is zero")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Take method getting valid pageSize but page value is zero")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettingValidPageSizeButPageValueİsZero()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method getting valid pageSize but page value is zero", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 59
+testRunner.When("We pass valid pageSize attirubute but page attirubute value is zero on EmegenlerP" +
+                    "olicyRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 60
+testRunner.Then("Take method should return fail status and should return Exception on zero value w" +
+                    "ith page attiribute from EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method gettig valid pageSize attiribute but page attirubute is negative")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Take method gettig valid pageSize attiribute but page attirubute is negative")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettigValidPageSizeAttiributeButPageAttirubuteİsNegative()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method gettig valid pageSize attiribute but page attirubute is negative", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 62
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 63
+testRunner.When("We pass valid pageSize attiribute but page attirubute value is negative on Emegen" +
+                    "lerPolicyRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 64
+testRunner.Then("Take method should return fail status and should return Exception on negative val" +
+                    "ue with page attirubute from EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

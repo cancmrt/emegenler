@@ -5,6 +5,8 @@ using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
 using Guard.Emegenler.UnitOfWork.Repositories;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace EmegenlerTests.RepositoryTests
@@ -14,6 +16,7 @@ namespace EmegenlerTests.RepositoryTests
     {
         EmegenlerPolicyRepository repo;
         Returner<EmegenlerPolicy> result;
+        Returner<IList<EmegenlerPolicy>> results;
         public EmegenlerPolicyRepositorySteps()
         {
             FakeContextGenerator fContextGenerate = new FakeContextGenerator();
@@ -130,6 +133,83 @@ namespace EmegenlerTests.RepositoryTests
             result.GetException().Should().NotBeNull();
             result.GetData().Should().BeNull();
         }
+
+        [When(@"We pass valid page and pageSize take method on EmegenlerPolicyRepository")]
+        public void WhenWePassValidPageAndPageSizeTakeMethodOnEmegenlerPolicyRepository()
+        {
+            results = repo.Take(1, 1);
+        }
+
+        [Then(@"Take method should return List of EmegenlerPolicy entites from EmegenlerPolicyRepository")]
+        public void ThenTakeMethodShouldReturnListOfEmegenlerPolicyEntitesFromEmegenlerPolicyRepository()
+        {
+            results.IsSuccess().Should().BeTrue();
+            results.GetData().Count().Should().BeGreaterThan(0);
+
+        }
+
+
+        [When(@"We pass valid page attirubute but pageSize attirubute value is zero on EmegenlerPolicyRepository's Take method")]
+        public void WhenWePassValidPageAttirubuteButPageSizeAttirubuteValueİsZeroOnEmegenlerPolicyRepositorySTakeMethod()
+        {
+            results = repo.Take(1, 0);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on zero value with pageSize attiribute from EmegenlerPolicyRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnZeroValueWithPageSizeAttiributeFromEmegenlerPolicyRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid page attiribute but pageSize attirubute value is negative on EmegenlerPolicyRepository's Take method")]
+        public void WhenWePassValidPageAttiributeButPageSizeAttirubuteValueİsNegativeOnEmegenlerPolicyRepositorySTakeMethod()
+        {
+            results = repo.Take(1, -1);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on negative value with pageSize attirubute from EmegenlerPolicyRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnNegativeValueWithPageSizeAttirubuteFromEmegenlerPolicyRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid pageSize attirubute but page attirubute value is zero on EmegenlerPolicyRepository's Take method")]
+        public void WhenWePassValidPageSizeAttirubuteButPageAttirubuteValueİsZeroOnEmegenlerPolicyRepositorySTakeMethod()
+        {
+            results = repo.Take(0, 1);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on zero value with page attiribute from EmegenlerPolicyRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnZeroValueWithPageAttiributeFromEmegenlerPolicyRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid pageSize attiribute but page attirubute value is negative on EmegenlerPolicyRepository's Take method")]
+        public void WhenWePassValidPageSizeAttiributeButPageAttirubuteValueİsNegativeOnEmegenlerPolicyRepositorySTakeMethod()
+        {
+            results = repo.Take(-1, 1);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on negative value with page attirubute from EmegenlerPolicyRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnNegativeValueWithPageAttirubuteFromEmegenlerPolicyRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+
 
 
     }

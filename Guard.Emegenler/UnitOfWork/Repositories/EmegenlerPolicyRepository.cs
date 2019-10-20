@@ -80,5 +80,35 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        public Returner<IList<EmegenlerPolicy>> Take(int page, int pageSize)
+        {
+            if(page > 0 && pageSize > 0)
+            {
+                int skipSize = (page - 1) * pageSize;
+                int countOfRows = _context.EmegenlerPolicies.Count();
+                if(countOfRows > skipSize)
+                {
+                    IList<EmegenlerPolicy> results = _context.EmegenlerPolicies.Skip(skipSize).Take(pageSize).AsNoTracking().ToList();
+                    if(results != null)
+                    {
+                        return Returner<IList<EmegenlerPolicy>>.SuccessReturn(results);
+                    }
+                    else{
+                        return Returner<IList<EmegenlerPolicy>>.FailReturn(new KeyNotFoundException("We cannot found data in spesific range on EmegenlerPolicyRepository.Take method"));
+                    }
+
+                }
+                else
+                {
+                    return Returner<IList<EmegenlerPolicy>>.FailReturn(new IndexOutOfRangeException("Page and PageSize value more than rows on EmegenlerPolicyRepository.Take method"));
+                }
+
+            }
+            else
+            {
+                return Returner<IList<EmegenlerPolicy>>.FailReturn(new IndexOutOfRangeException("You cannot send zero or negative value on EmegenlerPolicyRepository.Take"));
+            }
+        }
+
     }
 }

@@ -39,3 +39,27 @@ Then Get method should return state is fail and return Exception on EmegenlerPol
 Scenario: Get method take valid EmegenlerPolicyId but id record not found in our databaser
 When We pass valid id value as EmegenlerPolicyId to Get valid EmegenlerPolicyId from Get method
 Then Get method should return state is fail and return KeyNotFoundException on EmegenlerPolicyId is valid but record not found in our database
+
+@NormalCase-Take
+Scenario: Take method getting page and pageSize attiribute if method take valid page and pageSize attirubute, method should return List of EmegenlerPoliciy entities
+When We pass valid page and pageSize take method on EmegenlerPolicyRepository
+Then Take method should return List of EmegenlerPolicy entites from EmegenlerPolicyRepository
+
+@ExceptionalCase-Take
+Scenario: Take method getting valid page but pageSize value is zero
+When We pass valid page attirubute but pageSize attirubute value is zero on EmegenlerPolicyRepository's Take method
+Then Take method should return fail status and should return Exception on zero value with pageSize attiribute from EmegenlerPolicyRepository
+@ExceptionalCase-Take
+Scenario: Take method gettig valid page attiribute but pageSize attirubute is negative
+When We pass valid page attiribute but pageSize attirubute value is negative on EmegenlerPolicyRepository's Take method
+Then Take method should return fail status and should return Exception on negative value with pageSize attirubute from EmegenlerPolicyRepository
+
+@ExceptionalCase-Take
+Scenario: Take method getting valid pageSize but page value is zero
+When We pass valid pageSize attirubute but page attirubute value is zero on EmegenlerPolicyRepository's Take method
+Then Take method should return fail status and should return Exception on zero value with page attiribute from EmegenlerPolicyRepository
+@ExceptionalCase-Take
+Scenario: Take method gettig valid pageSize attiribute but page attirubute is negative
+When We pass valid pageSize attiribute but page attirubute value is negative on EmegenlerPolicyRepository's Take method
+Then Take method should return fail status and should return Exception on negative value with page attirubute from EmegenlerPolicyRepository
+
