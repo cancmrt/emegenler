@@ -2,8 +2,10 @@
 using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Guard.Emegenler.UnitOfWork.Repositories
@@ -45,6 +47,35 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
                
             }
             catch(Exception exception)
+            {
+                return Returner<EmegenlerUserRoleIdentifier>.FailReturn(exception);
+            }
+        }
+
+        public Returner<EmegenlerUserRoleIdentifier> Get(int userRoleIdentifierId)
+        {
+            try
+            {
+                if (userRoleIdentifierId > 0)
+                {
+                    EmegenlerUserRoleIdentifier resultEntity = _context.EmegenlerUserRoles.Where(ep => ep.RoleIdentifierId == userRoleIdentifierId).AsNoTracking().FirstOrDefault();
+                    if (resultEntity != null)
+                    {
+                        return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(resultEntity);
+                    }
+                    else
+                    {
+                        return Returner<EmegenlerUserRoleIdentifier>.FailReturn(new KeyNotFoundException("Record not found on EmegenlerUserRoleIdentifier table with sended id:" + userRoleIdentifierId.ToString()));
+                    }
+
+                }
+                else
+                {
+                    return Returner<EmegenlerUserRoleIdentifier>.FailReturn(new IndexOutOfRangeException("You cannot send zero or negative value on EmegenlerUserRoleIdentifierRepository.Get"));
+                }
+
+            }
+            catch (Exception exception)
             {
                 return Returner<EmegenlerUserRoleIdentifier>.FailReturn(exception);
             }

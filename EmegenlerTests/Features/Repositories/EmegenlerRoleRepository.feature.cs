@@ -143,6 +143,87 @@ testRunner.Then("Insert method should throw NullReferenceException without Emege
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Get Method take EmegenlerRoleId to get EmegenlerRole entity.")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Get Method take EmegenlerRoleId to get EmegenlerRole entity.")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Get")]
+        public virtual void GetMethodTakeEmegenlerRoleIdToGetEmegenlerRoleEntity_()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Method take EmegenlerRoleId to get EmegenlerRole entity.", null, new string[] {
+                        "NormalCase-Get"});
+#line 23
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 24
+testRunner.When("We pass valid EmegenlerRoleId to Get method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+testRunner.Then("Get method should return valid EmegenlerRole entity with result success on valid " +
+                    "EmegenlerRoleId", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take zero as EmegenlerRoleId")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Get method take zero as EmegenlerRoleId")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Get")]
+        public virtual void GetMethodTakeZeroAsEmegenlerRoleId()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take zero as EmegenlerRoleId", null, new string[] {
+                        "ExceptionalCase-Get"});
+#line 28
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 29
+testRunner.When("We pass zero value as EmegenlerRoleId to Get method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
+testRunner.Then("Get method should return state is fail and return Exception on EmegenlerRoleId is" +
+                    " zero", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take negative as EmegenlerRoleId")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Get method take negative as EmegenlerRoleId")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Get")]
+        public virtual void GetMethodTakeNegativeAsEmegenlerRoleId()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take negative as EmegenlerRoleId", null, new string[] {
+                        "ExceptionalCase-Get"});
+#line 33
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 34
+testRunner.When("We pass negative value as EmegenlerRoleId to Get method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+testRunner.Then("Get method should return state is fail and return Exception on EmegenlerRoleId is" +
+                    " negative", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take valid EmegenlerRoleId but id record not found in our databaser")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Get method take valid EmegenlerRoleId but id record not found in our databaser")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Get")]
+        public virtual void GetMethodTakeValidEmegenlerRoleIdButİdRecordNotFoundİnOurDatabaser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take valid EmegenlerRoleId but id record not found in our databaser", null, new string[] {
+                        "ExceptionalCase-Get"});
+#line 38
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 39
+testRunner.When("We pass valid id value as EmegenlerRoleId to Get valid EmegenlerRoleId from Get m" +
+                    "ethod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
+testRunner.Then("Get method should return state is fail and return KeyNotFoundException on Emegenl" +
+                    "erRoleId is valid but record not found in our database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

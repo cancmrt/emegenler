@@ -18,3 +18,23 @@ Then Insert method should edit EmegenlerUserRoleIdentifier and save to db after 
 Scenario: If we pass null value to our Insert method, method should throw NullReferenceException
 When We pass null value to Insert method without EmegenlerUserRoleIdentifier entity
 Then Insert method should throw NullReferenceException without EmegenlerUserRoleIdentifier on Returner
+
+@NormalCase-Get
+Scenario: Get Method take EmegenlerUserRoleIdentifierId to get EmegenlerUserRoleIdentifier entity.
+When We pass valid EmegenlerUserRoleIdentifierId to Get method
+Then Get method should return valid EmegenlerUserRoleIdentifier entity with result success on valid EmegenlerUserRoleIdentifierId
+
+@ExceptionalCase-Get
+Scenario: Get method take zero as EmegenlerUserRoleIdentifierId
+When We pass zero value as EmegenlerUserRoleIdentifierId to Get method
+Then Get method should return state is fail and return Exception on EmegenlerUserRoleIdentifierId is zero
+
+@ExceptionalCase-Get
+Scenario: Get method take negative as EmegenlerUserRoleIdentifierId
+When We pass negative value as EmegenlerUserRoleIdentifierId to Get method
+Then Get method should return state is fail and return Exception on EmegenlerUserRoleIdentifierId is negative
+
+@ExceptionalCase-Get
+Scenario: Get method take valid EmegenlerUserRoleIdentifierId but id record not found in our database
+When We pass valid id value on EmegenlerUserRoleIdentifier entity to get with valid EmegenlerUserRoleIdentifierId from Get method
+Then Get method should return state is fail and return KeyNotFoundException on EmegenlerUserRoleIdentifierId is valid but record not found in our database

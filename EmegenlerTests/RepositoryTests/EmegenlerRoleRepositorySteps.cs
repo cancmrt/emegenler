@@ -65,5 +65,64 @@ namespace EmegenlerTests.RepositoryTests
             result.GetException().Should().NotBeNull();
         }
 
+        [When(@"We pass valid EmegenlerRoleId to Get method")]
+        public void WhenWePassValidEmegenlerRoleIdToGetMethod()
+        {
+            result = repo.Get(1000);
+        }
+
+        [Then(@"Get method should return valid EmegenlerRole entity with result success on valid EmegenlerRoleId")]
+        public void ThenGetMethodShouldReturnValidEmegenlerRoleEntityWithResultSuccessOnValidEmegenlerRoleId()
+        {
+            result.IsSuccess().Should().BeTrue();
+            result.GetData().Should().NotBeNull();
+        }
+
+        [When(@"We pass zero value as EmegenlerRoleId to Get method")]
+        public void WhenWePassZeroValueAsEmegenlerRoleIdToGetMethod()
+        {
+            result = repo.Get(0);
+        }
+
+        [Then(@"Get method should return state is fail and return Exception on EmegenlerRoleId is zero")]
+        public void ThenGetMethodShouldReturnStateİsFailAndReturnExceptionOnEmegenlerRoleIdİsZero()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass negative value as EmegenlerRoleId to Get method")]
+        public void WhenWePassNegativeValueAsEmegenlerRoleIdToGetMethod()
+        {
+            result = repo.Get(-1);
+        }
+
+        [Then(@"Get method should return state is fail and return Exception on EmegenlerRoleId is negative")]
+        public void ThenGetMethodShouldReturnStateİsFailAndReturnExceptionOnEmegenlerRoleIdİsNegative()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid id value as EmegenlerRoleId to Get valid EmegenlerRoleId from Get method")]
+        public void WhenWePassValidİdValueAsEmegenlerRoleIdToGetValidEmegenlerRoleIdFromGetMethod()
+        {
+            result = repo.Get(45);
+        }
+
+        [Then(@"Get method should return state is fail and return KeyNotFoundException on EmegenlerRoleId is valid but record not found in our database")]
+        public void ThenGetMethodShouldReturnStateİsFailAndReturnKeyNotFoundExceptionOnEmegenlerRoleIdİsValidButRecordNotFoundİnOurDatabase()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+
     }
 }
