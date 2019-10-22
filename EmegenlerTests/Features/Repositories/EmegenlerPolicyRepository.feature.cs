@@ -330,6 +330,91 @@ testRunner.Then("Take method should return fail status and should return Excepti
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Delete method take valid EmegenlerPolicy entity with Id and method should return " +
+            "Deleted EmegenlerPolicy entity")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take valid EmegenlerPolicy entity with Id and method should return " +
+            "Deleted EmegenlerPolicy entity")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Delete")]
+        public virtual void DeleteMethodTakeValidEmegenlerPolicyEntityWithIdAndMethodShouldReturnDeletedEmegenlerPolicyEntity()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take valid EmegenlerPolicy entity with Id and method should return " +
+                    "Deleted EmegenlerPolicy entity", null, new string[] {
+                        "NormalCase-Delete"});
+#line 67
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 68
+testRunner.When("We pass valid EmegenlerPolicy entity with Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 69
+testRunner.Then("Delete method should return succuess status and should return deleted EmegenlerPo" +
+                    "licy entity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take valid EmegenlerPolicy without Id")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take valid EmegenlerPolicy without Id")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Delete")]
+        public virtual void DeleteMethodTakeValidEmegenlerPolicyWithoutId()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take valid EmegenlerPolicy without Id", null, new string[] {
+                        "ExceptionalCase-Delete"});
+#line 71
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 72
+testRunner.When("We pass valid EmegenlerPolicy entity without Id to Delete method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+testRunner.Then("Delete method should return fail status and should return Exception on EmegenlerP" +
+                    "olicy entity without Id from EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take valid EmegenlerPolicy with Id value which is less than one")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take valid EmegenlerPolicy with Id value which is less than one")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Delete")]
+        public virtual void DeleteMethodTakeValidEmegenlerPolicyWithIdValueWhichİsLessThanOne()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take valid EmegenlerPolicy with Id value which is less than one", null, new string[] {
+                        "ExceptionalCase-Delete"});
+#line 75
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 76
+testRunner.When("We pass valid EmegenlerPolicy entity with Id value is equal to less than one on D" +
+                    "elete method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 77
+testRunner.Then("Delete method should return fail status and should return Exception on EmegenlerP" +
+                    "olicy entity with Id value is equal to less than one from EmegenlerPolicyReposit" +
+                    "ory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take null as a parameter on Delete method")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take null as a parameter on Delete method")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Delete")]
+        public virtual void DeleteMethodTakeNullAsAParameterOnDeleteMethod()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take null as a parameter on Delete method", null, new string[] {
+                        "ExceptionalCase-Delete"});
+#line 79
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 80
+testRunner.When("We pass null EmegenlerPolicy entity to Delete method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 81
+testRunner.Then("Delete method should return fail status and should return Exception on null Emege" +
+                    "nlerPolicy entity from EmegenlerPolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

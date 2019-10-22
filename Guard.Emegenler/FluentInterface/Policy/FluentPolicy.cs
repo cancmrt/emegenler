@@ -7,6 +7,7 @@ using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
 using Guard.Emegenler.UnitOfWork;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Guard.Emegenler.FluentInterface.Policy
@@ -35,6 +36,48 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             return this;
         }
+        public EmegenlerPolicy Get(int Id)
+        {
+            var result = _uWork.Policies.Get(Id);
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
+            else if(result.IsSuccess())
+            {
+                var injectedResult =  result.GetData();
+                injectedResult.LoadEmegenlerDALToEntity(_uWork);
+                return injectedResult;
+            }
+            else
+            {
+                throw new Exception("Unspesified exception occourt on Policy.Get method");
+            }
+
+        }
+
+        public IList<EmegenlerPolicy> Take(int Page, int PageSize)
+        {
+            var result = _uWork.Policies.Take(Page,PageSize);
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
+            else if (result.IsSuccess())
+            {
+                var injectedResults =  result.GetData();
+                for(int i=0; i<injectedResults.Count(); i++)
+                {
+                    injectedResults[i].LoadEmegenlerDALToEntity(_uWork);
+                }
+                return injectedResults;
+            }
+            else
+            {
+                throw new Exception("Unspesified exception occourt on Policy.Take method");
+            }
+        }
+
 
         public IEmegenlerPolicyAccess WithUser(string userIdentifier)
         {
@@ -179,7 +222,6 @@ namespace Guard.Emegenler.FluentInterface.Policy
         }
 
         
-
         ///IEmegenlerPolicyElement end
 
     }

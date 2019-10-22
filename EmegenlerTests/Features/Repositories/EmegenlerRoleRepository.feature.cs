@@ -224,6 +224,197 @@ testRunner.Then("Get method should return state is fail and return KeyNotFoundEx
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Take method getting page and pageSize attiribute if method take valid page and pa" +
+            "geSize attirubute, method should return List of EmegenlerRole entities")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Take method getting page and pageSize attiribute if method take valid page and pa" +
+            "geSize attirubute, method should return List of EmegenlerRole entities")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Take")]
+        public virtual void TakeMethodGettingPageAndPageSizeAttiributeİfMethodTakeValidPageAndPageSizeAttirubuteMethodShouldReturnListOfEmegenlerRoleEntities()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method getting page and pageSize attiribute if method take valid page and pa" +
+                    "geSize attirubute, method should return List of EmegenlerRole entities", null, new string[] {
+                        "NormalCase-Take"});
+#line 43
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 44
+testRunner.When("We pass valid page and pageSize take method on EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 45
+testRunner.Then("Take method should return List of EmegenlerRole entites from EmegenlerRoleReposit" +
+                    "ory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method getting valid page but pageSize value is zero")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Take method getting valid page but pageSize value is zero")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettingValidPageButPageSizeValueİsZero()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method getting valid page but pageSize value is zero", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 48
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 49
+testRunner.When("We pass valid page attirubute but pageSize attirubute value is zero on EmegenlerR" +
+                    "oleRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 50
+testRunner.Then("Take method should return fail status and should return Exception on zero value w" +
+                    "ith pageSize attiribute from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method gettig valid page attiribute but pageSize attirubute is negative")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Take method gettig valid page attiribute but pageSize attirubute is negative")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettigValidPageAttiributeButPageSizeAttirubuteİsNegative()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method gettig valid page attiribute but pageSize attirubute is negative", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 53
+testRunner.When("We pass valid page attiribute but pageSize attirubute value is negative on Emegen" +
+                    "lerRoleRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 54
+testRunner.Then("Take method should return fail status and should return Exception on negative val" +
+                    "ue with pageSize attirubute from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method getting valid pageSize but page value is zero")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Take method getting valid pageSize but page value is zero")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettingValidPageSizeButPageValueİsZero()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method getting valid pageSize but page value is zero", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 57
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 58
+testRunner.When("We pass valid pageSize attirubute but page attirubute value is zero on EmegenlerR" +
+                    "oleRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 59
+testRunner.Then("Take method should return fail status and should return Exception on zero value w" +
+                    "ith page attiribute from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method gettig valid pageSize attiribute but page attirubute is negative")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Take method gettig valid pageSize attiribute but page attirubute is negative")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Take")]
+        public virtual void TakeMethodGettigValidPageSizeAttiributeButPageAttirubuteİsNegative()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method gettig valid pageSize attiribute but page attirubute is negative", null, new string[] {
+                        "ExceptionalCase-Take"});
+#line 61
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 62
+testRunner.When("We pass valid pageSize attiribute but page attirubute value is negative on Emegen" +
+                    "lerRoleRepository\'s Take method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
+testRunner.Then("Take method should return fail status and should return Exception on negative val" +
+                    "ue with page attirubute from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take valid EmegenlerRole entity with Id and method should return De" +
+            "leted EmegenlerRole entity")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take valid EmegenlerRole entity with Id and method should return De" +
+            "leted EmegenlerRole entity")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Delete")]
+        public virtual void DeleteMethodTakeValidEmegenlerRoleEntityWithIdAndMethodShouldReturnDeletedEmegenlerRoleEntity()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take valid EmegenlerRole entity with Id and method should return De" +
+                    "leted EmegenlerRole entity", null, new string[] {
+                        "NormalCase-Delete"});
+#line 66
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 67
+testRunner.When("We pass valid EmegenlerRole entity with Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 68
+testRunner.Then("Delete method should return succuess status and should return deleted EmegenlerRo" +
+                    "le entity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take valid EmegenlerPolicy without Id")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take valid EmegenlerPolicy without Id")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Delete")]
+        public virtual void DeleteMethodTakeValidEmegenlerPolicyWithoutId()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take valid EmegenlerPolicy without Id", null, new string[] {
+                        "ExceptionalCase-Delete"});
+#line 70
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 71
+testRunner.When("We pass valid EmegenlerRole entity without Id to Delete method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 72
+testRunner.Then("Delete method should return fail status and should return Exception on EmegenlerR" +
+                    "ole entity without Id from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take valid EmegenlerRole with Id value which is less than one")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take valid EmegenlerRole with Id value which is less than one")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Delete")]
+        public virtual void DeleteMethodTakeValidEmegenlerRoleWithIdValueWhichİsLessThanOne()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take valid EmegenlerRole with Id value which is less than one", null, new string[] {
+                        "ExceptionalCase-Delete"});
+#line 74
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 75
+testRunner.When("We pass valid EmegenlerRole entity with Id value is equal to less than one on Del" +
+                    "ete method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 76
+testRunner.Then("Delete method should return fail status and should return Exception on EmegenlerR" +
+                    "ole entity with Id value is equal to less than one from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Delete method take null as a parameter on Delete method")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerRoleRepository")]
+        [Xunit.TraitAttribute("Description", "Delete method take null as a parameter on Delete method")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-Delete")]
+        public virtual void DeleteMethodTakeNullAsAParameterOnDeleteMethod()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete method take null as a parameter on Delete method", null, new string[] {
+                        "ExceptionalCase-Delete"});
+#line 78
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 79
+testRunner.When("We pass null EmegenlerRole entity to Delete method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 80
+testRunner.Then("Delete method should return fail status and should return Exception on null Emege" +
+                    "nlerRole entity from EmegenlerRoleRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

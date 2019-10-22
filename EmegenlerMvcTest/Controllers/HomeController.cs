@@ -14,7 +14,6 @@ namespace EmegenlerMvcTest.Controllers
     {
         public IActionResult Index(IFluentApi api)
         {
-            //api.Policy.Create().WithUser("").AddLink("").
             return View();
         }
 

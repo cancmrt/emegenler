@@ -4,6 +4,8 @@ using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
 using Guard.Emegenler.UnitOfWork.Repositories;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace EmegenlerTests.RepositoryTests
@@ -13,6 +15,7 @@ namespace EmegenlerTests.RepositoryTests
     {
         EmegenlerRoleRepository repo;
         Returner<EmegenlerRole> result;
+        Returner<IList<EmegenlerRole>> results;
         public EmegenlerRoleRepositorySteps()
         {
             FakeContextGenerator fContextGenerate = new FakeContextGenerator();
@@ -122,6 +125,148 @@ namespace EmegenlerTests.RepositoryTests
             result.GetException().Should().NotBeNull();
             result.GetData().Should().BeNull();
         }
+
+        [When(@"We pass valid page and pageSize take method on EmegenlerRoleRepository")]
+        public void WhenWePassValidPageAndPageSizeTakeMethodOnEmegenlerRoleRepository()
+        {
+            results = repo.Take(1, 1);
+        }
+
+        [Then(@"Take method should return List of EmegenlerRole entites from EmegenlerRoleRepository")]
+        public void ThenTakeMethodShouldReturnListOfEmegenlerRoleEntitesFromEmegenlerRoleRepository()
+        {
+            results.IsSuccess().Should().BeTrue();
+            results.GetData().Count().Should().BeGreaterThan(0);
+        }
+
+        [When(@"We pass valid page attirubute but pageSize attirubute value is zero on EmegenlerRoleRepository's Take method")]
+        public void WhenWePassValidPageAttirubuteButPageSizeAttirubuteValueİsZeroOnEmegenlerRoleRepositorySTakeMethod()
+        {
+            results = repo.Take(1, 0);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on zero value with pageSize attiribute from EmegenlerRoleRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnZeroValueWithPageSizeAttiributeFromEmegenlerRoleRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid page attiribute but pageSize attirubute value is negative on EmegenlerRoleRepository's Take method")]
+        public void WhenWePassValidPageAttiributeButPageSizeAttirubuteValueİsNegativeOnEmegenlerRoleRepositorySTakeMethod()
+        {
+            results = repo.Take(1, -1);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on negative value with pageSize attirubute from EmegenlerRoleRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnNegativeValueWithPageSizeAttirubuteFromEmegenlerRoleRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid pageSize attirubute but page attirubute value is zero on EmegenlerRoleRepository's Take method")]
+        public void WhenWePassValidPageSizeAttirubuteButPageAttirubuteValueİsZeroOnEmegenlerRoleRepositorySTakeMethod()
+        {
+            results = repo.Take(0, 1);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on zero value with page attiribute from EmegenlerRoleRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnZeroValueWithPageAttiributeFromEmegenlerRoleRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid pageSize attiribute but page attirubute value is negative on EmegenlerRoleRepository's Take method")]
+        public void WhenWePassValidPageSizeAttiributeButPageAttirubuteValueİsNegativeOnEmegenlerRoleRepositorySTakeMethod()
+        {
+            results = repo.Take(-1, 1);
+        }
+
+        [Then(@"Take method should return fail status and should return Exception on negative value with page attirubute from EmegenlerRoleRepository")]
+        public void ThenTakeMethodShouldReturnFailStatusAndShouldReturnExceptionOnNegativeValueWithPageAttirubuteFromEmegenlerRoleRepository()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid EmegenlerRole entity with Id")]
+        public void WhenWePassValidEmegenlerRoleEntityWithId()
+        {
+            EmegenlerRole deleteRole = new EmegenlerRole
+            {
+                RoledId = 1000
+            };
+            result = repo.Delete(deleteRole);
+        }
+
+        [Then(@"Delete method should return succuess status and should return deleted EmegenlerRole entity")]
+        public void ThenDeleteMethodShouldReturnSuccuessStatusAndShouldReturnDeletedEmegenlerRoleEntity()
+        {
+            result.IsSuccess().Should().BeTrue();
+            result.GetData().Should().NotBeNull();
+        }
+
+        [When(@"We pass valid EmegenlerRole entity without Id to Delete method")]
+        public void WhenWePassValidEmegenlerRoleEntityWithoutIdToDeleteMethod()
+        {
+            EmegenlerRole deleteRole = new EmegenlerRole();
+            result = repo.Delete(deleteRole);
+        }
+
+        [Then(@"Delete method should return fail status and should return Exception on EmegenlerRole entity without Id from EmegenlerRoleRepository")]
+        public void ThenDeleteMethodShouldReturnFailStatusAndShouldReturnExceptionOnEmegenlerRoleEntityWithoutIdFromEmegenlerRoleRepository()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid EmegenlerRole entity with Id value is equal to less than one on Delete method")]
+        public void WhenWePassValidEmegenlerRoleEntityWithIdValueİsEqualToLessThanOneOnDeleteMethod()
+        {
+            EmegenlerRole deleteRole = new EmegenlerRole
+            {
+                RoledId = 0
+            };
+            result = repo.Delete(deleteRole);
+        }
+
+        [Then(@"Delete method should return fail status and should return Exception on EmegenlerRole entity with Id value is equal to less than one from EmegenlerRoleRepository")]
+        public void ThenDeleteMethodShouldReturnFailStatusAndShouldReturnExceptionOnEmegenlerRoleEntityWithIdValueİsEqualToLessThanOneFromEmegenlerRoleRepository()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass null EmegenlerRole entity to Delete method")]
+        public void WhenWePassNullEmegenlerRoleEntityToDeleteMethod()
+        {
+            result = repo.Delete(null);
+        }
+
+        [Then(@"Delete method should return fail status and should return Exception on null EmegenlerRole entity from EmegenlerRoleRepository")]
+        public void ThenDeleteMethodShouldReturnFailStatusAndShouldReturnExceptionOnNullEmegenlerRoleEntityFromEmegenlerRoleRepository()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+
 
 
     }

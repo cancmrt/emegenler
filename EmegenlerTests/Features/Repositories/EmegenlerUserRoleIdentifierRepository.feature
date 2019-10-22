@@ -38,3 +38,44 @@ Then Get method should return state is fail and return Exception on EmegenlerUse
 Scenario: Get method take valid EmegenlerUserRoleIdentifierId but id record not found in our database
 When We pass valid id value on EmegenlerUserRoleIdentifier entity to get with valid EmegenlerUserRoleIdentifierId from Get method
 Then Get method should return state is fail and return KeyNotFoundException on EmegenlerUserRoleIdentifierId is valid but record not found in our database
+
+@NormalCase-Take
+Scenario: Take method getting page and pageSize attiribute if method take valid page and pageSize attirubute, method should return List of EmegenlerUserRoleIdentifier entities
+When We pass valid page and pageSize take method on EmegenlerUserRoleIdentifierRepository
+Then Take method should return List of EmegenlerUserRoleIdentifier entites from EmegenlerUserRoleIdentifierRepository
+
+@ExceptionalCase-Take
+Scenario: Take method getting valid page but pageSize value is zero
+When We pass valid page attirubute but pageSize attirubute value is zero on EmegenlerUserRoleIdentifierRepository's Take method
+Then Take method should return fail status and should return Exception on zero value with pageSize attiribute from EmegenlerUserRoleIdentifierRepository
+@ExceptionalCase-Take
+Scenario: Take method gettig valid page attiribute but pageSize attirubute is negative
+When We pass valid page attiribute but pageSize attirubute value is negative on EmegenlerUserRoleIdentifierRepository's Take method
+Then Take method should return fail status and should return Exception on negative value with pageSize attirubute from EmegenlerUserRoleIdentifierRepository
+
+@ExceptionalCase-Take
+Scenario: Take method getting valid pageSize but page value is zero
+When We pass valid pageSize attirubute but page attirubute value is zero on EmegenlerUserRoleIdentifierRepository's Take method
+Then Take method should return fail status and should return Exception on zero value with page attiribute from EmegenlerUserRoleIdentifierRepository
+@ExceptionalCase-Take
+Scenario: Take method gettig valid pageSize attiribute but page attirubute is negative
+When We pass valid pageSize attiribute but page attirubute value is negative on EmegenlerUserRoleIdentifierRepository's Take method
+Then Take method should return fail status and should return Exception on negative value with page attirubute from EmegenlerUserRoleIdentifierRepository
+
+@NormalCase-Delete
+Scenario: Delete method take valid EmegenlerUserRoleIdentifier entity with Id and method should return Deleted EmegenlerUserRoleIdentifier entity
+When We pass valid EmegenlerUserRoleIdentifier entity with Id
+Then Delete method should return succuess status and should return deleted EmegenlerUserRoleIdentifier entity
+@ExceptionalCase-Delete
+Scenario: Delete method take valid EmegenlerUserRoleIdentifier without Id
+When We pass valid EmegenlerUserRoleIdentifier entity without Id to Delete method
+Then Delete method should return fail status and should return Exception on EmegenlerUserRoleIdentifier entity without Id from EmegenlerUserRoleIdentifierRepository
+@ExceptionalCase-Delete
+Scenario: Delete method take valid EmegenlerUserRoleIdentifier with Id value which is less than one
+When We pass valid EmegenlerUserRoleIdentifier entity with Id value is equal to less than one on Delete method
+Then Delete method should return fail status and should return Exception on EmegenlerUserRoleIdentifier entity with Id value is equal to less than one from EmegenlerUserRoleIdentifierRepository
+@ExceptionalCase-Delete
+Scenario: Delete method take null as a parameter on Delete method 
+When We pass null EmegenlerUserRoleIdentifier entity to Delete method
+Then Delete method should return fail status and should return Exception on null EmegenlerUserRoleIdentifier entity from EmegenlerUserRoleIdentifierRepository
+

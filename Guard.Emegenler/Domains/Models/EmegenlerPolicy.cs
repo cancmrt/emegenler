@@ -30,7 +30,11 @@ namespace Guard.Emegenler.Domains.Models
         }
         public void Delete()
         {
-            
+            var result = _uWork.Policies.Delete(this);
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
         }
         public void LoadEmegenlerDALToEntity(IEmegenlerUWork uWOrk)
         {

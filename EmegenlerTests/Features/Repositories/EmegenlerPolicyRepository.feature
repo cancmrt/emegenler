@@ -63,3 +63,21 @@ Scenario: Take method gettig valid pageSize attiribute but page attirubute is ne
 When We pass valid pageSize attiribute but page attirubute value is negative on EmegenlerPolicyRepository's Take method
 Then Take method should return fail status and should return Exception on negative value with page attirubute from EmegenlerPolicyRepository
 
+@NormalCase-Delete
+Scenario: Delete method take valid EmegenlerPolicy entity with Id and method should return Deleted EmegenlerPolicy entity
+When We pass valid EmegenlerPolicy entity with Id
+Then Delete method should return succuess status and should return deleted EmegenlerPolicy entity
+@ExceptionalCase-Delete
+Scenario: Delete method take valid EmegenlerPolicy without Id
+When We pass valid EmegenlerPolicy entity without Id to Delete method
+Then Delete method should return fail status and should return Exception on EmegenlerPolicy entity without Id from EmegenlerPolicyRepository
+@ExceptionalCase-Delete
+Scenario: Delete method take valid EmegenlerPolicy with Id value which is less than one
+When We pass valid EmegenlerPolicy entity with Id value is equal to less than one on Delete method
+Then Delete method should return fail status and should return Exception on EmegenlerPolicy entity with Id value is equal to less than one from EmegenlerPolicyRepository
+@ExceptionalCase-Delete
+Scenario: Delete method take null as a parameter on Delete method 
+When We pass null EmegenlerPolicy entity to Delete method
+Then Delete method should return fail status and should return Exception on null EmegenlerPolicy entity from EmegenlerPolicyRepository
+
+

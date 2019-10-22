@@ -209,6 +209,73 @@ namespace EmegenlerTests.RepositoryTests
             results.GetData().Should().BeNull();
         }
 
+        [When(@"We pass valid EmegenlerPolicy entity with Id")]
+        public void WhenWePassValidEmegenlerPolicyEntityWithId()
+        {
+            EmegenlerPolicy deletePolicy = new EmegenlerPolicy
+            {
+                PolicyId = 1000
+            };
+            result = repo.Delete(deletePolicy);
+        }
+
+        [Then(@"Delete method should return succuess status and should return deleted EmegenlerPolicy entity")]
+        public void ThenDeleteMethodShouldReturnSuccuessStatusAndShouldReturnDeletedEmegenlerPolicyEntity()
+        {
+            result.IsSuccess().Should().BeTrue();
+            result.GetData().Should().NotBeNull();
+        }
+
+        [When(@"We pass valid EmegenlerPolicy entity without Id to Delete method")]
+        public void WhenWePassValidEmegenlerPolicyEntityWithoutIdToDeleteMethod()
+        {
+            EmegenlerPolicy deletePolicy = new EmegenlerPolicy();
+            result = repo.Delete(deletePolicy);
+        }
+
+        [Then(@"Delete method should return fail status and should return Exception on EmegenlerPolicy entity without Id from EmegenlerPolicyRepository")]
+        public void ThenDeleteMethodShouldReturnFailStatusAndShouldReturnExceptionOnEmegenlerPolicyEntityWithoutIdFromEmegenlerPolicyRepository()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass valid EmegenlerPolicy entity with Id value is equal to less than one on Delete method")]
+        public void WhenWePassValidEmegenlerPolicyEntityWithIdValueİsEqualToLessThanOneOnDeleteMethod()
+        {
+            EmegenlerPolicy deletePolicy = new EmegenlerPolicy
+            {
+                PolicyId = 0
+            };
+            result = repo.Delete(deletePolicy);
+        }
+
+        [Then(@"Delete method should return fail status and should return Exception on EmegenlerPolicy entity with Id value is equal to less than one from EmegenlerPolicyRepository")]
+        public void ThenDeleteMethodShouldReturnFailStatusAndShouldReturnExceptionOnEmegenlerPolicyEntityWithIdValueİsEqualToLessThanOneFromEmegenlerPolicyRepository()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass null EmegenlerPolicy entity to Delete method")]
+        public void WhenWePassNullEmegenlerPolicyEntityToDeleteMethod()
+        {
+            result = repo.Delete(null);
+        }
+
+        [Then(@"Delete method should return fail status and should return Exception on null EmegenlerPolicy entity from EmegenlerPolicyRepository")]
+        public void ThenDeleteMethodShouldReturnFailStatusAndShouldReturnExceptionOnNullEmegenlerPolicyEntityFromEmegenlerPolicyRepository()
+        {
+            result.IsSuccess().Should().BeFalse();
+            result.IsFail().Should().BeTrue();
+            result.GetException().Should().NotBeNull();
+            result.GetData().Should().BeNull();
+        }
+
 
 
 

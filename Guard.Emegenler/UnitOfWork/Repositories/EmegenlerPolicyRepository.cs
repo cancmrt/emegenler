@@ -110,5 +110,36 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        public Returner<EmegenlerPolicy> Delete(EmegenlerPolicy deleteThisPolicy)
+        {
+            try
+            {
+                if (deleteThisPolicy != null)
+                {
+                    if(deleteThisPolicy.PolicyId > 0)
+                    {
+                        _context.Set<EmegenlerPolicy>().Remove(deleteThisPolicy);
+                        _context.SaveChanges();
+                        _context.Entry(deleteThisPolicy).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        return Returner<EmegenlerPolicy>.SuccessReturn(deleteThisPolicy);
+                    }
+                    else
+                    {
+                        return Returner<EmegenlerPolicy>.FailReturn(new IndexOutOfRangeException("You cannot send PolicyId value as less than 1 on EmegenlerPolicyRepository.Delete"));
+                    }
+
+                }
+                else
+                {
+                    return Returner<EmegenlerPolicy>.FailReturn(new NullReferenceException("You cannot send null value on EmegenlerPolicyRepository.Delete"));
+                }
+
+            }
+            catch (Exception exception)
+            {
+                return Returner<EmegenlerPolicy>.FailReturn(exception);
+            }
+        }
+
     }
 }

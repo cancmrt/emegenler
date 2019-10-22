@@ -9,5 +9,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
     public interface IFluentPolicy
     {
         IEmegenlerPolicyAuthBase Create();
+        EmegenlerPolicy Get(int Id);
+        IList<EmegenlerPolicy> Take(int Page, int PageSize);
     }
 }
