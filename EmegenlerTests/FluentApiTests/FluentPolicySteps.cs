@@ -597,5 +597,78 @@ namespace EmegenlerTests.FluentApiTests
             act.Should().Throw<NullReferenceException>();
         }
 
+        [When(@"We pass valid PolicyId to Get method from FluentPolicy class")]
+        public void WhenWePassValidPolicyIdToGetMethodFromFluentPolicyClass()
+        {
+            act = () => { _fluent.Policy.Get(1000); };
+        }
+
+        [Then(@"Get method should return valid EmegelerPolicy entity from FluentPolicy class")]
+        public void ThenGetMethodShouldReturnValidEmegelerPolicyEntityFromFluentPolicyClass()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"We pass PolicyId with zero value to Get method from FluentPolicy class")]
+        public void WhenWePassPolicyIdWithZeroValueToGetMethodFromFluentPolicyClass()
+        {
+            act = () => { _fluent.Policy.Get(0); };
+        }
+
+        [Then(@"Get method should throw exception on PolicyId with zero value")]
+        public void ThenGetMethodShouldThrowExceptionOnPolicyIdWithZeroValue()
+        {
+            act.Should().Throw<IndexOutOfRangeException>();
+        }
+
+        [When(@"We pass PolicyId with negative value to Get method from FluentPolicy class")]
+        public void WhenWePassPolicyIdWithNegativeValueToGetMethodFromFluentPolicyClass()
+        {
+            act = () => { _fluent.Policy.Get(-1); };
+        }
+
+        [Then(@"Get method should throw exception on PolicyId with negative value")]
+        public void ThenGetMethodShouldThrowExceptionOnPolicyIdWithNegativeValue()
+        {
+            act.Should().Throw<IndexOutOfRangeException>();
+        }
+
+        [When(@"We pass valid Page and PageSize prop on Take method from FluentPolicy class")]
+        public void WhenWePassValidPageAndPageSizePropOnTakeMethodFromFluentPolicyClass()
+        {
+            act = () => { _fluent.Policy.Take(1,1); };
+        }
+
+        [Then(@"Take method should return List of EmegelerPolicy entites from FluentPolicy class")]
+        public void ThenTakeMethodShouldReturnListOfEmegelerPolicyEntitesFromFluentPolicyClass()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"We pass valid Page prop but PageSize value is less than one to Take method from FluentPolicy class")]
+        public void WhenWePassValidPagePropButPageSizeValueİsLessThanOneToTakeMethodFromFluentPolicyClass()
+        {
+            act = () => { _fluent.Policy.Take(1, 0); };
+        }
+
+        [Then(@"Take method should throw exception on when PageSize value is less than one from FluentPolicy class")]
+        public void ThenTakeMethodShouldThrowExceptionOnWhenPageSizeValueİsLessThanOneFromFluentPolicyClass()
+        {
+            act.Should().Throw<IndexOutOfRangeException>();
+        }
+
+        [When(@"We pass valid PageSize prop but Page value is less than one to Take method from FluentPolicy class")]
+        public void WhenWePassValidPageSizePropButPageValueİsLessThanOneToTakeMethodFromFluentPolicyClass()
+        {
+            act = () => { _fluent.Policy.Take(0, 1); };
+        }
+
+        [Then(@"Take method should throw exception on when Page value is less than one from FluentPolicy class")]
+        public void ThenTakeMethodShouldThrowExceptionOnWhenPageValueİsLessThanOneFromFluentPolicyClass()
+        {
+            act.Should().Throw<IndexOutOfRangeException>();
+        }
+
+
     }
 }

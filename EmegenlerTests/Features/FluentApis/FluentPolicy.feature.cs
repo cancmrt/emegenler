@@ -797,11 +797,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty UserIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty UserIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyUserIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty UserIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 147
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -817,11 +817,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null UserIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null UserIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullUserIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null UserIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 151
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -837,11 +837,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty RoleIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty RoleIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyRoleIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty RoleIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 155
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -857,11 +857,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null RoleIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null RoleIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullRoleIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null RoleIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 159
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -877,11 +877,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null PageType")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null PageType")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullPageType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null PageType", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 164
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -897,11 +897,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty ComponentIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty ComponentIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyComponentIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty ComponentIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 169
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -918,11 +918,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null ComponentIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null ComponentIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullComponentIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null ComponentIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 173
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -939,11 +939,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty FormIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty FormIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyFormIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty FormIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 178
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -959,11 +959,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null FormIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null FormIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullFormIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null FormIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 182
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -979,11 +979,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty InputIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty InputIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyInputIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty InputIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 187
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -999,11 +999,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null InputIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null InputIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullInputIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null InputIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 191
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1019,11 +1019,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty ButtonIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty ButtonIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyButtonIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty ButtonIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 196
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1040,11 +1040,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null ButtonIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null ButtonIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullButtonIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null ButtonIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 200
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1061,11 +1061,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with empty LinkIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with empty LinkIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithEmptyLinkIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty LinkIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 205
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1081,11 +1081,11 @@ namespace EmegenlerTests.Features.FluentApis
         [Xunit.FactAttribute(DisplayName="Try to create policy with null LinkIdentifier")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
         [Xunit.TraitAttribute("Description", "Try to create policy with null LinkIdentifier")]
-        [Xunit.TraitAttribute("Category", "Create")]
+        [Xunit.TraitAttribute("Category", "Create-ExceptionalCase")]
         public virtual void TryToCreatePolicyWithNullLinkIdentifier()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null LinkIdentifier", null, new string[] {
-                        "Create"});
+                        "Create-ExceptionalCase"});
 #line 209
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1094,6 +1094,130 @@ namespace EmegenlerTests.Features.FluentApis
                     "AddLink method with null LinkIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 211
   testRunner.Then("NullReferanceException throws by AddLink method with null LinkIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take valid PolicyId and method should return valid EmegelerPolicy enti" +
+            "ty")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Get method take valid PolicyId and method should return valid EmegelerPolicy enti" +
+            "ty")]
+        [Xunit.TraitAttribute("Category", "Get-NormalCase")]
+        public virtual void GetMethodTakeValidPolicyIdAndMethodShouldReturnValidEmegelerPolicyEntity()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take valid PolicyId and method should return valid EmegelerPolicy enti" +
+                    "ty", null, new string[] {
+                        "Get-NormalCase"});
+#line 213
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 214
+ testRunner.When("We pass valid PolicyId to Get method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 215
+ testRunner.Then("Get method should return valid EmegelerPolicy entity from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take PolicyId with zero value and method throw exception")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Get method take PolicyId with zero value and method throw exception")]
+        [Xunit.TraitAttribute("Category", "Get-ExceptionalCase")]
+        public virtual void GetMethodTakePolicyIdWithZeroValueAndMethodThrowException()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take PolicyId with zero value and method throw exception", null, new string[] {
+                        "Get-ExceptionalCase"});
+#line 217
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 218
+ testRunner.When("We pass PolicyId with zero value to Get method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 219
+ testRunner.Then("Get method should throw exception on PolicyId with zero value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Get method take PolicyId with negative value and method throw exception")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Get method take PolicyId with negative value and method throw exception")]
+        [Xunit.TraitAttribute("Category", "Get-ExceptionalCase")]
+        public virtual void GetMethodTakePolicyIdWithNegativeValueAndMethodThrowException()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take PolicyId with negative value and method throw exception", null, new string[] {
+                        "Get-ExceptionalCase"});
+#line 221
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 222
+ testRunner.When("We pass PolicyId with negative value to Get method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 223
+ testRunner.Then("Get method should throw exception on PolicyId with negative value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method take valid Page and PageSize prop and method should return List of Po" +
+            "licies")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Take method take valid Page and PageSize prop and method should return List of Po" +
+            "licies")]
+        [Xunit.TraitAttribute("Category", "Take-NormalCase")]
+        public virtual void TakeMethodTakeValidPageAndPageSizePropAndMethodShouldReturnListOfPolicies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method take valid Page and PageSize prop and method should return List of Po" +
+                    "licies", null, new string[] {
+                        "Take-NormalCase"});
+#line 225
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 226
+ testRunner.When("We pass valid Page and PageSize prop on Take method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 227
+ testRunner.Then("Take method should return List of EmegelerPolicy entites from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method take valid Page but PageSize is less than one")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Take method take valid Page but PageSize is less than one")]
+        [Xunit.TraitAttribute("Category", "Take-ExceptionalCase")]
+        public virtual void TakeMethodTakeValidPageButPageSizeİsLessThanOne()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method take valid Page but PageSize is less than one", null, new string[] {
+                        "Take-ExceptionalCase"});
+#line 229
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 230
+ testRunner.When("We pass valid Page prop but PageSize value is less than one to Take method from F" +
+                    "luentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 231
+ testRunner.Then("Take method should throw exception on when PageSize value is less than one from F" +
+                    "luentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Take method take valid PageSize but Page is less than one")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Take method take valid PageSize but Page is less than one")]
+        [Xunit.TraitAttribute("Category", "Take-ExceptionalCase")]
+        public virtual void TakeMethodTakeValidPageSizeButPageİsLessThanOne()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method take valid PageSize but Page is less than one", null, new string[] {
+                        "Take-ExceptionalCase"});
+#line 233
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 234
+ testRunner.When("We pass valid PageSize prop but Page value is less than one to Take method from F" +
+                    "luentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 235
+ testRunner.Then("Take method should throw exception on when Page value is less than one from Fluen" +
+                    "tPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
