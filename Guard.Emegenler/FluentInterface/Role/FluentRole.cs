@@ -31,6 +31,7 @@ namespace Guard.Emegenler.FluentInterface.Role
                 {
                     throw result.GetException();
                 }
+                
             }
             
         }

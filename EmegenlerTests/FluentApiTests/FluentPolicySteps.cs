@@ -5,10 +5,12 @@ using Guard.Emegenler.FluentInterface;
 using Guard.Emegenler.UnitOfWork;
 using System;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace EmegenlerTests.FluentApiTests
 {
     [Binding]
+    [Collection("Sequential")]
     public class FluentPolicySteps
     {
         IEmegenlerUWork _uWork;

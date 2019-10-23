@@ -7,10 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace EmegenlerTests.RepositoryTests
 {
     [Binding]
+    [Collection("Sequential")]
     public class EmegenlerRoleRepositorySteps
     {
         EmegenlerRoleRepository repo;
@@ -114,7 +116,7 @@ namespace EmegenlerTests.RepositoryTests
         [When(@"We pass valid id value as EmegenlerRoleId to Get valid EmegenlerRoleId from Get method")]
         public void WhenWePassValidİdValueAsEmegenlerRoleIdToGetValidEmegenlerRoleIdFromGetMethod()
         {
-            result = repo.Get(45);
+            result = repo.Get(50);
         }
 
         [Then(@"Get method should return state is fail and return KeyNotFoundException on EmegenlerRoleId is valid but record not found in our database")]

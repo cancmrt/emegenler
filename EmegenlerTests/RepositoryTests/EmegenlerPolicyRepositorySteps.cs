@@ -8,10 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace EmegenlerTests.RepositoryTests
 {
     [Binding]
+    [Collection("Sequential")]
     public class EmegenlerPolicyRepositorySteps
     {
         EmegenlerPolicyRepository repo;
