@@ -12,7 +12,7 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
 {
     public class EmegenlerRoleRepository
     {
-        EmegenlerDbContext _context;
+        readonly EmegenlerDbContext _context;
         public EmegenlerRoleRepository(EmegenlerDbContext context)
         {
             _context = context;

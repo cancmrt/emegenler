@@ -12,7 +12,12 @@ namespace EmegenlerMvcTest.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index(IFluentApi api)
+        private readonly IFluentApi API;
+        public HomeController(IFluentApi api)
+        {
+            API = api;
+        }
+        public IActionResult Index()
         {
             return View();
         }

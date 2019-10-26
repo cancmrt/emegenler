@@ -40,13 +40,27 @@ namespace EmegenlerTests.FakeContext
             context.Set<EmegenlerPolicy>().Add(policy);
             context.SaveChanges();
             context.Entry(policy).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+
+            EmegenlerPolicy policyRole = new EmegenlerPolicy
+            {
+                PolicyId = 1001,
+                PolicyElementIdentifier = "a",
+                PolicyElement = "Page",
+                AccessProtocol = "AccessGranted",
+                AuthBase = Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.Role,
+                AuthBaseIdentifier = "Test"
+            };
+            context.Set<EmegenlerPolicy>().Add(policyRole);
+            context.SaveChanges();
+            context.Entry(policyRole).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+
         }
         private void GenerateEmegenlerRole(EmegenlerDbContext context)
         {
             EmegenlerRole role = new EmegenlerRole
             {
                 RoledId = 1000,
-                RoleIdentifier = "12321"
+                RoleIdentifier = "Test"
             };
             context.Set<EmegenlerRole>().Add(role);
             context.SaveChanges();
@@ -57,7 +71,7 @@ namespace EmegenlerTests.FakeContext
             EmegenlerUserRoleIdentifier userRoleIndetifier = new EmegenlerUserRoleIdentifier
             {
                 UserIdentifier = "1",
-                RoleIdentifier = "1",
+                RoleIdentifier = "Test",
                 RoleIdentifierId = 1000
             };
             context.Set<EmegenlerUserRoleIdentifier>().Add(userRoleIndetifier);

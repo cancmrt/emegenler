@@ -8,10 +8,13 @@ using System.Text;
 
 namespace Guard.Emegenler.Domains.Models
 {
+    //RefactorSubject
+    //Do abstact of EmegenlerPolicy and after that generate new class with inherited EmegenlerPolicy
+    //and should include EmegenlerUWOrk Update Delete method. Return this class with auto mapped value.
     public class EmegenlerPolicy
     {
         [NotMapped]
-        private IEmegenlerUWork _uWork { get; set; }
+        private IEmegenlerUWork UWork { get; set; }
         [Key]
         public int PolicyId { get; set; }
         public AuthBase AuthBase { get; set; }
@@ -22,7 +25,7 @@ namespace Guard.Emegenler.Domains.Models
 
         public void Update()
         {
-            var result = _uWork.Policies.Insert(this);
+            var result = UWork.Policies.Insert(this);
             if(result.IsFail())
             {
                 throw result.GetException();
@@ -30,7 +33,7 @@ namespace Guard.Emegenler.Domains.Models
         }
         public void Delete()
         {
-            var result = _uWork.Policies.Delete(this);
+            var result = UWork.Policies.Delete(this);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -38,7 +41,7 @@ namespace Guard.Emegenler.Domains.Models
         }
         public void LoadEmegenlerDALToEntity(IEmegenlerUWork uWOrk)
         {
-            _uWork = uWOrk;
+            UWork = uWOrk;
         }
     }
 }

@@ -80,4 +80,24 @@ Scenario: Delete method take null as a parameter on Delete method
 When We pass null EmegenlerPolicy entity to Delete method
 Then Delete method should return fail status and should return Exception on null EmegenlerPolicy entity from EmegenlerPolicyRepository
 
+@NormalCase-TakePolicies
+Scenario: TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy entity on belong to User.
+When We pass valid AuthType amd Identifier to TakePolicies method for getting User Policies
+Then TakePolicies method should return valid List of EmegenlerPolicy entites with result success on valid AuthType amd Identifier for getting User Policies
+
+@NormalCase-TakePolicies
+Scenario: TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy entity on belong to Role.
+When We pass valid AuthType amd Identifier to TakePolicies method for getting Role Policies
+Then TakePolicies method should return valid List of EmegenlerPolicy entites with result success on valid AuthType amd Identifier for getting Role Policies
+
+@ExceptionalCase-TakePolicies
+Scenario: TakePolicies method take Empty value on Identifier
+When We pass Empty value as Identifier to TakePolicies method
+Then TakePolicies method should return state is fail and return Exception when Identifier is Empty
+
+@ExceptionalCase-TakePolicies
+Scenario: TakePolicies method take Null value on Identifier
+When We pass Null value as Identifier to TakePolicies method
+Then TakePolicies method should return state is fail and return Exception when Identifier is Null
+
 

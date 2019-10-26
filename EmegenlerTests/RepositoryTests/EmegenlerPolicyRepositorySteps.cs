@@ -16,7 +16,7 @@ namespace EmegenlerTests.RepositoryTests
     [Collection("Sequential")]
     public class EmegenlerPolicyRepositorySteps
     {
-        EmegenlerPolicyRepository repo;
+        private readonly EmegenlerPolicyRepository repo;
         Returner<EmegenlerPolicy> result;
         Returner<IList<EmegenlerPolicy>> results;
         public EmegenlerPolicyRepositorySteps()
@@ -276,6 +276,61 @@ namespace EmegenlerTests.RepositoryTests
             result.IsFail().Should().BeTrue();
             result.GetException().Should().NotBeNull();
             result.GetData().Should().BeNull();
+        }
+        [When(@"We pass valid AuthType amd Identifier to TakePolicies method for getting User Policies")]
+        public void WhenWePassValidAuthTypeAmdIdentifierToTakePoliciesMethodForGettingUserPolicies()
+        {
+            results = repo.TakePolicies(Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.User, "1");
+        }
+
+        [Then(@"TakePolicies method should return valid List of EmegenlerPolicy entites with result success on valid AuthType amd Identifier for getting User Policies")]
+        public void ThenTakePoliciesMethodShouldReturnValidListOfEmegenlerPolicyEntitesWithResultSuccessOnValidAuthTypeAmdIdentifierForGettingUserPolicies()
+        {
+            results.IsSuccess().Should().BeTrue();
+            results.GetData().Count().Should().BeGreaterThan(0);
+        }
+
+        [When(@"We pass valid AuthType amd Identifier to TakePolicies method for getting Role Policies")]
+        public void WhenWePassValidAuthTypeAmdIdentifierToTakePoliciesMethodForGettingRolePolicies()
+        {
+            results = repo.TakePolicies(Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.Role, "Test");
+        }
+
+        [Then(@"TakePolicies method should return valid List of EmegenlerPolicy entites with result success on valid AuthType amd Identifier for getting Role Policies")]
+        public void ThenTakePoliciesMethodShouldReturnValidListOfEmegenlerPolicyEntitesWithResultSuccessOnValidAuthTypeAmdIdentifierForGettingRolePolicies()
+        {
+            results.IsSuccess().Should().BeTrue();
+            results.GetData().Count().Should().BeGreaterThan(0);
+        }
+
+        [When(@"We pass Empty value as Identifier to TakePolicies method")]
+        public void WhenWePassEmptyValueAsIdentifierToTakePoliciesMethod()
+        {
+            results = repo.TakePolicies(Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.User, "");
+        }
+
+        [Then(@"TakePolicies method should return state is fail and return Exception when Identifier is Empty")]
+        public void ThenTakePoliciesMethodShouldReturnStateİsFailAndReturnExceptionWhenIdentifierİsEmpty()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
+        }
+
+        [When(@"We pass Null value as Identifier to TakePolicies method")]
+        public void WhenWePassNullValueAsIdentifierToTakePoliciesMethod()
+        {
+            results = repo.TakePolicies(Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.User, null);
+        }
+
+        [Then(@"TakePolicies method should return state is fail and return Exception when Identifier is Null")]
+        public void ThenTakePoliciesMethodShouldReturnStateİsFailAndReturnExceptionWhenIdentifierİsNull()
+        {
+            results.IsSuccess().Should().BeFalse();
+            results.IsFail().Should().BeTrue();
+            results.GetException().Should().NotBeNull();
+            results.GetData().Should().BeNull();
         }
 
 

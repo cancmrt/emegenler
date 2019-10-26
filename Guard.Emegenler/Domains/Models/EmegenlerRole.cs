@@ -10,14 +10,14 @@ namespace Guard.Emegenler.Domains.Models
     public class EmegenlerRole
     {
         [NotMapped]
-        private IEmegenlerUWork _uWork { get; set; }
+        private IEmegenlerUWork UWork { get; set; }
         [Key]
         public int RoledId { get; set; }
         public string RoleIdentifier { get; set; }
 
         public void Update()
         {
-            var result = _uWork.Roles.Insert(this);
+            var result = UWork.Roles.Insert(this);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -25,7 +25,7 @@ namespace Guard.Emegenler.Domains.Models
         }
         public void Delete()
         {
-            var result = _uWork.Roles.Delete(this);
+            var result = UWork.Roles.Delete(this);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -33,7 +33,7 @@ namespace Guard.Emegenler.Domains.Models
         }
         public void LoadEmegenlerDALToEntity(IEmegenlerUWork uWOrk)
         {
-            _uWork = uWOrk;
+            UWork = uWOrk;
         }
     }
 }

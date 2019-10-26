@@ -32,7 +32,7 @@ namespace EmegenlerMvcTest
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=ProjenInline; User Id=sa; Password=1234;");
+            services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;");
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

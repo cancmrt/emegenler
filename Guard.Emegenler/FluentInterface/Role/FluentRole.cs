@@ -9,13 +9,13 @@ namespace Guard.Emegenler.FluentInterface.Role
 {
     public class FluentRole : IFluentRole
     {
-        private IEmegenlerUWork _uWork { get; set; }
-        private EmegenlerRole emegenlerRole { get; set; }
+        private IEmegenlerUWork UWork { get; set; }
+        private EmegenlerRole EmegenlerRole { get; set; }
 
         public FluentRole(IEmegenlerUWork uWork)
         {
-            _uWork = uWork;
-            emegenlerRole = new EmegenlerRole();
+            UWork = uWork;
+            EmegenlerRole = new EmegenlerRole();
         }
         public void Create(string RoleIdentifier)
         {
@@ -25,8 +25,8 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             else
             {
-                emegenlerRole.RoleIdentifier = RoleIdentifier;
-                var result = _uWork.Roles.Insert(emegenlerRole);
+                EmegenlerRole.RoleIdentifier = RoleIdentifier;
+                var result = UWork.Roles.Insert(EmegenlerRole);
                 if (result.IsFail())
                 {
                     throw result.GetException();
@@ -38,7 +38,7 @@ namespace Guard.Emegenler.FluentInterface.Role
 
         public EmegenlerRole Get(int Id)
         {
-            var result = _uWork.Roles.Get(Id);
+            var result = UWork.Roles.Get(Id);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -46,7 +46,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             else if (result.IsSuccess())
             {
                 var injectedResult = result.GetData();
-                injectedResult.LoadEmegenlerDALToEntity(_uWork);
+                injectedResult.LoadEmegenlerDALToEntity(UWork);
                 return injectedResult;
             }
             else
@@ -57,7 +57,7 @@ namespace Guard.Emegenler.FluentInterface.Role
 
         public IList<EmegenlerRole> Take(int Page, int PageSize)
         {
-            var result = _uWork.Roles.Take(Page, PageSize);
+            var result = UWork.Roles.Take(Page, PageSize);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -67,7 +67,7 @@ namespace Guard.Emegenler.FluentInterface.Role
                 var injectedResults = result.GetData();
                 for (int i = 0; i < injectedResults.Count(); i++)
                 {
-                    injectedResults[i].LoadEmegenlerDALToEntity(_uWork);
+                    injectedResults[i].LoadEmegenlerDALToEntity(UWork);
                 }
                 return injectedResults;
             }

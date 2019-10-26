@@ -13,9 +13,10 @@ namespace EmegenlerTests.FluentApiTests
     [Collection("Sequential")]
     public class FluentPolicySteps
     {
-        IEmegenlerUWork _uWork;
-        IFluentApi _fluent;
+        private readonly IEmegenlerUWork _uWork;
+        private readonly IFluentApi _fluent;
         Action act;
+
         public FluentPolicySteps()
         {
             FakeContextGenerator fContextGenerate = new FakeContextGenerator();

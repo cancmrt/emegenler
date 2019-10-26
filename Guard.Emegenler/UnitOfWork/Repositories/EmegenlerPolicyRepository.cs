@@ -1,6 +1,7 @@
 ﻿using DataSource;
 using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
+using Guard.Emegenler.FluentInterface.Policy.Types;
 using Guard.Emegenler.MethodReturner;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,7 +13,7 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
 {
     public class EmegenlerPolicyRepository
     {
-        EmegenlerDbContext _context;
+        readonly EmegenlerDbContext _context;
         public EmegenlerPolicyRepository(EmegenlerDbContext context)
         {
             _context = context;
@@ -139,6 +140,28 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             {
                 return Returner<EmegenlerPolicy>.FailReturn(exception);
             }
+        }
+
+        public Returner<IList<EmegenlerPolicy>> TakePolicies(AuthBase AuthType, string identifier)
+        {
+            if(!string.IsNullOrEmpty(identifier))
+            {
+                IList<EmegenlerPolicy> results = 
+                    _context.EmegenlerPolicies
+                        .Where(
+                            p => p.AuthBase == AuthType 
+                            && p.AuthBaseIdentifier == identifier
+                        )
+                        .AsNoTracking()
+                        .ToList() ?? new List<EmegenlerPolicy>();
+
+                return Returner<IList<EmegenlerPolicy>>.SuccessReturn(results);
+            }
+            else
+            {
+                return Returner<IList<EmegenlerPolicy>>.FailReturn(new NullReferenceException("EmegenlerPolicyRepository.TakePolicies method cannot take null or empty identifier"));
+            }
+            
         }
 
     }

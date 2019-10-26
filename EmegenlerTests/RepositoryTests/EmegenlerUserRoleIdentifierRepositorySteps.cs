@@ -15,7 +15,7 @@ namespace EmegenlerTests.RepositoryTests
     [Collection("Sequential")]
     public class EmegenlerUserRoleIdentifierRepositorySteps
     {
-        EmegenlerUserRoleIdentifierRepository repo;
+        private readonly EmegenlerUserRoleIdentifierRepository repo;
         Returner<EmegenlerUserRoleIdentifier> result;
         Returner<IList<EmegenlerUserRoleIdentifier>> results;
         public EmegenlerUserRoleIdentifierRepositorySteps()

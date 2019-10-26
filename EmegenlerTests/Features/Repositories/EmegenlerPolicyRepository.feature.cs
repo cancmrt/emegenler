@@ -415,6 +415,94 @@ testRunner.Then("Delete method should return fail status and should return Excep
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy e" +
+            "ntity on belong to User.")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy e" +
+            "ntity on belong to User.")]
+        [Xunit.TraitAttribute("Category", "NormalCase-TakePolicies")]
+        public virtual void TakePoliciesMethodTakeAuthTypeAndIdentifierToGetListOfEmegenlerPolicyEntityOnBelongToUser_()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy e" +
+                    "ntity on belong to User.", null, new string[] {
+                        "NormalCase-TakePolicies"});
+#line 84
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 85
+testRunner.When("We pass valid AuthType amd Identifier to TakePolicies method for getting User Pol" +
+                    "icies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 86
+testRunner.Then("TakePolicies method should return valid List of EmegenlerPolicy entites with resu" +
+                    "lt success on valid AuthType amd Identifier for getting User Policies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy e" +
+            "ntity on belong to Role.")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy e" +
+            "ntity on belong to Role.")]
+        [Xunit.TraitAttribute("Category", "NormalCase-TakePolicies")]
+        public virtual void TakePoliciesMethodTakeAuthTypeAndIdentifierToGetListOfEmegenlerPolicyEntityOnBelongToRole_()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TakePolicies Method take AuthType and Identifier to get List of EmegenlerPolicy e" +
+                    "ntity on belong to Role.", null, new string[] {
+                        "NormalCase-TakePolicies"});
+#line 89
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 90
+testRunner.When("We pass valid AuthType amd Identifier to TakePolicies method for getting Role Pol" +
+                    "icies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 91
+testRunner.Then("TakePolicies method should return valid List of EmegenlerPolicy entites with resu" +
+                    "lt success on valid AuthType amd Identifier for getting Role Policies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="TakePolicies method take Empty value on Identifier")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "TakePolicies method take Empty value on Identifier")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-TakePolicies")]
+        public virtual void TakePoliciesMethodTakeEmptyValueOnIdentifier()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TakePolicies method take Empty value on Identifier", null, new string[] {
+                        "ExceptionalCase-TakePolicies"});
+#line 94
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 95
+testRunner.When("We pass Empty value as Identifier to TakePolicies method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 96
+testRunner.Then("TakePolicies method should return state is fail and return Exception when Identif" +
+                    "ier is Empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="TakePolicies method take Null value on Identifier")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "TakePolicies method take Null value on Identifier")]
+        [Xunit.TraitAttribute("Category", "ExceptionalCase-TakePolicies")]
+        public virtual void TakePoliciesMethodTakeNullValueOnIdentifier()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TakePolicies method take Null value on Identifier", null, new string[] {
+                        "ExceptionalCase-TakePolicies"});
+#line 99
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 100
+testRunner.When("We pass Null value as Identifier to TakePolicies method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 101
+testRunner.Then("TakePolicies method should return state is fail and return Exception when Identif" +
+                    "ier is Null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

@@ -23,13 +23,13 @@ namespace Guard.Emegenler.FluentInterface.Policy
         IEmegenlerPolicyButtonAccess,
         IEmegenlerPolicyLinkAccess
     {
-        private IEmegenlerUWork _uWork { get; set; }
-        private EmegenlerPolicy emegenlerPolicy { get; set; }
+        private IEmegenlerUWork UWork { get; set; }
+        private EmegenlerPolicy EmegenlerPolicy { get; set; }
 
         public FluentPolicy(IEmegenlerUWork uWork)
         {
-            _uWork = uWork;
-            emegenlerPolicy = new EmegenlerPolicy();
+            UWork = uWork;
+            EmegenlerPolicy = new EmegenlerPolicy();
         }
 
         public IEmegenlerPolicyAuthBase Create()
@@ -38,7 +38,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         }
         public EmegenlerPolicy Get(int Id)
         {
-            var result = _uWork.Policies.Get(Id);
+            var result = UWork.Policies.Get(Id);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -46,7 +46,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             else if(result.IsSuccess())
             {
                 var injectedResult =  result.GetData();
-                injectedResult.LoadEmegenlerDALToEntity(_uWork);
+                injectedResult.LoadEmegenlerDALToEntity(UWork);
                 return injectedResult;
             }
             else
@@ -58,7 +58,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public IList<EmegenlerPolicy> Take(int Page, int PageSize)
         {
-            var result = _uWork.Policies.Take(Page,PageSize);
+            var result = UWork.Policies.Take(Page,PageSize);
             if (result.IsFail())
             {
                 throw result.GetException();
@@ -68,7 +68,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
                 var injectedResults =  result.GetData();
                 for(int i=0; i<injectedResults.Count(); i++)
                 {
-                    injectedResults[i].LoadEmegenlerDALToEntity(_uWork);
+                    injectedResults[i].LoadEmegenlerDALToEntity(UWork);
                 }
                 return injectedResults;
             }
@@ -85,8 +85,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("WithUser method user identifier cannot be null or empty");
             }
-            emegenlerPolicy.AuthBase = AuthBase.User;
-            emegenlerPolicy.AuthBaseIdentifier = userIdentifier;
+            EmegenlerPolicy.AuthBase = AuthBase.User;
+            EmegenlerPolicy.AuthBaseIdentifier = userIdentifier;
             return this;
         }
 
@@ -96,8 +96,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("WithRole method role identifier cannot be null or empty");
             }
-            emegenlerPolicy.AuthBase = AuthBase.Role;
-            emegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
+            EmegenlerPolicy.AuthBase = AuthBase.Role;
+            EmegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
             return this;
         }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
@@ -109,8 +109,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("AddButton method button identifier cannot be null or empty");
             }
-            emegenlerPolicy.PolicyElement = "Button";
-            emegenlerPolicy.PolicyElementIdentifier = buttonIdentifier;
+            EmegenlerPolicy.PolicyElement = "Button";
+            EmegenlerPolicy.PolicyElementIdentifier = buttonIdentifier;
             return this;
         }
 
@@ -120,8 +120,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("AddComponent method component identifier cannot be null or empty");
             }
-            emegenlerPolicy.PolicyElement = "Component";
-            emegenlerPolicy.PolicyElementIdentifier = componentIdentifier;
+            EmegenlerPolicy.PolicyElement = "Component";
+            EmegenlerPolicy.PolicyElementIdentifier = componentIdentifier;
             return this;
         }
 
@@ -131,8 +131,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("AddForm method form identifier cannot be null or empty");
             }
-            emegenlerPolicy.PolicyElement = "Form";
-            emegenlerPolicy.PolicyElementIdentifier = formIdentifier;
+            EmegenlerPolicy.PolicyElement = "Form";
+            EmegenlerPolicy.PolicyElementIdentifier = formIdentifier;
             return this;
         }
 
@@ -142,8 +142,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("AddInput method input identifier cannot be null or empty");
             }
-            emegenlerPolicy.PolicyElement = "Input";
-            emegenlerPolicy.PolicyElementIdentifier = inputIdentifier;
+            EmegenlerPolicy.PolicyElement = "Input";
+            EmegenlerPolicy.PolicyElementIdentifier = inputIdentifier;
             return this;
         }
 
@@ -153,8 +153,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("AddLink method link identifier cannot be null or empty");
             }
-            emegenlerPolicy.PolicyElement = "Link";
-            emegenlerPolicy.PolicyElementIdentifier = linkIdentifier;
+            EmegenlerPolicy.PolicyElement = "Link";
+            EmegenlerPolicy.PolicyElementIdentifier = linkIdentifier;
             return this;
         }
 
@@ -164,8 +164,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             {
                 throw new NullReferenceException("AddPage method type of controller cannot be null");
             }
-            emegenlerPolicy.PolicyElement = "Page";
-            emegenlerPolicy.PolicyElementIdentifier = controllerIdentifier.FullName;
+            EmegenlerPolicy.PolicyElement = "Page";
+            EmegenlerPolicy.PolicyElementIdentifier = controllerIdentifier.FullName;
             return this;
         }
 
@@ -173,48 +173,48 @@ namespace Guard.Emegenler.FluentInterface.Policy
 
         public void AccessDenied()
         {
-            emegenlerPolicy.AccessProtocol = "AccessDenied";
+            EmegenlerPolicy.AccessProtocol = "AccessDenied";
             Save();
         }
 
         public void AccessGranted()
         {
-            emegenlerPolicy.AccessProtocol = "AccessGranted";
+            EmegenlerPolicy.AccessProtocol = "AccessGranted";
             Save();
         }
 
         public void ActionGranted()
         {
-            emegenlerPolicy.AccessProtocol = "ActionGranted";
+            EmegenlerPolicy.AccessProtocol = "ActionGranted";
             Save();
         }
 
         public void Editable()
         {
-            emegenlerPolicy.AccessProtocol = "Editable";
+            EmegenlerPolicy.AccessProtocol = "Editable";
             Save();
         }
 
         public void Readonly()
         {
-            emegenlerPolicy.AccessProtocol = "Readonly";
+            EmegenlerPolicy.AccessProtocol = "Readonly";
             Save();
         }
 
         public void Show()
         {
-            emegenlerPolicy.AccessProtocol = "Show";
+            EmegenlerPolicy.AccessProtocol = "Show";
             Save();
         }
 
         public void Hide()
         {
-            emegenlerPolicy.AccessProtocol = "Hide";
+            EmegenlerPolicy.AccessProtocol = "Hide";
             Save();
         }
         private void Save()
         {
-            var result = _uWork.Policies.Insert(emegenlerPolicy);
+            var result = UWork.Policies.Insert(EmegenlerPolicy);
             if (result.IsFail())
             {
                 throw result.GetException();

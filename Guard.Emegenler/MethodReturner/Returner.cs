@@ -14,22 +14,26 @@ namespace Guard.Emegenler.MethodReturner
 
         public static Returner<T> SuccessReturn(T returnData)
         {
-            Returner<T> ReturnerBase = new Returner<T>();
-            ReturnerBase.SuccessState = true;
-            ReturnerBase.FailState = false;
-            ReturnerBase.SuccessData = returnData;
-            ReturnerBase.FailData = null;
+            Returner<T> ReturnerBase = new Returner<T>
+            {
+                SuccessState = true,
+                FailState = false,
+                SuccessData = returnData,
+                FailData = null
+            };
             ReturnerBase.ReturnerBaseOrginal = ReturnerBase;
             return ReturnerBase;
             
         }
         public static Returner<T> FailReturn(Exception exception)
         {
-            Returner<T> ReturnerBase = new Returner<T>();
-            ReturnerBase.SuccessState = false;
-            ReturnerBase.SuccessData = default(T);
-            ReturnerBase.FailState = true;
-            ReturnerBase.FailData = exception;
+            Returner<T> ReturnerBase = new Returner<T>
+            {
+                SuccessState = false,
+                SuccessData = default,
+                FailState = true,
+                FailData = exception
+            };
             ReturnerBase.ReturnerBaseOrginal = ReturnerBase;
             return ReturnerBase;
             
