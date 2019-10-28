@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataSource.MssqlServer;
 using Guard.Emegenler.Middleware;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,16 @@ namespace EmegenlerMvcTest
 
             services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;");
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                 .AddCookie(options =>
+                 {
+                     options.Cookie.Name = "cc";
+                     options.LoginPath = "/home";
+                     options.LogoutPath = "/log/out";
+                    //options.Cookie.Expiration = configuration.Cookie.CookieExpiration;
+                    options.ExpireTimeSpan = TimeSpan.FromDays(5);
+                     options.SlidingExpiration = false;
+                 });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -54,6 +65,9 @@ namespace EmegenlerMvcTest
             app.UseCookiePolicy();
 
             app.UseEmegenler();
+
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

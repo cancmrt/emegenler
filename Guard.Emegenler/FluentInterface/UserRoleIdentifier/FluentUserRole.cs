@@ -1,4 +1,5 @@
-﻿using Guard.Emegenler.Domains.Models;
+﻿using Guard.Emegenler.Domains.Decorators;
+using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.FluentInterface.UserRoleIdentifier.RoleIdentify;
 using Guard.Emegenler.FluentInterface.UserRoleIdentifier.UserIdentify;
 using Guard.Emegenler.UnitOfWork;
@@ -14,12 +15,12 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
         IUserIdentifier,
         IRoleIdentifier
     {
-        private readonly IEmegenlerUWork _uWork;
+        private readonly IEmegenlerUWork UWork;
         private EmegenlerUserRoleIdentifier UserRole { get; set; }
 
         public FluentUserRole(IEmegenlerUWork uWork)
         {
-            _uWork = uWork;
+            UWork = uWork;
             UserRole = new EmegenlerUserRoleIdentifier();
         }
 
@@ -48,7 +49,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
                 throw new NullReferenceException("ToRole method user identifier cannot be null or empty");
             }
             UserRole.RoleIdentifier = RoleIdentifier;
-            var result = _uWork.UserRoles.Insert(UserRole);
+            var result = UWork.UserRoles.Insert(UserRole);
             if(result.IsFail())
             {
                 throw result.GetException();
@@ -61,50 +62,53 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
                 throw new NullReferenceException("ToUser method user identifier cannot be null or empty");
             }
             UserRole.UserIdentifier = UserIdentifier;
-            var result = _uWork.UserRoles.Insert(UserRole);
+            var result = UWork.UserRoles.Insert(UserRole);
             if (result.IsFail())
             {
                 throw result.GetException();
             }
         }
-        public EmegenlerUserRoleIdentifier Get(int Id)
+        public EmegenlerUserRoleDecorator Get(int Id)
         {
-            var result = _uWork.UserRoles.Get(Id);
+            var result = UWork.UserRoles.Get(Id);
             if (result.IsFail())
             {
                 throw result.GetException();
             }
             else if (result.IsSuccess())
             {
-                var injectedResult = result.GetData();
-                injectedResult.LoadEmegenlerDALToEntity(_uWork);
-                return injectedResult;
+                return EmegenlerUserRoleExtension.Extend(result.GetData(), UWork);
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Role.Get method");
+                throw new Exception("Unspesified exception occourt on UserRole.Get method");
             }
         }
-        public IList<EmegenlerUserRoleIdentifier> Take(int Page, int PageSize)
+        public IList<EmegenlerUserRoleDecorator> Take(int Page, int PageSize)
         {
-            var result = _uWork.UserRoles.Take(Page, PageSize);
+            var result = UWork.UserRoles.Take(Page, PageSize);
             if (result.IsFail())
             {
                 throw result.GetException();
             }
             else if (result.IsSuccess())
             {
-                var injectedResults = result.GetData();
-                for (int i = 0; i < injectedResults.Count(); i++)
-                {
-                    injectedResults[i].LoadEmegenlerDALToEntity(_uWork);
-                }
-                return injectedResults;
+                return ListOfUserRolesDecoratorInjection(result.GetData());
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Role.Take method");
+                throw new Exception("Unspesified exception occourt on UserRole.Take method");
             }
+        }
+
+        private IList<EmegenlerUserRoleDecorator> ListOfUserRolesDecoratorInjection(IList<EmegenlerUserRoleIdentifier> listOfUserRoles)
+        {
+            List<EmegenlerUserRoleDecorator> ExtendedUserRoles = new List<EmegenlerUserRoleDecorator>();
+            foreach (var userRoles in listOfUserRoles)
+            {
+                ExtendedUserRoles.Add(EmegenlerUserRoleExtension.Extend(userRoles, UWork));
+            }
+            return ExtendedUserRoles;
         }
     }
 }

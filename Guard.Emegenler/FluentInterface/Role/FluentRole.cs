@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Guard.Emegenler.Domains.Decorators;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.UnitOfWork;
 
@@ -36,7 +37,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             
         }
 
-        public EmegenlerRole Get(int Id)
+        public EmegenlerRoleDecorator Get(int Id)
         {
             var result = UWork.Roles.Get(Id);
             if (result.IsFail())
@@ -45,9 +46,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             else if (result.IsSuccess())
             {
-                var injectedResult = result.GetData();
-                injectedResult.LoadEmegenlerDALToEntity(UWork);
-                return injectedResult;
+                return EmegenlerRoleExtension.Extend(result.GetData(), UWork);
             }
             else
             {
@@ -55,7 +54,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
         }
 
-        public IList<EmegenlerRole> Take(int Page, int PageSize)
+        public IList<EmegenlerRoleDecorator> Take(int Page, int PageSize)
         {
             var result = UWork.Roles.Take(Page, PageSize);
             if (result.IsFail())
@@ -64,17 +63,22 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             else if (result.IsSuccess())
             {
-                var injectedResults = result.GetData();
-                for (int i = 0; i < injectedResults.Count(); i++)
-                {
-                    injectedResults[i].LoadEmegenlerDALToEntity(UWork);
-                }
-                return injectedResults;
+                return ListOfRolesDecoratorInjection(result.GetData());
             }
             else
             {
                 throw new Exception("Unspesified exception occourt on Role.Take method");
             }
+        }
+
+        private IList<EmegenlerRoleDecorator> ListOfRolesDecoratorInjection(IList<EmegenlerRole> listOfRoles)
+        {
+            List<EmegenlerRoleDecorator> ExtendedRoles = new List<EmegenlerRoleDecorator>();
+            foreach (var roles in listOfRoles)
+            {
+                ExtendedRoles.Add(EmegenlerRoleExtension.Extend(roles, UWork));
+            }
+            return ExtendedRoles;
         }
     }
 }

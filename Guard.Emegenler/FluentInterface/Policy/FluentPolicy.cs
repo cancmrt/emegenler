@@ -1,4 +1,5 @@
 ﻿using Guard.Emegenler.DAL;
+using Guard.Emegenler.Domains.Decorators;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.FluentInterface.Policy.AccessStyles;
 using Guard.Emegenler.FluentInterface.Policy.Types;
@@ -36,7 +37,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             return this;
         }
-        public EmegenlerPolicy Get(int Id)
+        public IEmegenlerPolicyAuthBase Take()
+        {
+            return this;
+        }
+        public EmegenlerPolicyDecorator Get(int Id)
         {
             var result = UWork.Policies.Get(Id);
             if (result.IsFail())
@@ -45,9 +50,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else if(result.IsSuccess())
             {
-                var injectedResult =  result.GetData();
-                injectedResult.LoadEmegenlerDALToEntity(UWork);
-                return injectedResult;
+                return EmegenlerPolicyExtension.Extend(result.GetData(), UWork);
             }
             else
             {
@@ -55,8 +58,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
 
         }
-
-        public IList<EmegenlerPolicy> Take(int Page, int PageSize)
+        public IList<EmegenlerPolicyDecorator> Take(int Page, int PageSize)
         {
             var result = UWork.Policies.Take(Page,PageSize);
             if (result.IsFail())
@@ -65,12 +67,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else if (result.IsSuccess())
             {
-                var injectedResults =  result.GetData();
-                for(int i=0; i<injectedResults.Count(); i++)
-                {
-                    injectedResults[i].LoadEmegenlerDALToEntity(UWork);
-                }
-                return injectedResults;
+                return ListOfPoliciesDecoratorInjection(result.GetData());
             }
             else
             {
@@ -100,7 +97,43 @@ namespace Guard.Emegenler.FluentInterface.Policy
             EmegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
             return this;
         }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+        public IList<EmegenlerPolicyDecorator> FromUser(string userIdentifier)
+        {
+            var result = UWork.Policies.TakePolicies(AuthBase.User, userIdentifier);
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
+            else if (result.IsSuccess())
+            {
+                
+                return ListOfPoliciesDecoratorInjection(result.GetData());
+            }
+            else
+            {
+                throw new Exception("Unspesified exception occourt on Policy.Take.FromUser method");
+            }
+        }
+
+        public IList<EmegenlerPolicyDecorator> FromRole(string roleIdentifier)
+        {
+            var result = UWork.Policies.TakePolicies(AuthBase.Role, roleIdentifier);
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
+            else if (result.IsSuccess())
+            {
+
+                return ListOfPoliciesDecoratorInjection(result.GetData());
+            }
+            else
+            {
+                throw new Exception("Unspesified exception occourt on Policy.Take.FromRole method");
+            }
+        }
+
 
         ///IEmegenlerPolicyElement start
         public IEmegenlerPolicyButtonAccess AddButton(string buttonIdentifier)
@@ -212,6 +245,8 @@ namespace Guard.Emegenler.FluentInterface.Policy
             EmegenlerPolicy.AccessProtocol = "Hide";
             Save();
         }
+
+
         private void Save()
         {
             var result = UWork.Policies.Insert(EmegenlerPolicy);
@@ -221,7 +256,17 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
         }
 
+        private IList<EmegenlerPolicyDecorator> ListOfPoliciesDecoratorInjection(IList<EmegenlerPolicy> listOfPolicies)
+        {
+            List<EmegenlerPolicyDecorator> ExtendedPolicies = new List<EmegenlerPolicyDecorator>();
+            foreach (var policy in listOfPolicies)
+            {
+                ExtendedPolicies.Add(EmegenlerPolicyExtension.Extend(policy, UWork));
+            }
+            return ExtendedPolicies;
+        }
         
+
         ///IEmegenlerPolicyElement end
 
     }

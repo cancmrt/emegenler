@@ -221,6 +221,7 @@
 	Scenario:  Get method take PolicyId with negative value and method throw exception
 	When We pass PolicyId with negative value to Get method from FluentPolicy class
 	Then Get method should throw exception on PolicyId with negative value
+
 	@Take-NormalCase
 	Scenario: Take method take valid Page and PageSize prop and method should return List of Policies
 	When We pass valid Page and PageSize prop on Take method from FluentPolicy class
@@ -233,4 +234,34 @@
 	Scenario: Take method take valid PageSize but Page is less than one
 	When We pass valid PageSize prop but Page value is less than one to Take method from FluentPolicy class
 	Then Take method should throw exception on when Page value is less than one from FluentPolicy class
+
+	@Take.FromUser-NormalCase
+	Scenario: api.Policy().Take().FromUser(identifier) method should get List of Policies belong to User
+	When We pass valid identifier api.Policy().Take().FromUser(identifier) method
+	Then api.Policy().Take().FromUser(identifier) should return List of Policies belong to User
+
+	@Take.FromRole-NormalCase
+	Scenario: api.Policy().Take().FromRole(identifier) method should get List of Policies belong to Role
+	When We pass valid identifier api.Policy().Take().FromRole(identifier) method
+	Then api.Policy().Take().FromRole(identifier) should return List of Policies belong to Role
+
+	@Take.FromUser-ExceptionalCase
+	Scenario: api.Policy().Take().FromUser(Empty) method should throw exception
+	When We pass Empty value as User identifier to api.Policy().Take().FromUser(Empty) method
+	Then api.Policy().Take().FromUser(Empty) method should throw exception
+
+	@Take.FromUser-ExceptionalCase
+	Scenario: api.Policy().Take().FromUser(null) method should throw exception
+	When We pass Null value as User identifier to api.Policy().Take().FromUser(null) method
+	Then api.Policy().Take().FromUser(null) method should throw exception
+
+	@Take.FromRole-ExceptionalCase
+	Scenario: api.Policy().Take().FromRole(Empty) method should throw exception
+	When We pass Empty value as Role identifier to api.Policy().Take().FromRole(Empty) method
+	Then api.Policy().Take().FromRole(Empty) method should throw exception
+
+	@Take.FromRole-ExceptionalCase
+	Scenario: api.Policy().Take().FromRole(null) method should throw exception
+	When We pass Null value as Role identifier to api.Policy().Take().FromRole(null) method
+	Then api.Policy().Take().FromRole(null) method should throw exception
 	 

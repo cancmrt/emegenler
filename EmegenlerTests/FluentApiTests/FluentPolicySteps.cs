@@ -672,6 +672,79 @@ namespace EmegenlerTests.FluentApiTests
             act.Should().Throw<IndexOutOfRangeException>();
         }
 
+        [When(@"We pass valid identifier api\.Policy\(\)\.Take\(\)\.FromUser\(identifier\) method")]
+        public void WhenWePassValidİdentifierApi_Policy_Take_FromUserİdentifierMethod()
+        {
+            act = () => { _fluent.Policy.Take().FromUser("1"); };
+        }
+
+        [Then(@"api\.Policy\(\)\.Take\(\)\.FromUser\(identifier\) should return List of Policies belong to User")]
+        public void ThenApi_Policy_Take_FromUserİdentifierShouldReturnListOfPoliciesBelongToUser()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"We pass valid identifier api\.Policy\(\)\.Take\(\)\.FromRole\(identifier\) method")]
+        public void WhenWePassValidİdentifierApi_Policy_Take_FromRoleİdentifierMethod()
+        {
+            act = () => { _fluent.Policy.Take().FromRole("Test"); };
+        }
+
+        [Then(@"api\.Policy\(\)\.Take\(\)\.FromRole\(identifier\) should return List of Policies belong to Role")]
+        public void ThenApi_Policy_Take_FromRoleİdentifierShouldReturnListOfPoliciesBelongToRole()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"We pass Empty value as User identifier to api\.Policy\(\)\.Take\(\)\.FromUser\(Empty\) method")]
+        public void WhenWePassEmptyValueAsUserİdentifierToApi_Policy_Take_FromUserEmptyMethod()
+        {
+            act = () => { _fluent.Policy.Take().FromUser(""); };
+        }
+
+        [Then(@"api\.Policy\(\)\.Take\(\)\.FromUser\(Empty\) method should throw exception")]
+        public void ThenApi_Policy_Take_FromUserEmptyMethodShouldThrowException()
+        {
+            act.Should().Throw<NullReferenceException>();
+        }
+
+        [When(@"We pass Null value as User identifier to api\.Policy\(\)\.Take\(\)\.FromUser\(null\) method")]
+        public void WhenWePassNullValueAsUserİdentifierToApi_Policy_Take_FromUserNullMethod()
+        {
+            act = () => { _fluent.Policy.Take().FromUser(null); };
+        }
+
+        [Then(@"api\.Policy\(\)\.Take\(\)\.FromUser\(null\) method should throw exception")]
+        public void ThenApi_Policy_Take_FromUserNullMethodShouldThrowException()
+        {
+            act.Should().Throw<NullReferenceException>();
+        }
+
+        [When(@"We pass Empty value as Role identifier to api\.Policy\(\)\.Take\(\)\.FromRole\(Empty\) method")]
+        public void WhenWePassEmptyValueAsRoleİdentifierToApi_Policy_Take_FromRoleEmptyMethod()
+        {
+            act = () => { _fluent.Policy.Take().FromRole(""); };
+        }
+
+        [Then(@"api\.Policy\(\)\.Take\(\)\.FromRole\(Empty\) method should throw exception")]
+        public void ThenApi_Policy_Take_FromRoleEmptyMethodShouldThrowException()
+        {
+            act.Should().Throw<NullReferenceException>();
+        }
+
+        [When(@"We pass Null value as Role identifier to api\.Policy\(\)\.Take\(\)\.FromRole\(null\) method")]
+        public void WhenWePassNullValueAsRoleİdentifierToApi_Policy_Take_FromRoleNullMethod()
+        {
+            act = () => { _fluent.Policy.Take().FromRole(null); };
+        }
+
+        [Then(@"api\.Policy\(\)\.Take\(\)\.FromRole\(null\) method should throw exception")]
+        public void ThenApi_Policy_Take_FromRoleNullMethodShouldThrowException()
+        {
+            act.Should().Throw<NullReferenceException>();
+        }
+
+
 
     }
 }

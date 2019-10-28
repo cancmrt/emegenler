@@ -1,4 +1,5 @@
-﻿using Guard.Emegenler.Domains.Models;
+﻿using Guard.Emegenler.Domains.Decorators;
+using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.FluentInterface.UserRoleIdentifier.RoleIdentify;
 using Guard.Emegenler.FluentInterface.UserRoleIdentifier.UserIdentify;
 using System;
@@ -12,7 +13,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
         IUserIdentifier AssociateUser(string UserIdentifier);
         IRoleIdentifier AssociateRole(string RoleIdentifier);
 
-        EmegenlerUserRoleIdentifier Get(int Id);
-        IList<EmegenlerUserRoleIdentifier> Take(int Page, int PageSize);
+        EmegenlerUserRoleDecorator Get(int Id);
+        IList<EmegenlerUserRoleDecorator> Take(int Page, int PageSize);
     }
 }
