@@ -1,5 +1,4 @@
-﻿using DataSource;
-using Guard.Emegenler.DAL;
+﻿using Guard.Emegenler.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

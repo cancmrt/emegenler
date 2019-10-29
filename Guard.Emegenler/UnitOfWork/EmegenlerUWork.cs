@@ -1,5 +1,4 @@
-﻿using DataSource;
-using Guard.Emegenler.DAL;
+﻿using Guard.Emegenler.DAL;
 using Guard.Emegenler.UnitOfWork;
 using Guard.Emegenler.UnitOfWork.Repositories;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,5 +1,4 @@
-﻿using DataSource;
-using Guard.Emegenler.DAL;
+﻿using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,4 @@
-﻿using DataSource;
-using Guard.Emegenler.DAL;
+﻿using Guard.Emegenler.DAL;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.FluentInterface.Policy.Types;
 using Guard.Emegenler.MethodReturner;

@@ -1,6 +1,7 @@
 ﻿using Guard.Emegenler;
 using Guard.Emegenler.DAL;
 using Guard.Emegenler.FluentInterface;
+using Guard.Emegenler.Services.General;
 using Guard.Emegenler.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataSource.MssqlServer
+namespace Guard.Emegenler.Services.MssqlServer
 {
     public static class EmegenlerSqlServerService
     {
@@ -17,10 +18,7 @@ namespace DataSource.MssqlServer
         {
             services.AddDbContext<EmegenlerDbContext>(options => options.UseSqlServer(SqlServerConnectionString));
 
-            ///Refactor tips you should seperate this from here, you should use all of them in all version
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<IEmegenlerUWork, EmegenlerUWork>();
-            services.AddScoped<IFluentApi, FluentApi>();
+            GeneralServices.Inject(services);
 
             return services;
         }
