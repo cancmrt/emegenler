@@ -61,13 +61,13 @@ namespace EmegenlerMvcTest
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-
             app.UseEmegenler();
 
-
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
             app.UseAuthentication();
+
+            
 
             app.UseMvc(routes =>
             {

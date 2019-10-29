@@ -191,14 +191,14 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
-        public IEmegenlerPolicyPageAccess AddPage(Type controllerIdentifier)
+        public IEmegenlerPolicyPageAccess AddPage(string pathIdentifier)
         {
-            if(controllerIdentifier == null)
+            if(string.IsNullOrEmpty(pathIdentifier))
             {
-                throw new NullReferenceException("AddPage method type of controller cannot be null");
+                throw new NullReferenceException("AddPage method path identifier cannot be null");
             }
             EmegenlerPolicy.PolicyElement = "Page";
-            EmegenlerPolicy.PolicyElementIdentifier = controllerIdentifier.FullName;
+            EmegenlerPolicy.PolicyElementIdentifier = pathIdentifier;
             return this;
         }
 

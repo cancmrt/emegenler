@@ -8,7 +8,7 @@ namespace Guard.Emegenler.Policy.FluentInterface.PolicyAccess
 {
     public interface IEmegenlerPolicyAccess
     {
-        IEmegenlerPolicyPageAccess AddPage(Type controllerIdentifier);
+        IEmegenlerPolicyPageAccess AddPage(string pathIdentifier);
         IEmegenlerPolicyComponentAccess AddComponent(string componentIdentifier);
         IEmegenlerPolicyFormAccess AddForm(string formIdentifier);
         IEmegenlerPolicyInputAccess AddInput(string inputIdentifier);

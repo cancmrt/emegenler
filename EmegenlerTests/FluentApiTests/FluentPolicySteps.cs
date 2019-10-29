@@ -31,7 +31,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"api\.Policy\.Create\(\)\.WithUser\(userIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); called")]
         public void WhenApi_Policy_Create_WithUserUserIdentifier_AddPageTypeofFakeClass_AccessGrantedCalled()
         {
-            act = () => { _fluent.Policy.Create().WithUser("1").AddPage(typeof(FluentPolicySteps)).AccessGranted(); };
+            act = () => { _fluent.Policy.Create().WithUser("1").AddPage("/home/privacy").AccessGranted(); };
         }
 
         [Then(@"Operation done without throw exception on api\.Policy\.Create\(\)\.WithUser\(userIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); call")]
@@ -43,7 +43,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"api\.Policy\.Create\(\)\.WithUser\(userIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessDenied\(\); called")]
         public void WhenApi_Policy_Create_WithUserUserIdentifier_AddPageTypeofFakeClass_AccessDeniedCalled()
         {
-            act = () => { _fluent.Policy.Create().WithUser("1").AddPage(typeof(FluentPolicySteps)).AccessDenied(); };
+            act = () => { _fluent.Policy.Create().WithUser("1").AddPage("/home/privacy").AccessDenied(); };
         }
 
         [Then(@"Operation done without throw exception on api\.Policy\.Create\(\)\.WithUser\(userIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessDenied\(\); call")]
@@ -55,7 +55,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"api\.Policy\.Create\(\)\.WithRole\(roleIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); called")]
         public void WhenApi_Policy_Create_WithRoleRoleIdentifier_AddPageTypeofFakeClass_AccessGrantedCalled()
         {
-            act = () => { _fluent.Policy.Create().WithRole("1").AddPage(typeof(FluentPolicySteps)).AccessGranted(); };
+            act = () => { _fluent.Policy.Create().WithRole("1").AddPage("/home/privacy").AccessGranted(); };
         }
 
         [Then(@"Operation done without throw exception on api\.Policy\.Create\(\)\.WithRole\(roleIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); call")]
@@ -67,7 +67,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"api\.Policy\.Create\(\)\.WithRole\(roleIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessDenied\(\); called")]
         public void WhenApi_Policy_Create_WithRoleRoleIdentifier_AddPageTypeofFakeClass_AccessDeniedCalled()
         {
-            act = () => { _fluent.Policy.Create().WithRole("1").AddPage(typeof(FluentPolicySteps)).AccessDenied(); };
+            act = () => { _fluent.Policy.Create().WithRole("1").AddPage("/home/privacy").AccessDenied(); };
         }
 
         [Then(@"Operation done without throw exception on api\.Policy\.Create\(\)\.WithRole\(roleIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessDenied\(\); call")]

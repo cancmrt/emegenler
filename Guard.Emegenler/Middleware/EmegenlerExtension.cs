@@ -1,4 +1,5 @@
 ﻿using Guard.Emegenler.DAL;
+using Guard.Emegenler.Middleware.EmegenlerMiddleaware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,8 +20,7 @@ namespace Guard.Emegenler.Middleware
                 // auto migration
                 context.Database.Migrate();
             }
-            return applicationBuilder;
-            //return applicationBuilder.UseMiddleware<LoggerMiddleware>();
+            return applicationBuilder.UseMiddleware<GuardMiddleware>();
 
         }
     }
