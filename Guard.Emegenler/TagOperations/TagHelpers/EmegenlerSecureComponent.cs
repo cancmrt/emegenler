@@ -7,11 +7,12 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.TagOperations.TagWorks;
+using Guard.Emegenler.Types;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
 
-    [HtmlTargetElement(Attributes = ComponentAttiributeName)]
+    [HtmlTargetElement("div", Attributes = ComponentAttiributeName)]
     public class EmegenlerSecureComponent:TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
@@ -27,7 +28,7 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
             if(result.IsSuccess())
             {
                 var policy = result.GetData();
-                if (policy?.AccessProtocol == "Hide")
+                if (policy?.AccessProtocol == AccessProtocol.Hide)
                 {
                     output.TagName = null;
                     output.SuppressOutput();

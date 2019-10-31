@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Guard.Emegenler.Options;
+using Guard.Emegenler.Types;
+using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
 namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
@@ -13,7 +15,7 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, EmegenlerOptions options)
         {
             context.Response.OnStarting(async () =>
             {
@@ -22,9 +24,9 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
                 if (result.IsSuccess())
                 {
                     var policy = result.GetData();
-                    if (policy.AccessProtocol == "AccessDenied")
+                    if (policy.AccessProtocol == AccessProtocol.AccessDenied)
                     {
-                        context.Response.Redirect("/home");//This line have to come in Options redirect
+                        context.Response.Redirect(options.PageAccessDeniedUrl);
                     }
                     else
                     {
