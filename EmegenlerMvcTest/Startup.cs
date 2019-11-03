@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Guard.Emegenler.Middleware;
 using Guard.Emegenler.Options;
+using Guard.Emegenler.Options.DefaultBehaviours;
 using Guard.Emegenler.Services.MssqlServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +38,8 @@ namespace EmegenlerMvcTest
 
             services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"
                 ,new EmegenlerOptions { 
-                    PageAccessDeniedUrl = "/home/accessdenied"
+                    PageAccessDeniedUrl = "/home/accessdenied",
+                    ComponentDefaultBehaviour = ComponentDefaultBehaviour.Hide
                 
                 }
                 

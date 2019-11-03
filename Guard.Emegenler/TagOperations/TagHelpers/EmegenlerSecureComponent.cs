@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.TagOperations.TagWorks;
 using Guard.Emegenler.Types;
+using Guard.Emegenler.Options;
+using Guard.Emegenler.Options.DefaultBehaviours;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
@@ -16,27 +18,47 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
     public class EmegenlerSecureComponent:TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
-        public TagAccess TagAccess { get; set; }
+        private static string EmegenlerElementType = ElementType.Component;
+        private TagAccess TagAccess { get; set; }
+        private EmegenlerOptions Options;
 
-        public EmegenlerSecureComponent(IHttpContextAccessor httpContextAccessor)
+        public EmegenlerSecureComponent(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
         {
             TagAccess = new TagAccess(httpContextAccessor);
+            Options = options;
+        }
+        public override void Init(TagHelperContext context)
+        {
+            context.Items.Add(0, "Init "+ElementType.Component);
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var result = TagAccess.CheckPolicy(output);
+            context.Items.Add(1, "Process " + ElementType.Component);
+            var result = TagAccess.CheckPolicy(EmegenlerElementType, output);
             if(result.IsSuccess())
             {
                 var policy = result.GetData();
                 if (policy?.AccessProtocol == AccessProtocol.Hide)
                 {
-                    output.TagName = null;
-                    output.SuppressOutput();
+                    output = HideProtocol(output);
+                }
+            }
+            else
+            {
+                if(Options.ComponentDefaultBehaviour == ComponentDefaultBehaviour.Hide)
+                {
+                    output = HideProtocol(output);
                 }
             }
             
         }
-        
+        private TagHelperOutput HideProtocol(TagHelperOutput output)
+        {
+            output.TagName = null;
+            output.SuppressOutput();
+            return output;
+        }
+
 
     }
 }

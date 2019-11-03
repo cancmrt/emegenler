@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guard.Emegenler.Options.DefaultBehaviours;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,5 +8,10 @@ namespace Guard.Emegenler.Options
     public class EmegenlerOptions
     {
         public string PageAccessDeniedUrl { get; set; } = "/home";
+        public ComponentDefaultBehaviour ComponentDefaultBehaviour { get; set; } = ComponentDefaultBehaviour.Show;
+        public FormDefaultBehaviour FormDefaultBehaviour { get; set; } = FormDefaultBehaviour.ActionGranted;
+        public InputDefaultBehaviour InputDefaultBehaviour { get; set; } = InputDefaultBehaviour.Editable;
+        public ButtonDefaultBehaviour ButtonDefaultBehaviour { get; set; } = ButtonDefaultBehaviour.ActionGranted;
+        public LinkDefaultBehaviour LinkDefaultBehaviour { get; set; } = LinkDefaultBehaviour.ActionGranted;
     }
 }
