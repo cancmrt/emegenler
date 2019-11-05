@@ -10,28 +10,26 @@ using System.Text;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
-    [HtmlTargetElement("input", Attributes = ComponentAttiributeName)]
-    [HtmlTargetElement("select", Attributes = ComponentAttiributeName)]
-    [HtmlTargetElement("textarea", Attributes = ComponentAttiributeName)]
-    public class EmegenlerSecureInput : TagHelper
+    [HtmlTargetElement("button", Attributes = ComponentAttiributeName)]
+    public class EmegenlerSecureButton:TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
-        private static string EmegenlerElementType = ElementType.Input;
+        private static string EmegenlerElementType = ElementType.Button;
         private TagAccess TagAccess { get; set; }
         private EmegenlerOptions Options;
 
-        public EmegenlerSecureInput(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
+        public EmegenlerSecureButton(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
         {
             TagAccess = new TagAccess(httpContextAccessor);
             Options = options;
         }
         public override void Init(TagHelperContext context)
         {
-            context.Items.Add(5, "Init " + ElementType.Input);
+            context.Items.Add(7, "Init " + ElementType.Button);
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            context.Items.Add(6, "Process "+ElementType.Input);
+            context.Items.Add(8, "Process " + ElementType.Button);
             var result = TagAccess.CheckPolicy(EmegenlerElementType, output);
             if (result.IsSuccess())
             {
@@ -40,28 +38,28 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
                 {
                     output = HideProtocol(output);
                 }
-                else if(policy?.AccessProtocol == AccessProtocol.Readonly)
+                else if (policy?.AccessProtocol == AccessProtocol.Readonly)
                 {
                     output = ReadonlyProtocol(output);
                 }
-                else if (policy?.AccessProtocol == AccessProtocol.Editable)
+                else if (policy?.AccessProtocol == AccessProtocol.ActionGranted)
                 {
-                    output = EditableProtocol(output);
+                    output = ActionGrantedProtocol(output);
                 }
             }
             else
             {
-                if (Options.InputDefaultBehaviour == InputDefaultBehaviour.Hide)
+                if (Options.ButtonDefaultBehaviour == ButtonDefaultBehaviour.Hide)
                 {
                     output = HideProtocol(output);
                 }
-                else if (Options.InputDefaultBehaviour == InputDefaultBehaviour.Readonly)
+                else if (Options.ButtonDefaultBehaviour == ButtonDefaultBehaviour.Readonly)
                 {
                     output = ReadonlyProtocol(output);
                 }
-                else if(Options.InputDefaultBehaviour == InputDefaultBehaviour.Editable)
+                else if (Options.ButtonDefaultBehaviour == ButtonDefaultBehaviour.ActionGranted)
                 {
-                    output = EditableProtocol(output);
+                    output = ActionGrantedProtocol(output);
                 }
             }
 
@@ -78,10 +76,10 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
             output.Attributes.Add("FormInner", AccessProtocol.Readonly);
             return output;
         }
-        private TagHelperOutput EditableProtocol(TagHelperOutput output)
+        private TagHelperOutput ActionGrantedProtocol(TagHelperOutput output)
         {
             output.Attributes.Remove(new TagHelperAttribute("disabled"));
-            output.Attributes.Add("FormInner", AccessProtocol.Editable);
+            output.Attributes.Add("FormInner", AccessProtocol.ActionGranted);
             return output;
         }
     }

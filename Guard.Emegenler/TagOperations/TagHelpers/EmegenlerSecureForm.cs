@@ -44,6 +44,10 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
                 {
                     output = ReadOnlyProtocol(output);
                 }
+                else if (policy?.AccessProtocol == AccessProtocol.ActionGranted)
+                {
+                    output = ActionGranted(output);
+                }
             }
             else
             {
@@ -54,6 +58,10 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
                 else if(Options.FormDefaultBehaviour == FormDefaultBehaviour.Readonly)
                 {
                     output = ReadOnlyProtocol(output);
+                }
+                else if (Options.FormDefaultBehaviour == FormDefaultBehaviour.ActionGranted)
+                {
+                    output = ActionGranted(output);
                 }
             }
 
@@ -71,6 +79,10 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
             output.Content.SetHtmlContent(InjectDisabledInFormElement(xpathExpression, output));
             return output;
         }
+        private TagHelperOutput ActionGranted(TagHelperOutput output)
+        {
+            return output;
+        }
         private string InjectDisabledInFormElement(string xpathExpression, TagHelperOutput output)
         {
             var formInside = output.GetChildContentAsync().Result;
@@ -86,7 +98,7 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
                         {
                             node.Attributes.Add("disabled", "");
                         }
-                        else if(attr.Value == AccessProtocol.Editable)
+                        else if(attr.Value == AccessProtocol.Editable || attr.Value == AccessProtocol.ActionGranted)
                         {
                             node.Attributes.Remove("disabled");
                         }

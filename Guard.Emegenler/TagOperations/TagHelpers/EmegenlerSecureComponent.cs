@@ -42,12 +42,20 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
                 {
                     output = HideProtocol(output);
                 }
+                else if (policy?.AccessProtocol == AccessProtocol.Show)
+                {
+                    output = ShowProtocol(output);
+                }
             }
             else
             {
                 if(Options.ComponentDefaultBehaviour == ComponentDefaultBehaviour.Hide)
                 {
                     output = HideProtocol(output);
+                }
+                else if (Options.ComponentDefaultBehaviour == ComponentDefaultBehaviour.Show)
+                {
+                    output = ShowProtocol(output);
                 }
             }
             
@@ -56,6 +64,10 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
         {
             output.TagName = null;
             output.SuppressOutput();
+            return output;
+        }
+        private TagHelperOutput ShowProtocol(TagHelperOutput output)
+        {
             return output;
         }
 

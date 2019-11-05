@@ -10,28 +10,26 @@ using System.Text;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
-    [HtmlTargetElement("input", Attributes = ComponentAttiributeName)]
-    [HtmlTargetElement("select", Attributes = ComponentAttiributeName)]
-    [HtmlTargetElement("textarea", Attributes = ComponentAttiributeName)]
-    public class EmegenlerSecureInput : TagHelper
+    [HtmlTargetElement("a", Attributes = ComponentAttiributeName)]
+    public class EmegenlerSecureLink:TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
-        private static string EmegenlerElementType = ElementType.Input;
+        private static string EmegenlerElementType = ElementType.Link;
         private TagAccess TagAccess { get; set; }
         private EmegenlerOptions Options;
 
-        public EmegenlerSecureInput(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
+        public EmegenlerSecureLink(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
         {
             TagAccess = new TagAccess(httpContextAccessor);
             Options = options;
         }
         public override void Init(TagHelperContext context)
         {
-            context.Items.Add(5, "Init " + ElementType.Input);
+            context.Items.Add(9, "Init " + ElementType.Link);
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            context.Items.Add(6, "Process "+ElementType.Input);
+            context.Items.Add(10, "Process " + ElementType.Link);
             var result = TagAccess.CheckPolicy(EmegenlerElementType, output);
             if (result.IsSuccess())
             {
@@ -40,28 +38,28 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
                 {
                     output = HideProtocol(output);
                 }
-                else if(policy?.AccessProtocol == AccessProtocol.Readonly)
+                else if (policy?.AccessProtocol == AccessProtocol.Readonly)
                 {
                     output = ReadonlyProtocol(output);
                 }
-                else if (policy?.AccessProtocol == AccessProtocol.Editable)
+                else if (policy?.AccessProtocol == AccessProtocol.ActionGranted)
                 {
-                    output = EditableProtocol(output);
+                    output = ActionGrantedProtocol(output);
                 }
             }
             else
             {
-                if (Options.InputDefaultBehaviour == InputDefaultBehaviour.Hide)
+                if (Options.LinkDefaultBehaviour == LinkDefaultBehaviour.Hide)
                 {
                     output = HideProtocol(output);
                 }
-                else if (Options.InputDefaultBehaviour == InputDefaultBehaviour.Readonly)
+                else if (Options.LinkDefaultBehaviour == LinkDefaultBehaviour.Readonly)
                 {
                     output = ReadonlyProtocol(output);
                 }
-                else if(Options.InputDefaultBehaviour == InputDefaultBehaviour.Editable)
+                else if (Options.LinkDefaultBehaviour == LinkDefaultBehaviour.ActionGranted)
                 {
-                    output = EditableProtocol(output);
+                    output = ActionGrantedProtocol(output);
                 }
             }
 
@@ -74,14 +72,11 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
         }
         private TagHelperOutput ReadonlyProtocol(TagHelperOutput output)
         {
-            output.Attributes.Add("disabled", "");
-            output.Attributes.Add("FormInner", AccessProtocol.Readonly);
+            output.Attributes.SetAttribute("href", "#");
             return output;
         }
-        private TagHelperOutput EditableProtocol(TagHelperOutput output)
+        private TagHelperOutput ActionGrantedProtocol(TagHelperOutput output)
         {
-            output.Attributes.Remove(new TagHelperAttribute("disabled"));
-            output.Attributes.Add("FormInner", AccessProtocol.Editable);
             return output;
         }
     }
