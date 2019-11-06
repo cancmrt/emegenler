@@ -1,0 +1,37 @@
+﻿@{
+
+
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <br />
+        <br />
+        <div class="card">
+            <img src="~/img/emegenler-crop-logo.png" style="padding:10px;" class="card-img-top">
+            <div class="card-body">
+                <form action="/auth/login" method="post">
+                    <div class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+                    </div>
+                    <br />
+                    <br />
+                    <button type="submit" class="btn btn-outline-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+

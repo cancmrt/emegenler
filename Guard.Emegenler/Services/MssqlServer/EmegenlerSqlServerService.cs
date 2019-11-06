@@ -17,7 +17,9 @@ namespace Guard.Emegenler.Services.MssqlServer
     {
         public static IServiceCollection AddEmegenlerToSqlServer(this IServiceCollection services, string SqlServerConnectionString, EmegenlerOptions GuardOptions)
         {
-            services.AddDbContext<EmegenlerDbContext>(options => options.UseSqlServer(SqlServerConnectionString));
+            /*services.AddDbContext<EmegenlerDbContext>(options => options.UseSqlServer(SqlServerConnectionString,
+                                                                x => x.MigrationsHistoryTable("__EmegenlerMigrationsHistory", "Emegenler-Guard")));//orginal line*/
+            services.AddDbContext<EmegenlerDbContext>(options => options.UseSqlServer(SqlServerConnectionString));//when your done remove this line
             services.AddSingleton(GuardOptions);
 
             GeneralServices.Inject(services);
