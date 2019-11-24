@@ -17,7 +17,6 @@ namespace Guard.Emegenler.Claims
     public static class EmegenlerClaims
     {
         public static string UserIdentifier { get; set; }
-        public static string UserRole { get; set; }
         public static List<EmegenlerPolicy> UserPolicies { get; set; }
         public static bool IsLoaded { get; set; }
         public static void LoadClaims(HttpContext context)
@@ -25,13 +24,12 @@ namespace Guard.Emegenler.Claims
             if(context.User.Identity.IsAuthenticated)
             {
                 UserIdentifier = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                UserRole = context.User.FindFirst(ClaimTypes.Role)?.Value;
                 string UserData = context.User.FindFirst(ClaimTypes.UserData)?.Value;
                 if (UserData is string)
                 {
                     UserPolicies = JsonExtensions.TryParseJson<List<EmegenlerPolicy>>(UserData);
                 }
-                if (UserIdentifier is null && UserRole is null && UserData is null)
+                if (UserIdentifier is null  && UserData is null)
                 {
                     IsLoaded = false;
                 }

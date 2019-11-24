@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Guard.Emegenler.Migrations
 {
     [DbContext(typeof(EmegenlerDbContext))]
-    [Migration("20191026143915_first-init")]
+    [Migration("20191124080624_firstinit")]
     partial class firstinit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

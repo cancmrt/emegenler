@@ -19,7 +19,7 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
         {
             context.Response.OnStarting(async () =>
             {
-                GuardPolicyExecuter policyExecuter = new GuardPolicyExecuter(context);
+                EmegenlerSecurePage policyExecuter = new EmegenlerSecurePage(context);
                 var result = policyExecuter.CheckPolicy(context.Request.Path.ToString());
                 if (result.IsSuccess())
                 {

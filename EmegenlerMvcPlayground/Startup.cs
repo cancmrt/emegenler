@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EmegenlerMvcPlayground.Context;
 using Guard.Emegenler.Middleware;
 using Guard.Emegenler.Options;
 using Guard.Emegenler.Options.DefaultBehaviours;
@@ -9,6 +10,8 @@ using Guard.Emegenler.Services.MssqlServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +30,8 @@ namespace EmegenlerMvcPlayground
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            services.AddDbContext<PlaygroundContext>(options => options.UseSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"));
             services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"
                 , new EmegenlerOptions
                 {
@@ -46,6 +51,7 @@ namespace EmegenlerMvcPlayground
                     options.ExpireTimeSpan = TimeSpan.FromDays(5);
                     options.SlidingExpiration = false;
                 });
+
             services.AddControllersWithViews();
         }
 
@@ -66,6 +72,7 @@ namespace EmegenlerMvcPlayground
 
             app.UseEmegenler();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

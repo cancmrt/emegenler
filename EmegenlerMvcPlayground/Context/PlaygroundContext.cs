@@ -69,7 +69,9 @@ namespace EmegenlerMvcPlayground.Context
                         {
                             Id = 1,
                             Name = "Thomas A.",
-                            Surname = "Anderson"
+                            Surname = "Anderson",
+                            Email = "anderson@followwhiterabbit.com",
+                            Password = "1234"
                         }
                     );
             modelBuilder.Entity<User>()
@@ -78,9 +80,70 @@ namespace EmegenlerMvcPlayground.Context
                         {
                             Id = 2,
                             Name = "Jack",
-                            Surname = "Sparrow"
+                            Surname = "Sparrow",
+                            Email = "jack@pritesparrow.com",
+                            Password = "1234"
                         }
                     );
+            modelBuilder.Entity<User>()
+                    .HasData(
+                        new User
+                        {
+                            Id = 3,
+                            Name = "Elliot",
+                            Surname = "Alderson",
+                            Email = "hacker@warning.com",
+                            Password = "1234"
+                        }
+                    );
+            modelBuilder.Entity<User>()
+                    .HasData(
+                        new User
+                        {
+                            Id = 4,
+                            Name = "Walter",
+                            Surname = "White",
+                            Email = "walter@chemistrymaster.com",
+                            Password = "1234"
+                        }
+                    );
+            //UsersGroup
+            modelBuilder.Entity<UsersGroup>()
+                .HasData(
+                    new UsersGroup
+                    {
+                        Id = 1,
+                        GroupId = 1,
+                        UserId = 1
+                    }
+                );
+            modelBuilder.Entity<UsersGroup>()
+                .HasData(
+                    new UsersGroup
+                    {
+                        Id = 2,
+                        GroupId = 4,
+                        UserId = 2
+                    }
+                );
+            modelBuilder.Entity<UsersGroup>()
+                .HasData(
+                    new UsersGroup
+                    {
+                        Id = 3,
+                        GroupId = 2,
+                        UserId = 3
+                    }
+                );
+            modelBuilder.Entity<UsersGroup>()
+                .HasData(
+                    new UsersGroup
+                    {
+                        Id = 4,
+                        GroupId = 3,
+                        UserId = 4
+                    }
+                );
 
 
             base.OnModelCreating(modelBuilder);

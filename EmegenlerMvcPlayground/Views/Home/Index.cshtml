@@ -8,6 +8,63 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="row">
+        <div class="col-4">
+            <canvas id="population" width="100" height="100"></canvas>
+        </div>
+        <div class="col-4">
+            <canvas id="sales" width="100" height="100"></canvas>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+    
 </div>
+@section Scripts
+{
+
+<script>
+var population = document.getElementById('population');
+var sales = document.getElementById('sales');
+var populationPieChart = new Chart(population, {
+    type: 'pie',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [2478,5267,734,784,433]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+var salesBarHorizontal = new Chart(sales, {
+    type: 'horizontalBar',
+    data: {
+      labels: ["Acme Product 1000", "Acme  Super Product 1100", "Acme Half Product 800", "Acme Product 2000", "Acme Product 2500"],
+      datasets: [
+        {
+          label: "Sales (millions)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Acme Product Sales'
+      }
+    }
+});
+</script>
+
+
+}

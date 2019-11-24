@@ -10,9 +10,9 @@ using System.Text;
 
 namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
 {
-    public class GuardPolicyExecuter
+    public class EmegenlerSecurePage
     {
-        public GuardPolicyExecuter(HttpContext context)
+        public EmegenlerSecurePage(HttpContext context)
         {
             if(!EmegenlerClaims.IsLoaded)
             {
