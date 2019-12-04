@@ -100,4 +100,9 @@ Scenario: TakePolicies method take Null value on Identifier
 When We pass Null value as Identifier to TakePolicies method
 Then TakePolicies method should return state is fail and return Exception when Identifier is Null
 
+@NormalCase-Count
+Scenario: Count method should return Count of Policies in EmegenlerTables
+When We call Count method in PolicyRepository
+Then Count method should return Count of Policies in EmegenlerTables
+
 

@@ -79,3 +79,9 @@ Scenario: Delete method take null as a parameter on Delete method
 When We pass null EmegenlerUserRoleIdentifier entity to Delete method
 Then Delete method should return fail status and should return Exception on null EmegenlerUserRoleIdentifier entity from EmegenlerUserRoleIdentifierRepository
 
+
+@NormalCase-Count
+Scenario: Count method should return Count of UserRoleIdentifiers in EmegenlerTables
+When We call Count method in UserRoleIdentifierRepository
+Then Count method should return Count of UserRolesIdentifiers in EmegenlerTables
+

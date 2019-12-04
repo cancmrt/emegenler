@@ -62,6 +62,32 @@
             </div>
         </div>
     </div>
+    <div class="row hrsection">
+        <div class="col-12">
+            <h1>Human Resource Report <span class="badge badge-secondary">New</span></h1>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="peopleCompany" width="100" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="predictedRecruitment" width="100" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="performanceComparision" width="100" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 @section Scripts
@@ -74,6 +100,9 @@
     var usageComputer = document.getElementById("usageComputer");
     var dataUsage = document.getElementById("dataUsage");
     var internetUsage = document.getElementById("internetUsage");
+    var peopleCompany = document.getElementById("peopleCompany");
+    var predictedRecruitment = document.getElementById("predictedRecruitment");
+    var performanceComparision = document.getElementById("performanceComparision");
     var populationPieChart = new Chart(population, {
         type: 'pie',
         data: {
@@ -219,7 +248,67 @@
         text: 'Predicted world population (millions) in 2050'
       }
     }
-});
+    });
+    var peopleCompanyBar = new Chart(peopleCompany, {
+        type: 'bar',
+        data: {
+          labels: ["Sales", "IT", "Human Resource"],
+          datasets: [
+            {
+              label: "Population (millions)",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+              data: [250,165,42]
+            }
+          ]
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'People In Company'
+          }
+        }
+    });
+    var predictedRecruitmentPie = new Chart(predictedRecruitment, {
+        type: 'pie',
+        data: {
+          labels: ["Sales", "IT", "HumanResource"],
+          datasets: [{
+            label: "Population (millions)",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+            data: [2478,5267,734,784,433]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Predicted world population (millions) in 2050'
+          }
+        }
+    });
+    var performanceComparisionBar = new Chart(performanceComparision, {
+        type: 'bar',
+        data: {
+          labels: ["2000", "2005", "2010", "2019"],
+          datasets: [
+            {
+              label: "IT",
+              backgroundColor: "#3e95cd",
+              data: [133,221,783,2478]
+            }, {
+              label: "Sales",
+              backgroundColor: "#8e5ea2",
+              data: [408,547,675,734]
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Performance Comparision based on departments'
+          }
+        }
+    });
 </script>
 
 

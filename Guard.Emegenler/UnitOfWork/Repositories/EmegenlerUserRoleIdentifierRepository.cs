@@ -13,11 +13,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
     {
         
 
-        public EmegenlerDbContext Context;
+        public EmegenlerDbContext _context;
 
         public EmegenlerUserRoleIdentifierRepository(EmegenlerDbContext context)
         {
-            Context = context;
+            _context = context;
         }
         public Returner<EmegenlerUserRoleIdentifier> Insert(EmegenlerUserRoleIdentifier newUserRoleIdentifier)
         {
@@ -27,16 +27,16 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
                 {
                     if(newUserRoleIdentifier.RoleIdentifierId != 0)
                     {
-                        Context.Set<EmegenlerUserRoleIdentifier>().Update(newUserRoleIdentifier);
-                        Context.SaveChanges();
-                        Context.Entry(newUserRoleIdentifier).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        _context.Set<EmegenlerUserRoleIdentifier>().Update(newUserRoleIdentifier);
+                        _context.SaveChanges();
+                        _context.Entry(newUserRoleIdentifier).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
                         return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(newUserRoleIdentifier);
                     }
                     else
                     {
-                        Context.Set<EmegenlerUserRoleIdentifier>().Add(newUserRoleIdentifier);
-                        Context.SaveChanges();
-                        Context.Entry(newUserRoleIdentifier).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        _context.Set<EmegenlerUserRoleIdentifier>().Add(newUserRoleIdentifier);
+                        _context.SaveChanges();
+                        _context.Entry(newUserRoleIdentifier).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
                         return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(newUserRoleIdentifier);
                     }
                     
@@ -60,7 +60,7 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             {
                 if (userRoleIdentifierId > 0)
                 {
-                    EmegenlerUserRoleIdentifier resultEntity = Context.EmegenlerUserRoles.Where(ep => ep.RoleIdentifierId == userRoleIdentifierId).AsNoTracking().FirstOrDefault();
+                    EmegenlerUserRoleIdentifier resultEntity = _context.EmegenlerUserRoles.Where(ep => ep.RoleIdentifierId == userRoleIdentifierId).AsNoTracking().FirstOrDefault();
                     if (resultEntity != null)
                     {
                         return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(resultEntity);
@@ -83,15 +83,28 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        public Returner<long> Count()
+        {
+            try
+            {
+                long resultEntityCount = _context.EmegenlerUserRoles.AsNoTracking().Count();
+                return Returner<long>.SuccessReturn(resultEntityCount);
+            }
+            catch (Exception exception)
+            {
+                return Returner<long>.FailReturn(exception);
+            }
+        }
+
         public Returner<IList<EmegenlerUserRoleIdentifier>> Take(int page, int pageSize)
         {
             if (page > 0 && pageSize > 0)
             {
                 int skipSize = (page - 1) * pageSize;
-                int countOfRows = Context.EmegenlerPolicies.Count();
+                int countOfRows = _context.EmegenlerPolicies.Count();
                 if (countOfRows > skipSize)
                 {
-                    IList<EmegenlerUserRoleIdentifier> results = Context.EmegenlerUserRoles.Skip(skipSize).Take(pageSize).AsNoTracking().ToList();
+                    IList<EmegenlerUserRoleIdentifier> results = _context.EmegenlerUserRoles.Skip(skipSize).Take(pageSize).AsNoTracking().ToList();
                     if (results != null)
                     {
                         return Returner<IList<EmegenlerUserRoleIdentifier>>.SuccessReturn(results);
@@ -122,9 +135,9 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
                 {
                     if (deleteThisUserRole.RoleIdentifierId > 0)
                     {
-                        Context.Set<EmegenlerUserRoleIdentifier>().Remove(deleteThisUserRole);
-                        Context.SaveChanges();
-                        Context.Entry(deleteThisUserRole).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                        _context.Set<EmegenlerUserRoleIdentifier>().Remove(deleteThisUserRole);
+                        _context.SaveChanges();
+                        _context.Entry(deleteThisUserRole).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
                         return Returner<EmegenlerUserRoleIdentifier>.SuccessReturn(deleteThisUserRole);
                     }
                     else

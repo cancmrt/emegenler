@@ -78,3 +78,8 @@ Then Delete method should return fail status and should return Exception on Emeg
 Scenario: Delete method take null as a parameter on Delete method 
 When We pass null EmegenlerRole entity to Delete method
 Then Delete method should return fail status and should return Exception on null EmegenlerRole entity from EmegenlerRoleRepository
+
+@NormalCase-Count
+Scenario: Count method should return Count of Roles in EmegenlerTables
+When We call Count method in RoleRepository
+Then Count method should return Count of Roles in EmegenlerTables

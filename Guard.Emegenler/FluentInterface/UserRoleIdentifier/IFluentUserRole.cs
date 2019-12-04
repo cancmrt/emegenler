@@ -15,5 +15,6 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
 
         EmegenlerUserRoleDecorator Get(int Id);
         IList<EmegenlerUserRoleDecorator> Take(int Page, int PageSize);
+        long Count();
     }
 }

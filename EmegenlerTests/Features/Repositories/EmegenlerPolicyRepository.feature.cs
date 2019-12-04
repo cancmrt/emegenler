@@ -503,6 +503,25 @@ testRunner.Then("TakePolicies method should return state is fail and return Exce
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Count method should return Count of Policies in EmegenlerTables")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerPolicyRepository")]
+        [Xunit.TraitAttribute("Description", "Count method should return Count of Policies in EmegenlerTables")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Count")]
+        public virtual void CountMethodShouldReturnCountOfPoliciesİnEmegenlerTables()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Count method should return Count of Policies in EmegenlerTables", null, new string[] {
+                        "NormalCase-Count"});
+#line 104
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 105
+testRunner.When("We call Count method in PolicyRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 106
+testRunner.Then("Count method should return Count of Policies in EmegenlerTables", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

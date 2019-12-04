@@ -163,5 +163,19 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             
         }
 
+        public Returner<long> Count()
+        {
+            try
+            {
+                long resultEntityCount = _context.EmegenlerPolicies.AsNoTracking().Count();
+                return Returner<long>.SuccessReturn(resultEntityCount);
+            }
+            catch (Exception exception)
+            {
+                return Returner<long>.FailReturn(exception);
+            }
+        }
+
+
     }
 }

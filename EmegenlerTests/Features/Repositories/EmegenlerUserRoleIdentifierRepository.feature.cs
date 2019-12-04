@@ -433,6 +433,25 @@ testRunner.Then("Delete method should return fail status and should return Excep
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Count method should return Count of UserRoleIdentifiers in EmegenlerTables")]
+        [Xunit.TraitAttribute("FeatureTitle", "EmegenlerUserRoleIdentifierRepository")]
+        [Xunit.TraitAttribute("Description", "Count method should return Count of UserRoleIdentifiers in EmegenlerTables")]
+        [Xunit.TraitAttribute("Category", "NormalCase-Count")]
+        public virtual void CountMethodShouldReturnCountOfUserRoleIdentifiersİnEmegenlerTables()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Count method should return Count of UserRoleIdentifiers in EmegenlerTables", null, new string[] {
+                        "NormalCase-Count"});
+#line 84
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 85
+testRunner.When("We call Count method in UserRoleIdentifierRepository", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 86
+testRunner.Then("Count method should return Count of UserRolesIdentifiers in EmegenlerTables", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

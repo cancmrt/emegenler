@@ -19,6 +19,8 @@ namespace EmegenlerTests.RepositoryTests
         private readonly EmegenlerPolicyRepository repo;
         Returner<EmegenlerPolicy> result;
         Returner<IList<EmegenlerPolicy>> results;
+        Returner<long> CountOfPolicies;
+
         public EmegenlerPolicyRepositorySteps()
         {
             FakeContextGenerator fContextGenerate = new FakeContextGenerator();
@@ -332,6 +334,20 @@ namespace EmegenlerTests.RepositoryTests
             results.GetException().Should().NotBeNull();
             results.GetData().Should().BeNull();
         }
+
+        [When(@"We call Count method in PolicyRepository")]
+        public void WhenWeCallCountMethodİnPolicyRepository()
+        {
+            CountOfPolicies = repo.Count();
+        }
+
+        [Then(@"Count method should return Count of Policies in EmegenlerTables")]
+        public void ThenCountMethodShouldReturnCountOfPoliciesİnEmegenlerTables()
+        {
+            CountOfPolicies.IsSuccess().Should().BeTrue();
+            CountOfPolicies.GetData().Should().BeGreaterThan(0);
+        }
+
 
 
 

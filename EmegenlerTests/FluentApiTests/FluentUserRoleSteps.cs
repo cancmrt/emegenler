@@ -143,5 +143,18 @@ namespace EmegenlerTests.FluentApiTests
             act.Should().Throw<NullReferenceException>();
         }
 
+        [When(@"Count method called from UserRole interface")]
+        public void WhenCountMethodCalledFromUserRoleİnterface()
+        {
+            act = () => { _fluent.UserRole.Count(); };
+        }
+
+        [Then(@"Count method should return Count of UserRoles in EmegenlerTables from UserRoleInterface")]
+        public void ThenCountMethodShouldReturnCountOfUserRolesİnEmegenlerTablesFromUserRoleInterface()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+
     }
 }

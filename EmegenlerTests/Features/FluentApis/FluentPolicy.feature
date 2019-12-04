@@ -235,6 +235,11 @@
 	When We pass valid PageSize prop but Page value is less than one to Take method from FluentPolicy class
 	Then Take method should throw exception on when Page value is less than one from FluentPolicy class
 
+	@Count-NormalCase
+	Scenario: Count method when called return Count of Policies in EmegenlerTables from PolicyInterface
+	When Count method called from Pplicy interface
+	Then Count method should return Count of Policies in EmegenlerTables from PolicyInterface
+
 	@Take.FromUser-NormalCase
 	Scenario: api.Policy().Take().FromUser(identifier) method should get List of Policies belong to User
 	When We pass valid identifier api.Policy().Take().FromUser(identifier) method

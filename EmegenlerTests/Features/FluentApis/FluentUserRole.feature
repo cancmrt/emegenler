@@ -48,3 +48,8 @@ Scenario: api.UserRole.AssociateRole(identifier).ToUser(Empty) method interface 
 Scenario: api.UserRole.AssociateRole(identifier).ToUser(null) method interface should throw exception
 	When We pass not valid AssociateRole(identifier) and valid ToUser(null) to FluentUserRoleApi
 	Then FluentUserRole api should throw exception on not valid AssociateRole(identifier) and ToUser(null) passage on method
+
+@Count-NormalCase
+Scenario: Count method when called return Count of UserRoleIdentifiers in EmegenlerTables from RoleInterface
+	When Count method called from UserRole interface
+	Then Count method should return Count of UserRoles in EmegenlerTables from UserRoleInterface

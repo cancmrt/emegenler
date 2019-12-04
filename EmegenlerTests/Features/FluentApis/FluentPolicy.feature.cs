@@ -1222,6 +1222,29 @@ namespace EmegenlerTests.Features.FluentApis
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Count method when called return Count of Policies in EmegenlerTables from PolicyI" +
+            "nterface")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Count method when called return Count of Policies in EmegenlerTables from PolicyI" +
+            "nterface")]
+        [Xunit.TraitAttribute("Category", "Count-NormalCase")]
+        public virtual void CountMethodWhenCalledReturnCountOfPoliciesİnEmegenlerTablesFromPolicyInterface()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Count method when called return Count of Policies in EmegenlerTables from PolicyI" +
+                    "nterface", null, new string[] {
+                        "Count-NormalCase"});
+#line 239
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 240
+ testRunner.When("Count method called from Pplicy interface", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 241
+ testRunner.Then("Count method should return Count of Policies in EmegenlerTables from PolicyInterf" +
+                    "ace", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [Xunit.FactAttribute(DisplayName="api.Policy().Take().FromUser(identifier) method should get List of Policies belon" +
             "g to User")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
@@ -1233,12 +1256,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromUser(identifier) method should get List of Policies belon" +
                     "g to User", null, new string[] {
                         "Take.FromUser-NormalCase"});
-#line 239
+#line 244
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 240
+#line 245
  testRunner.When("We pass valid identifier api.Policy().Take().FromUser(identifier) method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 241
+#line 246
  testRunner.Then("api.Policy().Take().FromUser(identifier) should return List of Policies belong to" +
                     " User", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1256,12 +1279,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromRole(identifier) method should get List of Policies belon" +
                     "g to Role", null, new string[] {
                         "Take.FromRole-NormalCase"});
-#line 244
+#line 249
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 245
+#line 250
  testRunner.When("We pass valid identifier api.Policy().Take().FromRole(identifier) method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 246
+#line 251
  testRunner.Then("api.Policy().Take().FromRole(identifier) should return List of Policies belong to" +
                     " Role", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1276,13 +1299,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromUser(Empty) method should throw exception", null, new string[] {
                         "Take.FromUser-ExceptionalCase"});
-#line 249
+#line 254
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 250
+#line 255
  testRunner.When("We pass Empty value as User identifier to api.Policy().Take().FromUser(Empty) met" +
                     "hod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 251
+#line 256
  testRunner.Then("api.Policy().Take().FromUser(Empty) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1296,13 +1319,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromUser(null) method should throw exception", null, new string[] {
                         "Take.FromUser-ExceptionalCase"});
-#line 254
+#line 259
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 255
+#line 260
  testRunner.When("We pass Null value as User identifier to api.Policy().Take().FromUser(null) metho" +
                     "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 256
+#line 261
  testRunner.Then("api.Policy().Take().FromUser(null) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1316,13 +1339,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromRole(Empty) method should throw exception", null, new string[] {
                         "Take.FromRole-ExceptionalCase"});
-#line 259
+#line 264
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 260
+#line 265
  testRunner.When("We pass Empty value as Role identifier to api.Policy().Take().FromRole(Empty) met" +
                     "hod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 261
+#line 266
  testRunner.Then("api.Policy().Take().FromRole(Empty) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1336,13 +1359,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromRole(null) method should throw exception", null, new string[] {
                         "Take.FromRole-ExceptionalCase"});
-#line 264
+#line 269
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 265
+#line 270
  testRunner.When("We pass Null value as Role identifier to api.Policy().Take().FromRole(null) metho" +
                     "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 266
+#line 271
  testRunner.Then("api.Policy().Take().FromRole(null) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

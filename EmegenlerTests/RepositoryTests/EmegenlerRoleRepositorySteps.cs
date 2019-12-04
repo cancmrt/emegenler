@@ -18,6 +18,7 @@ namespace EmegenlerTests.RepositoryTests
         private readonly EmegenlerRoleRepository repo;
         Returner<EmegenlerRole> result;
         Returner<IList<EmegenlerRole>> results;
+        Returner<long> CountOfRoles;
         public EmegenlerRoleRepositorySteps()
         {
             FakeContextGenerator fContextGenerate = new FakeContextGenerator();
@@ -268,6 +269,18 @@ namespace EmegenlerTests.RepositoryTests
             result.GetData().Should().BeNull();
         }
 
+        [When(@"We call Count method in RoleRepository")]
+        public void WhenWeCallCountMethodİnRoleRepository()
+        {
+            CountOfRoles = repo.Count();
+        }
+
+        [Then(@"Count method should return Count of Roles in EmegenlerTables")]
+        public void ThenCountMethodShouldReturnCountOfRolesİnEmegenlerTables()
+        {
+            CountOfRoles.IsSuccess().Should().BeTrue();
+            CountOfRoles.GetData().Should().BeGreaterThan(0);
+        }
 
 
 

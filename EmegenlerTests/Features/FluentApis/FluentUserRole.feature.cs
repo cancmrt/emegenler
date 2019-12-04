@@ -319,6 +319,29 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Count method when called return Count of UserRoleIdentifiers in EmegenlerTables f" +
+            "rom RoleInterface")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentUserRole")]
+        [Xunit.TraitAttribute("Description", "Count method when called return Count of UserRoleIdentifiers in EmegenlerTables f" +
+            "rom RoleInterface")]
+        [Xunit.TraitAttribute("Category", "Count-NormalCase")]
+        public virtual void CountMethodWhenCalledReturnCountOfUserRoleIdentifiersİnEmegenlerTablesFromRoleInterface()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Count method when called return Count of UserRoleIdentifiers in EmegenlerTables f" +
+                    "rom RoleInterface", null, new string[] {
+                        "Count-NormalCase"});
+#line 53
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 54
+ testRunner.When("Count method called from UserRole interface", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 55
+ testRunner.Then("Count method should return Count of UserRoles in EmegenlerTables from UserRoleInt" +
+                    "erface", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

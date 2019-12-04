@@ -110,5 +110,22 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
             }
             return ExtendedUserRoles;
         }
+
+        public long Count()
+        {
+            var result = UWork.UserRoles.Count();
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
+            else if (result.IsSuccess())
+            {
+                return result.GetData();
+            }
+            else
+            {
+                throw new Exception("Unspesified exception occourt on UserRole.Count method");
+            }
+        }
     }
 }

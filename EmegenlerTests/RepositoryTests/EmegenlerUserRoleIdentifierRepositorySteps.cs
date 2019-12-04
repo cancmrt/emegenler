@@ -18,6 +18,7 @@ namespace EmegenlerTests.RepositoryTests
         private readonly EmegenlerUserRoleIdentifierRepository repo;
         Returner<EmegenlerUserRoleIdentifier> result;
         Returner<IList<EmegenlerUserRoleIdentifier>> results;
+        Returner<long> CountOfUserRole;
         public EmegenlerUserRoleIdentifierRepositorySteps()
         {
             FakeContextGenerator fContextGenerate = new FakeContextGenerator();
@@ -269,6 +270,20 @@ namespace EmegenlerTests.RepositoryTests
             result.GetException().Should().NotBeNull();
             result.GetData().Should().BeNull();
         }
+
+        [When(@"We call Count method in UserRoleIdentifierRepository")]
+        public void WhenWeCallCountMethodİnUserRoleIdentifierRepository()
+        {
+            CountOfUserRole = repo.Count();
+        }
+
+        [Then(@"Count method should return Count of UserRolesIdentifiers in EmegenlerTables")]
+        public void ThenCountMethodShouldReturnCountOfUserRolesIdentifiersİnEmegenlerTables()
+        {
+            CountOfUserRole.IsSuccess().Should().BeTrue();
+            CountOfUserRole.GetData().Should().BeGreaterThan(0);
+        }
+
 
 
 

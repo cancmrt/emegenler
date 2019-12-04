@@ -132,5 +132,18 @@ namespace EmegenlerTests.FluentApiTests
             act.Should().Throw<IndexOutOfRangeException>();
         }
 
+        [When(@"Count method called from Role interface")]
+        public void WhenCountMethodCalledFromRoleİnterface()
+        {
+            act = () => { _fluent.Role.Count(); };
+        }
+
+        [Then(@"Count method should return Count of Roles in EmegenlerTables from RoleInterface")]
+        public void ThenCountMethodShouldReturnCountOfRolesİnEmegenlerTablesFromRoleInterface()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+
     }
 }

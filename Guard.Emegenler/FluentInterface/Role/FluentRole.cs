@@ -80,5 +80,22 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             return ExtendedRoles;
         }
+
+        public long Count()
+        {
+            var result = UWork.Roles.Count();
+            if (result.IsFail())
+            {
+                throw result.GetException();
+            }
+            else if (result.IsSuccess())
+            {
+                return result.GetData();
+            }
+            else
+            {
+                throw new Exception("Unspesified exception occourt on Role.Count method");
+            }
+        }
     }
 }

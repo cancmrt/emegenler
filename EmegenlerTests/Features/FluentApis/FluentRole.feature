@@ -40,3 +40,8 @@ Scenario: Take method take valid Page but PageSize is less than one
 Scenario: Take method take valid PageSize but Page is less than one
 	When We pass valid PageSize prop but Page value is less than one to Take method from FluenRole class
 	Then Take method should throw exception on when Page value is less than one from FluentRole class
+
+@Count-NormalCase
+	Scenario: Count method when called return Count of Roles in EmegenlerTables from RoleInterface
+	When Count method called from Role interface
+	Then Count method should return Count of Roles in EmegenlerTables from RoleInterface

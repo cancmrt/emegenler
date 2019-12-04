@@ -672,6 +672,19 @@ namespace EmegenlerTests.FluentApiTests
             act.Should().Throw<IndexOutOfRangeException>();
         }
 
+        [When(@"Count method called from Pplicy interface")]
+        public void WhenCountMethodCalledFromPplicyİnterface()
+        {
+            act = () => { _fluent.Policy.Count(); };
+        }
+
+        [Then(@"Count method should return Count of Policies in EmegenlerTables from PolicyInterface")]
+        public void ThenCountMethodShouldReturnCountOfPoliciesİnEmegenlerTablesFromPolicyInterface()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+
         [When(@"We pass valid identifier api\.Policy\(\)\.Take\(\)\.FromUser\(identifier\) method")]
         public void WhenWePassValidİdentifierApi_Policy_Take_FromUserİdentifierMethod()
         {

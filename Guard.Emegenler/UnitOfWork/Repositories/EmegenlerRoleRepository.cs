@@ -80,6 +80,19 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        public Returner<long> Count()
+        {
+            try
+            {
+                long resultEntityCount = _context.EmegenlerRoles.AsNoTracking().Count();
+                return Returner<long>.SuccessReturn(resultEntityCount);
+            }
+            catch (Exception exception)
+            {
+                return Returner<long>.FailReturn(exception);
+            }
+        }
+
         public Returner<IList<EmegenlerRole>> Take(int page, int pageSize)
         {
             if (page > 0 && pageSize > 0)
