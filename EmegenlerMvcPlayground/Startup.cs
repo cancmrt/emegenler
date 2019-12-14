@@ -36,7 +36,8 @@ namespace EmegenlerMvcPlayground
                 , new EmegenlerOptions
                 {
                     PageAccessDeniedUrl = "/home/accessdenied",
-                    ComponentDefaultBehaviour = ComponentDefaultBehaviour.Hide
+                    ComponentDefaultBehaviour = ComponentDefaultBehaviour.Hide,
+                    FormDefaultBehaviour = FormDefaultBehaviour.Hide
 
                 }
 

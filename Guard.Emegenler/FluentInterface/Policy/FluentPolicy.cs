@@ -15,6 +15,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
 {
     public sealed class FluentPolicy :
         IFluentPolicy,
+        IEmegenlerPolicyTakeBase,
         IEmegenlerPolicyAuthBase,
         IEmegenlerPolicyAccess,
         IEmegenlerPolicyPageAccess,
@@ -37,7 +38,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             return this;
         }
-        public IEmegenlerPolicyAuthBase Take()
+        public IEmegenlerPolicyTakeBase Take()
         {
             return this;
         }

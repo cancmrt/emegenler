@@ -16,8 +16,8 @@ namespace EmegenlerMvcTest.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IFluentApi API;
-        public HomeController(IFluentApi api)
+        private readonly IEmegenlerFluentApi API;
+        public HomeController(IEmegenlerFluentApi api)
         {
             API = api;
         }

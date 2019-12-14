@@ -86,7 +86,7 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             {
                 int skipSize = (page - 1) * pageSize;
                 int countOfRows = _context.EmegenlerPolicies.Count();
-                if(countOfRows > skipSize)
+                if(countOfRows >= skipSize)
                 {
                     IList<EmegenlerPolicy> results = _context.EmegenlerPolicies.Skip(skipSize).Take(pageSize).AsNoTracking().ToList();
                     if(results != null)

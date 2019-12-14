@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    var Users = ViewData["Users"] as List<EmegenlerMvcPlayground.Models.User>;
+    var Groups = ViewData["Groups"] as List<EmegenlerMvcPlayground.Models.Group>;
+    var AccessPages = ViewData["Pages"] as Dictionary<string, string>;
+    var AccessReports = ViewData["Reports"] as Dictionary<string, string>;
+    var AccessForms = ViewData["Forms"] as Dictionary<string, string>;
+    var PageRules = ViewData["PageRules"] as string[];
+    var ReportRules = ViewData["ReportRules"] as string[];
+    var FormRules = ViewData["FormRules"] as string[];
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="add">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>
+                                <label>Select Access Role</label>
+                                <select class="form-control AccessRole" name="SelectedAccessRole">
+                                    <option value="0" selected>Choose</option>
+                                    <option value="1">User</option>
+                                    <option value="2">Group</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="UserRole Roles">
+                                <label>Select User</label>
+                                <select class=" form-control" name="SelectedUser">
+                                    @foreach (var user in Users)
+                                    {
+                                        <option value="@user.Id">@user.Name  @user.Surname</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="GroupRole Roles">
+                                <label>Select Group</label>
+                                <select class=" form-control" name="SelectedGroup">
+                                    @foreach (var group in Groups)
+                                    {
+                                        <option value="@group.Id">@group.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Choose Access Element Type</label>
+                            <select class="form-control ElementType" name="SelectedElementType">
+                                <option value="0" selected>Choose</option>
+                                <option value="1">Pages</option>
+                                <option value="2">Reports</option>
+                                <option value="3">Forms</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="PagesArea Areas">
+                                <label>Select Page</label>
+                                <select class="form-control" name="SelectedPage">
+                                    @foreach (var accessPage in AccessPages)
+                                    {
+                                        <option value="@accessPage.Value">@accessPage.Key</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="ReportsArea Areas">
+                                <label>Select Report</label>
+                                <select class="form-control" name="SelectedReport">
+                                    @foreach (var accessReport in AccessReports)
+                                    {
+                                        <option value="@accessReport.Value">@accessReport.Key</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="FormsArea Areas">
+                                <label>Select Form</label>
+                                <select class="form-control" name="SelectedForm">
+                                    @foreach (var accessForm in AccessForms)
+                                    {
+                                        <option value="@accessForm.Value">@accessForm.Key</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="PageAreaRules Rules">
+                                <label>Select Rule</label>
+                                <select class="form-control" name="SelectedPageRule">
+                                    @foreach (var pageRule in PageRules)
+                                    {
+                                        <option value="@pageRule">@pageRule</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="ReportAreaRules Rules">
+                                <label>Select Rule</label>
+                                <select class="form-control" name="SelectedReportRule">
+                                    @foreach (var reportRule in ReportRules)
+                                    {
+                                        <option value="@reportRule">@reportRule</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="FormAreaRules Rules">
+                                <label>Select Rule</label>
+                                <select class="form-control" name="SelectedFormRule">
+                                    @foreach (var formRule in FormRules)
+                                    {
+                                        <option value="@formRule">@formRule</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-outline-success" type="submit">Save Rule</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+
+            $(".Areas").hide();
+            $(".Rules").hide();
+            $(".Roles").hide();
+
+            $(".AccessRole").on("change", function () {
+                $(".Roles").hide();
+                var selectedRole = $(this).children("option:selected").val();
+                if (selectedRole === "1") {
+                    $(".UserRole").show();
+                }
+                else if (selectedRole === "2") {
+                    $(".GroupRole").show();
+                }
+            })
+
+
+            $(".ElementType").on("change", function () {
+                var selectedType = $(this).children("option:selected").val();
+                $(".Areas").hide();
+                $(".Rules").hide();
+                if (selectedType === "1") {
+                    $(".PagesArea").show();
+                    $(".PageAreaRules").show();
+                }
+                else if (selectedType === "2") {
+                    $(".ReportsArea").show();
+                    $(".ReportAreaRules").show();
+                }
+                else if (selectedType === "3") {
+                    $(".FormsArea").show();
+                    $(".FormAreaRules").show();
+                }
+            });
+
+        });
+    </script>
+}
+
+
+

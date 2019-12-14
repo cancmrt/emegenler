@@ -14,7 +14,7 @@ namespace EmegenlerTests.FluentApiTests
     public class FluentRoleSteps
     {
         private readonly IEmegenlerUWork _uWork;
-        private readonly IFluentApi _fluent;
+        private readonly IEmegenlerFluentApi _fluent;
         Action act;
         public FluentRoleSteps()
         {

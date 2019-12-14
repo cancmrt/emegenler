@@ -13,6 +13,6 @@ namespace Guard.Emegenler.FluentInterface.Policy
         EmegenlerPolicyDecorator Get(int Id);
         IList<EmegenlerPolicyDecorator> Take(int Page, int PageSize);
         long Count();
-        IEmegenlerPolicyAuthBase Take();
+        IEmegenlerPolicyTakeBase Take();
     }
 }

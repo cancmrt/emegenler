@@ -17,9 +17,9 @@ namespace EmegenlerMvcPlayground.Controllers
     
     public class AuthController : Controller
     {
-        private readonly IFluentApi API;
+        private readonly IEmegenlerFluentApi API;
         private readonly PlaygroundContext _context;
-        public AuthController(IFluentApi api, PlaygroundContext context)
+        public AuthController(IEmegenlerFluentApi api, PlaygroundContext context)
         {
             API = api;
             _context = context;
@@ -30,14 +30,30 @@ namespace EmegenlerMvcPlayground.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> LoginAsync([FromForm] LoginModel login)
+        public async Task<IActionResult> Login([FromForm] LoginModel login)
         {
-            var user = _context.Set<User>().Where(user => user.Email == login.Email && user.Password == login.Password).FirstOrDefault();
+            var user = _context.Set<User>()
+                .Where(user => user.Email == login.Email && user.Password == login.Password)
+                .Select(u => new User{
+                    Id = u.Id,
+                    Email = u.Email,
+                    Name = u.Name,
+                    Surname = u.Surname,
+                    Password = u.Password,
+                    Groups = u.Groups
+                })
+                .FirstOrDefault();
             if(!(user is null))
             {
+                var UserPolicies = API.Policy.Take().FromUser(user.Id.ToString()).ToList();
+                foreach(var group in user.Groups)
+                {
+                    UserPolicies.AddRange(API.Policy.Take().FromRole(group.GroupId.ToString()));
+                }
+
                 var identity = new ClaimsIdentity(new[] {
                                                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                                                new Claim(ClaimTypes.UserData, JsonConvert.SerializeObject(API.Policy.Take().FromUser(user.Id.ToString())))
+                                                new Claim(ClaimTypes.UserData, JsonConvert.SerializeObject(UserPolicies))
                                             }, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 var principal = new ClaimsPrincipal(identity);
@@ -51,6 +67,12 @@ namespace EmegenlerMvcPlayground.Controllers
             }
             
         }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
 
     }
 }

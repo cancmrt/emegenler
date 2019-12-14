@@ -14,7 +14,7 @@ namespace Guard.Emegenler.Services.General
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IEmegenlerUWork, EmegenlerUWork>();
-            services.AddScoped<IFluentApi, FluentApi>();
+            services.AddScoped<IEmegenlerFluentApi, FluentApi>();
         }
     }
 }

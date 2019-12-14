@@ -11,8 +11,5 @@ namespace Guard.Emegenler.FluentInterface.Policy.UserStyles
         IEmegenlerPolicyAccess WithUser(string userIdentifier);
         IEmegenlerPolicyAccess WithRole(string roleIdentifier);
 
-        IList<EmegenlerPolicyDecorator> FromUser(string userIdentifier);
-        IList<EmegenlerPolicyDecorator> FromRole(string roleIdentifier);
-
     }
 }

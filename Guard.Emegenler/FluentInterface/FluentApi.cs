@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Guard.Emegenler.FluentInterface
 {
-    public class FluentApi: IFluentApi
+    public class FluentApi: IEmegenlerFluentApi
     {
         public IFluentPolicy Policy { get; set; }
         public IFluentRole Role { get; set; }

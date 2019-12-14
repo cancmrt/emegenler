@@ -5,4 +5,44 @@
 }
 @{
     ViewData["Title"] = "Permissions";
+    var Policies = ViewData["Policies"] as List<Guard.Emegenler.Domains.Decorators.EmegenlerPolicyDecorator>;
+    var Paginate = ViewData["Paginate"] as EmegenlerMvcPlayground.Logic.PaginationLogic.PaginationResult;
 }
+<div class="row">
+    <div class="col-12">
+        <a href="permission/add" class="btn btn-outline-success">Add Policy</a>
+        <a href="group/add" class="btn btn-outline-success">Add Group</a>
+        <a href="user/add" class="btn btn-outline-success">Add User</a>
+    </div>
+</div>
+<div class="row min-vh-75">
+    @foreach (var policy in Policies)
+    {
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">@policy.PolicyElement</li>
+                        <li class="list-group-item">@policy.PolicyElementIdentifier</li>
+                        <li class="list-group-item">@policy.AuthBase</li>
+                        <li class="list-group-item">@policy.AuthBaseIdentifier</li>
+                        <li class="list-group-item">@policy.AccessProtocol</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="btn-group">
+            @for (int i = 1; i <= Paginate.TotalPageCount; i++)
+            {
+                <a href="/permission?ChoosedPage=@i" class="btn btn-secondary">@i</a>
+            }
+            
+        </div>
+    </div>
+</div>
+
+

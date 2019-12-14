@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Guard.Emegenler.FluentInterface
 {
-    public interface IFluentApi
+    public interface IEmegenlerFluentApi
     {
         IFluentPolicy Policy { get; set; }
         IFluentRole Role { get; set; }
