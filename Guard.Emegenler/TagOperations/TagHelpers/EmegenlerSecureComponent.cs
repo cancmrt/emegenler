@@ -10,11 +10,13 @@ using Guard.Emegenler.TagOperations.TagWorks;
 using Guard.Emegenler.Types;
 using Guard.Emegenler.Options;
 using Guard.Emegenler.Options.DefaultBehaviours;
+using Guard.Emegenler.Claims;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
 
     [HtmlTargetElement("div", Attributes = ComponentAttiributeName)]
+    [HtmlTargetElement("script", Attributes = ComponentAttiributeName)]
     public class EmegenlerSecureComponent:TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
@@ -22,9 +24,9 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
         private TagAccess TagAccess { get; set; }
         private EmegenlerOptions Options;
 
-        public EmegenlerSecureComponent(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
+        public EmegenlerSecureComponent(IHttpContextAccessor httpContextAccessor,IEmegenlerClaims claims, EmegenlerOptions options)
         {
-            TagAccess = new TagAccess(httpContextAccessor);
+            TagAccess = new TagAccess(httpContextAccessor, claims);
             Options = options;
         }
         public override void Init(TagHelperContext context)

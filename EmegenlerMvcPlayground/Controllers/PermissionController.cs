@@ -40,6 +40,7 @@ namespace EmegenlerMvcPlayground.Controllers
             Pages.Add("Add Permissions", "permission/add");
             Pages.Add("Edit Permissions", "permission/edit");
             Pages.Add("Remove Permissions", "permission/delete");
+            Pages.Add("Permissions All", "permission/*");
 
             Dictionary<string, string> Reports = new Dictionary<string, string>();
             Reports.Add("Sales Reports", ".salessection");

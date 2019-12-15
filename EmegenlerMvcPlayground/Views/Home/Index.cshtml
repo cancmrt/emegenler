@@ -92,17 +92,12 @@
 </div>
 @section Scripts
 {
+    <script class="salessection" emegenler-guard>
 
-    <script>
         var population = document.getElementById('population');
         var sales = document.getElementById('sales');
         var customerByYear = document.getElementById("customerByYear");
-        var usageComputer = document.getElementById("usageComputer");
-        var dataUsage = document.getElementById("dataUsage");
-        var internetUsage = document.getElementById("internetUsage");
-        var peopleCompany = document.getElementById("peopleCompany");
-        var predictedRecruitment = document.getElementById("predictedRecruitment");
-        var performanceComparision = document.getElementById("performanceComparision");
+
         var populationPieChart = new Chart(population, {
             type: 'pie',
             data: {
@@ -179,6 +174,14 @@
                 }
             }
         });
+
+    </script>
+    <script class="itsection" emegenler-guard>
+        
+        var usageComputer = document.getElementById("usageComputer");
+        var dataUsage = document.getElementById("dataUsage");
+        var internetUsage = document.getElementById("internetUsage");
+       
         var radarItUsage = new Chart(usageComputer, {
             type: 'radar',
             data: {
@@ -249,6 +252,14 @@
                 }
             }
         });
+        
+    </script>
+    <script class="hrsection" emegenler-guard>
+
+        var peopleCompany = document.getElementById("peopleCompany");
+        var predictedRecruitment = document.getElementById("predictedRecruitment");
+        var performanceComparision = document.getElementById("performanceComparision");
+
         var peopleCompanyBar = new Chart(peopleCompany, {
             type: 'bar',
             data: {

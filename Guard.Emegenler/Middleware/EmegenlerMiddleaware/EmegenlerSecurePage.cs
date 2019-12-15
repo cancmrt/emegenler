@@ -12,25 +12,58 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
 {
     public class EmegenlerSecurePage
     {
-        public EmegenlerSecurePage(HttpContext context)
+        private readonly IEmegenlerClaims _claims;
+        public EmegenlerSecurePage(HttpContext context,IEmegenlerClaims claims)
         {
-            if(!EmegenlerClaims.IsLoaded)
+            if(!claims.IsLoaded)
             {
-                EmegenlerClaims.LoadClaims(context);
+                claims.LoadClaims(context);
             }
+            _claims = claims;
         }
         public Returner<EmegenlerPolicy> CheckPolicy(string path)
         {
-            List<EmegenlerPolicy> policies = EmegenlerClaims.UserPolicies;
+            List<EmegenlerPolicy> policies = _claims.UserPolicies;
             if (policies is List<EmegenlerPolicy>)
             {
                 policies = policies.Where(p => p.PolicyElement == "Page").ToList();
                 foreach(var policy in policies)
                 {
-                    if(path.ToLower().Contains(policy.PolicyElementIdentifier.ToLower()))
+                    bool ContainsStar = false;
+                    string Identifier = policy.PolicyElementIdentifier;
+                    if(!policy.PolicyElementIdentifier.StartsWith("/"))
                     {
-                        return Returner<EmegenlerPolicy>.SuccessReturn(policy);
+                        Identifier = "/" + Identifier;
                     }
+                    if(policy.PolicyElementIdentifier.EndsWith("/"))
+                    {
+                        Identifier = Identifier.Remove(Identifier.Length - 1);
+                    }
+                    if (policy.PolicyElementIdentifier.EndsWith("/*"))
+                    {
+                        Identifier = Identifier.Replace("/*","");
+                        ContainsStar = true;
+                    }
+                    if (policy.PolicyElementIdentifier.Contains("*"))
+                    {
+                        ContainsStar = true;
+                        Identifier = Identifier.Replace("*", "");
+                    }
+                    if(ContainsStar)
+                    {
+                        if (path.ToLower().Contains(Identifier.ToLower()))
+                        {
+                            return Returner<EmegenlerPolicy>.SuccessReturn(policy);
+                        }
+                    }
+                    else
+                    {
+                        if (path.ToLower() == Identifier.ToLower())
+                        {
+                            return Returner<EmegenlerPolicy>.SuccessReturn(policy);
+                        }
+                    }
+                    
                 }
                 return Returner<EmegenlerPolicy>.FailReturn(new KeyNotFoundException("Middleareweare didn't find any Page Policy on Claims to restirict"));
             }

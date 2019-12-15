@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace Guard.Emegenler.Claims
 {
-    public static class EmegenlerClaims
+    public class EmegenlerClaims:IEmegenlerClaims
     {
-        public static string UserIdentifier { get; set; }
-        public static List<EmegenlerPolicy> UserPolicies { get; set; }
-        public static bool IsLoaded { get; set; }
-        public static void LoadClaims(HttpContext context)
+        public  string UserIdentifier { get; set; }
+        public List<EmegenlerPolicy> UserPolicies { get; set; }
+        public bool IsLoaded { get; set; }
+        public void LoadClaims(HttpContext context)
         {
             if(context.User.Identity.IsAuthenticated)
             {

@@ -1,4 +1,5 @@
-﻿using Guard.Emegenler.Options;
+﻿using Guard.Emegenler.Claims;
+using Guard.Emegenler.Options;
 using Guard.Emegenler.Options.DefaultBehaviours;
 using Guard.Emegenler.TagOperations.TagWorks;
 using Guard.Emegenler.Types;
@@ -18,9 +19,9 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
         private TagAccess TagAccess { get; set; }
         private EmegenlerOptions Options;
 
-        public EmegenlerSecureLink(IHttpContextAccessor httpContextAccessor, EmegenlerOptions options)
+        public EmegenlerSecureLink(IHttpContextAccessor httpContextAccessor,IEmegenlerClaims claims, EmegenlerOptions options)
         {
-            TagAccess = new TagAccess(httpContextAccessor);
+            TagAccess = new TagAccess(httpContextAccessor,claims);
             Options = options;
         }
         public override void Init(TagHelperContext context)

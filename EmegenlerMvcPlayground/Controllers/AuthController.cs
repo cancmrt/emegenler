@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using EmegenlerMvcPlayground.Context;
 using EmegenlerMvcPlayground.Models;
+using Guard.Emegenler.Claims;
 using Guard.Emegenler.FluentInterface;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -18,8 +19,9 @@ namespace EmegenlerMvcPlayground.Controllers
     public class AuthController : Controller
     {
         private readonly IEmegenlerFluentApi API;
+        private readonly IEmegenlerClaims Claims;
         private readonly PlaygroundContext _context;
-        public AuthController(IEmegenlerFluentApi api, PlaygroundContext context)
+        public AuthController(IEmegenlerFluentApi api,PlaygroundContext context)
         {
             API = api;
             _context = context;
@@ -59,6 +61,7 @@ namespace EmegenlerMvcPlayground.Controllers
                 var principal = new ClaimsPrincipal(identity);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal).ConfigureAwait(true);
+
                 return RedirectToAction("Index","Home");
             }
             else

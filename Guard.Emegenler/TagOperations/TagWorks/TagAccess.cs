@@ -15,19 +15,20 @@ namespace Guard.Emegenler.TagOperations.TagWorks
 {
     public class TagAccess
     {
-
-        public TagAccess(IHttpContextAccessor httpContextAccessor)
+        private readonly IEmegenlerClaims _claims;
+        public TagAccess(IHttpContextAccessor httpContextAccessor,IEmegenlerClaims claims)
         {
-            if(!EmegenlerClaims.IsLoaded)
+            if(!claims.IsLoaded)
             {
-                EmegenlerClaims.LoadClaims(httpContextAccessor.HttpContext);
+                claims.LoadClaims(httpContextAccessor.HttpContext);
             }
+            _claims = claims;
         }
 
         public Returner<EmegenlerPolicy> CheckPolicy(string EmegenlerElementType,TagHelperOutput output)
         {
             TagHelperAttributeList listOfAttirubutes = output.Attributes;
-            List<EmegenlerPolicy> policies = EmegenlerClaims.UserPolicies;
+            List<EmegenlerPolicy> policies = _claims.UserPolicies;
             if(policies is List<EmegenlerPolicy>)
             {
                 var findedClassAttiribute = listOfAttirubutes
