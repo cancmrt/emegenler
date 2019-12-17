@@ -10,7 +10,7 @@ namespace Guard.Emegenler.QueryInterface
     public static class EmegenlerPolicyQueryable
     {
 
-        public static void Query(this IEmegenlerPolicyAuthBase authCreate, string query)
+        public static void ByQuery(this IEmegenlerPolicyAuthBase authCreate, string query)
         {
             
             
@@ -26,7 +26,7 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any User identifier");
                 }
-                authCreate.WithUser(output).ElementQueryDefine(splittedQuery[0]);
+                authCreate.WithUser(output).ElementQueryDefine(splittedQuery[0],splittedQuery[1]);
 
             }
             else if(splittedQuery[0].Contains(UserType.Role))
@@ -36,14 +36,14 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Role identifier");
                 }
-                authCreate.WithRole(output).ElementQueryDefine(splittedQuery[0]);
+                authCreate.WithRole(output).ElementQueryDefine(splittedQuery[0],splittedQuery[1]);
             }
             else
             {
                 throw new ArgumentException("UserType level couldn't find, Did you missed User or Role keyword");
             }
         }
-        private static void ElementQueryDefine(this IEmegenlerPolicyAccess elementPolicy, string query)
+        private static void ElementQueryDefine(this IEmegenlerPolicyAccess elementPolicy, string query, string nextQuery)
         {
             if(query.Contains(ElementType.Page))
             {
@@ -52,7 +52,19 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Page identifier");
                 }
-                elementPolicy.AddPage(output);
+                var nextStepOfPolicy = elementPolicy.AddPage(output);
+                if(nextQuery == AccessProtocol.AccessGranted)
+                {
+                    nextStepOfPolicy.AccessGranted();
+                }
+                else if(nextQuery == AccessProtocol.AccessDenied)
+                {
+                    nextStepOfPolicy.AccessDenied();
+                }
+                else
+                {
+                    throw new ArgumentException("We didn't find sended AccessType, In Page types should be: AccessGranted and AccessDenied");
+                }
             }
             else if (query.Contains(ElementType.Component))
             {
@@ -61,7 +73,19 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Component identifier");
                 }
-                elementPolicy.AddComponent(output);
+                var nextStepOfPolicy = elementPolicy.AddComponent(output);
+                if(nextQuery == AccessProtocol.Show)
+                {
+                    nextStepOfPolicy.Show();
+                }
+                else if(nextQuery == AccessProtocol.Hide)
+                {
+                    nextStepOfPolicy.Hide();
+                }
+                else
+                {
+                    throw new ArgumentException("We didn't find sended AccessType, In Component types should be: Show and Hide");
+                }
             }
             else if (query.Contains(ElementType.Form))
             {
@@ -70,16 +94,23 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Form identifier");
                 }
-                elementPolicy.AddForm(output);
-            }
-            else if (query.Contains(ElementType.Form))
-            {
-                string output = GetParanthesisInsideValue(query);
-                if (string.IsNullOrWhiteSpace(output))
+                var nextStepOfPolicy = elementPolicy.AddForm(output);
+                if(nextQuery == AccessProtocol.ActionGranted)
                 {
-                    throw new NullReferenceException("We didn't find any Form identifier");
+                    nextStepOfPolicy.ActionGranted();
                 }
-                elementPolicy.AddForm(output);
+                else if(nextQuery == AccessProtocol.Readonly)
+                {
+                    nextStepOfPolicy.Readonly();
+                }
+                else if(nextQuery == AccessProtocol.Hide)
+                {
+                    nextStepOfPolicy.Hide();
+                }
+                else
+                {
+                    throw new ArgumentException("We didn't find sended AccessType, In Form types should be: ActionGranted,Readonly and Hide");
+                }
             }
             else if (query.Contains(ElementType.Input))
             {
@@ -88,7 +119,23 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Input identifier");
                 }
-                elementPolicy.AddInput(output);
+                var nextStepOfPolicy = elementPolicy.AddInput(output);
+                if(nextQuery == AccessProtocol.Editable)
+                {
+                    nextStepOfPolicy.Editable();
+                }
+                else if(nextQuery == AccessProtocol.Readonly)
+                {
+                    nextStepOfPolicy.Readonly();
+                }
+                else if(nextQuery == AccessProtocol.Hide)
+                {
+                    nextStepOfPolicy.Hide();
+                }
+                else
+                {
+                    throw new ArgumentException("We didn't find sended AccessType, In Input types should be: Editable,Readonly and Hide");
+                }
             }
             else if (query.Contains(ElementType.Button))
             {
@@ -97,7 +144,23 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Button identifier");
                 }
-                elementPolicy.AddButton(output);
+                var nextStepOfPolicy = elementPolicy.AddButton(output);
+                if (nextQuery == AccessProtocol.AccessGranted)
+                {
+                    nextStepOfPolicy.ActionGranted();
+                }
+                else if (nextQuery == AccessProtocol.Readonly)
+                {
+                    nextStepOfPolicy.Readonly();
+                }
+                else if (nextQuery == AccessProtocol.Hide)
+                {
+                    nextStepOfPolicy.Hide();
+                }
+                else
+                {
+                    throw new ArgumentException("We didn't find sended AccessType, In Button types should be: ActionGranted,Readonly and Hide");
+                }
             }
             else if (query.Contains(ElementType.Link))
             {
@@ -106,7 +169,23 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Link identifier");
                 }
-                elementPolicy.AddLink(output);
+                var nextStepOfPolicy = elementPolicy.AddLink(output);
+                if (nextQuery == AccessProtocol.AccessGranted)
+                {
+                    nextStepOfPolicy.ActionGranted();
+                }
+                else if (nextQuery == AccessProtocol.Readonly)
+                {
+                    nextStepOfPolicy.Readonly();
+                }
+                else if (nextQuery == AccessProtocol.Hide)
+                {
+                    nextStepOfPolicy.Hide();
+                }
+                else
+                {
+                    throw new ArgumentException("We didn't find sended AccessType, In Link types should be: ActionGranted,Readonly and Hide");
+                }
             }
             else
             {
