@@ -38,7 +38,7 @@ namespace EmegenlerTests.Features.FluentApis
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "FluentPolicy", "\tThis class will do policy operation with fluent interface. Should create policy," +
                     " edit policy, delete policy and get policy and policies with using fluent interf" +
-                    "ace", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "ace\r\n\tAlso you can use Query interface", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,6 +78,694 @@ namespace EmegenlerTests.Features.FluentApis
             this.ScenarioTearDown();
         }
         
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessGrante" +
+            "d")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessGrante" +
+            "d")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_PagePageIdentifier_AccessGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessGrante" +
+                    "d", null, new string[] {
+                        "Query-NormalCase"});
+#line 6
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 7
+ testRunner.When("User(userIdentifier)->Page(pageIdentifier)->AccessGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 8
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Page(pageIdentifi" +
+                    "er)->AccessGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessDenied" +
+            "")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessDenied" +
+            "")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_PagePageIdentifier_AccessDenied()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessDenied" +
+                    "", null, new string[] {
+                        "Query-NormalCase"});
+#line 11
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 12
+ testRunner.When("User(userIdentifier)->Page(pageIdentifier)->AccessDenied written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Page(pageIdentifi" +
+                    "er)->AccessDenied query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Sh" +
+            "ow")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Sh" +
+            "ow")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_ComponentComponentIdentifier_Show()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Sh" +
+                    "ow", null, new string[] {
+                        "Query-NormalCase"});
+#line 16
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 17
+ testRunner.When("User(userIdentifier)->Component(componentIdentifier)->Show written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Component(compone" +
+                    "ntIdentifier)->Show query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Hi" +
+            "de")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Hi" +
+            "de")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_ComponentComponentIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Hi" +
+                    "de", null, new string[] {
+                        "Query-NormalCase"});
+#line 21
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 22
+ testRunner.When("User(userIdentifier)->Component(componentIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Component(compone" +
+                    "ntIdentifier)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Form(formIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Form(formIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_FormFormIdentifier_ActionGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Form(formIdentifier)->ActionGrante" +
+                    "d", null, new string[] {
+                        "Query-NormalCase"});
+#line 26
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 27
+ testRunner.When("User(userIdentifier)->Form(formIdentifier)->ActionGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Form(formIdentifi" +
+                    "er)->ActionGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Form(formIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Form(formIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_FormFormIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Form(formIdentifier)->Readonly", null, new string[] {
+                        "Query-NormalCase"});
+#line 31
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 32
+ testRunner.When("User(userIdentifier)->Form(formIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 33
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Form(formIdentifi" +
+                    "er)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Form(formIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Form(formIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_FormFormIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Form(formIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 36
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 37
+ testRunner.When("User(userIdentifier)->Form(formIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Form(formIdentifi" +
+                    "er)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Editable")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Editable")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_InputİnputIdentifier_Editable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Editable", null, new string[] {
+                        "Query-NormalCase"});
+#line 41
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 42
+ testRunner.When("User(userIdentifier)->Input(inputIdentifier)->Editable written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Input(inputIdenti" +
+                    "fier)->Editable query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_InputİnputIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Readonly", null, new string[] {
+                        "Query-NormalCase"});
+#line 46
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 47
+ testRunner.When("User(userIdentifier)->Input(inputIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Input(inputIdenti" +
+                    "fier)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_InputİnputIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 51
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 52
+ testRunner.When("User(userIdentifier)->Input(inputIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Input(inputIdenti" +
+                    "fier)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->ActionGr" +
+            "anted")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->ActionGr" +
+            "anted")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_ButtonButtonIdentifier_ActionGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->ActionGr" +
+                    "anted", null, new string[] {
+                        "Query-NormalCase"});
+#line 56
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 57
+ testRunner.When("User(userIdentifier)->Button(buttonIdentifier)->ActionGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 58
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Button(buttonIden" +
+                    "tifier)->ActionGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Readonly" +
+            "")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Readonly" +
+            "")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_ButtonButtonIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Readonly" +
+                    "", null, new string[] {
+                        "Query-NormalCase"});
+#line 61
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 62
+ testRunner.When("User(userIdentifier)->Button(buttonIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Button(buttonIden" +
+                    "tifier)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_ButtonButtonIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 66
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 67
+ testRunner.When("User(userIdentifier)->Button(buttonIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 68
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Button(buttonIden" +
+                    "tifier)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Link(linkIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Link(linkIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_LinkLinkIdentifier_ActionGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Link(linkIdentifier)->ActionGrante" +
+                    "d", null, new string[] {
+                        "Query-NormalCase"});
+#line 71
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 72
+ testRunner.When("User(userIdentifier)->Link(linkIdentifier)->ActionGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Link(linkIdentifi" +
+                    "er)->ActionGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_LinkLinkIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Readonly", null, new string[] {
+                        "Query-NormalCase"});
+#line 76
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 77
+ testRunner.When("User(userIdentifier)->Link(linkIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 78
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Link(linkIdentifi" +
+                    "er)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryUserUserIdentifier_LinkLinkIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 81
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 82
+ testRunner.When("User(userIdentifier)->Link(linkIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 83
+ testRunner.Then("Operation done without throw exception on User(userIdentifier)->Link(linkIdentifi" +
+                    "er)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessGrante" +
+            "d")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessGrante" +
+            "d")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_PagePageIdentifier_AccessGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessGrante" +
+                    "d", null, new string[] {
+                        "Query-NormalCase"});
+#line 86
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 87
+ testRunner.When("Role(roleIdentifier)->Page(pageIdentifier)->AccessGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 88
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Page(pageIdentifi" +
+                    "er)->AccessGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied" +
+            "")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied" +
+            "")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_PagePageIdentifier_AccessDenied()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied" +
+                    "", null, new string[] {
+                        "Query-NormalCase"});
+#line 91
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 92
+ testRunner.When("Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 93
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Page(pageIdentifi" +
+                    "er)->AccessDenied query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Sh" +
+            "ow")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Sh" +
+            "ow")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_ComponentComponentIdentifier_Show()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Sh" +
+                    "ow", null, new string[] {
+                        "Query-NormalCase"});
+#line 96
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 97
+ testRunner.When("Role(roleIdentifier)->Component(componentIdentifier)->Show written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 98
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Component(compone" +
+                    "ntIdentifier)->Show query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Hi" +
+            "de")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Hi" +
+            "de")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_ComponentComponentIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Hi" +
+                    "de", null, new string[] {
+                        "Query-NormalCase"});
+#line 101
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 102
+ testRunner.When("Role(roleIdentifier)->Component(componentIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 103
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Component(compone" +
+                    "ntIdentifier)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_FormFormIdentifier_ActionGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->ActionGrante" +
+                    "d", null, new string[] {
+                        "Query-NormalCase"});
+#line 106
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 107
+ testRunner.When("Role(roleIdentifier)->Form(formIdentifier)->ActionGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 108
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Form(formIdentifi" +
+                    "er)->ActionGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_FormFormIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Readonly", null, new string[] {
+                        "Query-NormalCase"});
+#line 111
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 112
+ testRunner.When("Role(roleIdentifier)->Form(formIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 113
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Form(formIdentifi" +
+                    "er)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_FormFormIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 116
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 117
+ testRunner.When("Role(roleIdentifier)->Form(formIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 118
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Form(formIdentifi" +
+                    "er)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Editable")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Editable")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_InputİnputIdentifier_Editable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Editable", null, new string[] {
+                        "Query-NormalCase"});
+#line 121
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 122
+ testRunner.When("Role(roleIdentifier)->Input(inputIdentifier)->Editable written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 123
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Input(inputIdenti" +
+                    "fier)->Editable query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_InputİnputIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Readonly", null, new string[] {
+                        "Query-NormalCase"});
+#line 126
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 127
+ testRunner.When("Role(roleIdentifier)->Input(inputIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 128
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Input(inputIdenti" +
+                    "fier)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_InputİnputIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 131
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 132
+ testRunner.When("Role(roleIdentifier)->Input(inputIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 133
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Input(inputIdenti" +
+                    "fier)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->ActionGr" +
+            "anted")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->ActionGr" +
+            "anted")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_ButtonButtonIdentifier_ActionGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->ActionGr" +
+                    "anted", null, new string[] {
+                        "Query-NormalCase"});
+#line 136
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 137
+ testRunner.When("Role(roleIdentifier)->Button(buttonIdentifier)->ActionGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 138
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Button(buttonIden" +
+                    "tifier)->ActionGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Readonly" +
+            "")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Readonly" +
+            "")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_ButtonButtonIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Readonly" +
+                    "", null, new string[] {
+                        "Query-NormalCase"});
+#line 141
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 142
+ testRunner.When("Role(roleIdentifier)->Button(buttonIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 143
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Button(buttonIden" +
+                    "tifier)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_ButtonButtonIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 146
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 147
+ testRunner.When("Role(roleIdentifier)->Button(buttonIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 148
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Button(buttonIden" +
+                    "tifier)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->ActionGrante" +
+            "d")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_LinkLinkIdentifier_ActionGranted()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->ActionGrante" +
+                    "d", null, new string[] {
+                        "Query-NormalCase"});
+#line 151
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 152
+ testRunner.When("Role(roleIdentifier)->Link(linkIdentifier)->ActionGranted written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 153
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Link(linkIdentifi" +
+                    "er)->ActionGranted query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Readonly")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_LinkLinkIdentifier_Readonly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Readonly", null, new string[] {
+                        "Query-NormalCase"});
+#line 156
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 157
+ testRunner.When("Role(roleIdentifier)->Link(linkIdentifier)->Readonly written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 158
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Link(linkIdentifi" +
+                    "er)->Readonly query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Hide")]
+        [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
+        [Xunit.TraitAttribute("Description", "Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Hide")]
+        [Xunit.TraitAttribute("Category", "Query-NormalCase")]
+        public virtual void CreatePolicyWithQueryRoleRoleIdentifier_LinkLinkIdentifier_Hide()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Hide", null, new string[] {
+                        "Query-NormalCase"});
+#line 161
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 162
+ testRunner.When("Role(roleIdentifier)->Link(linkIdentifier)->Hide written in Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 163
+ testRunner.Then("Operation done without throw exception on Role(roleIdentifier)->Link(linkIdentifi" +
+                    "er)->Hide query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [Xunit.FactAttribute(DisplayName="Create policy with user identifier and add policy to page with access granted pro" +
             "perty")]
         [Xunit.TraitAttribute("FeatureTitle", "FluentPolicy")]
@@ -89,13 +777,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to page with access granted pro" +
                     "perty", null, new string[] {
                         "Create-NormalCase"});
-#line 5
+#line 166
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 6
+#line 167
  testRunner.When("api.Policy.Create().WithUser(userIdentifier).AddPage(typeof(FakeClass)).AccessGra" +
                     "nted(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 7
+#line 168
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(userIdenti" +
                     "fier).AddPage(typeof(FakeClass)).AccessGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -113,13 +801,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to page with access denied prop" +
                     "erty", null, new string[] {
                         "Create-NormalCase"});
-#line 10
+#line 171
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 11
+#line 172
  testRunner.When("api.Policy.Create().WithUser(userIdentifier).AddPage(typeof(FakeClass)).AccessDen" +
                     "ied(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 173
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(userIdenti" +
                     "fier).AddPage(typeof(FakeClass)).AccessDenied(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -137,13 +825,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to page with access granted pro" +
                     "perty", null, new string[] {
                         "Create-NormalCase"});
-#line 15
+#line 176
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 16
+#line 177
  testRunner.When("api.Policy.Create().WithRole(roleIdentifier).AddPage(typeof(FakeClass)).AccessGra" +
                     "nted(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 178
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(roleIdenti" +
                     "fier).AddPage(typeof(FakeClass)).AccessGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -161,13 +849,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to page with access denied prop" +
                     "erty", null, new string[] {
                         "Create-NormalCase"});
-#line 20
+#line 181
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 21
+#line 182
  testRunner.When("api.Policy.Create().WithRole(roleIdentifier).AddPage(typeof(FakeClass)).AccessDen" +
                     "ied(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 183
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(roleIdenti" +
                     "fier).AddPage(typeof(FakeClass)).AccessDenied(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -185,13 +873,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to component with show property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 25
+#line 186
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 26
+#line 187
  testRunner.When("api.Policy.Create().WithUser(userIdentifier).AddComponent(identifier).Show(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 27
+#line 188
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(userIdenti" +
                     "fier).AddComponent(identifier).Show(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -209,13 +897,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to component with hide property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 29
+#line 190
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 30
+#line 191
  testRunner.When("api.Policy.Create().WithUser(userIdentifier).AddComponent(identifier).Hide(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 31
+#line 192
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(userIdenti" +
                     "fier).AddComponent(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -233,13 +921,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to component with show property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 34
+#line 195
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 35
+#line 196
  testRunner.When("api.Policy.Create().WithRole(roleIdentifier).AddComponent(identifier).Show(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 36
+#line 197
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(roleIdenti" +
                     "fier).AddComponent(identifier).Show(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -257,13 +945,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to component with hide property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 38
+#line 199
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 39
+#line 200
  testRunner.When("api.Policy.Create().WithRole(roleIdentifier).AddComponent(identifier).Hide(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
+#line 201
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(roleIdenti" +
                     "fier).AddComponent(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -281,13 +969,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to form with action granted pro" +
                     "perty", null, new string[] {
                         "Create-NormalCase"});
-#line 43
+#line 204
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 44
+#line 205
  testRunner.When("api.Policy.Create().WithUser(identifier).AddForm(identifier).ActionGranted(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 45
+#line 206
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddForm(identifier).ActionGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -302,12 +990,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to form with readonly property", null, new string[] {
                         "Create-NormalCase"});
-#line 47
+#line 208
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 48
+#line 209
  testRunner.When("api.Policy.Create().WithUser(identifier).AddForm(identifier).Readonly(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 49
+#line 210
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddForm(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -322,12 +1010,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to form with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 51
+#line 212
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 52
+#line 213
  testRunner.When("api.Policy.Create().WithUser(identifier).AddForm(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 53
+#line 214
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddForm(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -345,13 +1033,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to form with action granted pro" +
                     "perty", null, new string[] {
                         "Create-NormalCase"});
-#line 56
+#line 217
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 57
+#line 218
  testRunner.When("api.Policy.Create().WithRole(identifier).AddForm(identifier).ActionGranted(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 58
+#line 219
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddForm(identifier).ActionGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -366,12 +1054,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to form with readonly property", null, new string[] {
                         "Create-NormalCase"});
-#line 60
+#line 221
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 61
+#line 222
  testRunner.When("api.Policy.Create().WithRole(identifier).AddForm(identifier).Readonly(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 62
+#line 223
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddForm(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -386,12 +1074,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to form with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 64
+#line 225
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 65
+#line 226
  testRunner.When("api.Policy.Create().WithRole(identifier).AddForm(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 66
+#line 227
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddForm(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -409,12 +1097,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to input with editable property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 69
+#line 230
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 70
+#line 231
  testRunner.When("api.Policy.Create().WithUser(identifier).AddInput(identifier).Editable(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 71
+#line 232
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddInput(identifier).Editable(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -432,12 +1120,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to input with readonly property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 73
+#line 234
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 74
+#line 235
  testRunner.When("api.Policy.Create().WithUser(identifier).AddInput(identifier).Readonly(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 75
+#line 236
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddInput(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -452,12 +1140,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to input with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 77
+#line 238
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 78
+#line 239
  testRunner.When("api.Policy.Create().WithUser(identifier).AddInput(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 79
+#line 240
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddInput(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -475,12 +1163,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to to input with editable prope" +
                     "rty", null, new string[] {
                         "Create-NormalCase"});
-#line 82
+#line 243
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 83
+#line 244
  testRunner.When("api.Policy.Create().WithRole(identifier).AddInput(identifier).Editable(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 84
+#line 245
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddInput(identifier).Editable(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -498,12 +1186,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to input with readonly property" +
                     "", null, new string[] {
                         "Create-NormalCase"});
-#line 86
+#line 247
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 87
+#line 248
  testRunner.When("api.Policy.Create().WithRole(identifier).AddInput(identifier).Readonly(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 88
+#line 249
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddInput(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -518,12 +1206,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to input with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 90
+#line 251
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 91
+#line 252
  testRunner.When("api.Policy.Create().WithRole(identifier).AddInput(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 92
+#line 253
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddInput(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -541,13 +1229,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to button with action granted p" +
                     "roperty", null, new string[] {
                         "Create-NormalCase"});
-#line 95
+#line 256
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 96
+#line 257
  testRunner.When("api.Policy.Create().WithUser(identifier).AddButton(identifier).ActionGranted(); c" +
                     "alled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 97
+#line 258
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddButton(identifier).ActionGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -565,13 +1253,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to button with readonly propert" +
                     "y", null, new string[] {
                         "Create-NormalCase"});
-#line 99
+#line 260
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 100
+#line 261
  testRunner.When("api.Policy.Create().WithUser(identifier).AddButton(identifier).Readonly(); called" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 101
+#line 262
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddButton(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -586,12 +1274,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to button with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 103
+#line 264
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 104
+#line 265
  testRunner.When("api.Policy.Create().WithUser(identifier).AddButton(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 105
+#line 266
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddButton(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -609,13 +1297,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to button with action granted p" +
                     "roperty", null, new string[] {
                         "Create-NormalCase"});
-#line 108
+#line 269
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 109
+#line 270
  testRunner.When("api.Policy.Create().WithRole(identifier).AddButton(identifier).ActionGranted(); c" +
                     "alled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 110
+#line 271
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddButton(identifier).ActionGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -633,13 +1321,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to button with readonly propert" +
                     "y", null, new string[] {
                         "Create-NormalCase"});
-#line 112
+#line 273
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 113
+#line 274
  testRunner.When("api.Policy.Create().WithRole(identifier).AddButton(identifier).Readonly(); called" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 114
+#line 275
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddButton(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -654,12 +1342,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to button with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 116
+#line 277
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 117
+#line 278
  testRunner.When("api.Policy.Create().WithRole(identifier).AddButton(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 118
+#line 279
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddButton(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -677,13 +1365,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to link with action granted pro" +
                     "perty", null, new string[] {
                         "Create-NormalCase"});
-#line 121
+#line 282
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 122
+#line 283
  testRunner.When("api.Policy.Create().WithUser(identifier).AddLink(identifier).ActionGranted(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 123
+#line 284
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddLink(identifier).ActionGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -698,12 +1386,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to link with readonly property", null, new string[] {
                         "Create-NormalCase"});
-#line 125
+#line 286
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 126
+#line 287
  testRunner.When("api.Policy.Create().WithUser(identifier).AddLink(identifier).Readonly(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 127
+#line 288
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddLink(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -718,12 +1406,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with user identifier and add policy to link with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 129
+#line 290
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 130
+#line 291
  testRunner.When("api.Policy.Create().WithUser(identifier).AddLink(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 131
+#line 292
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithUser(identifier" +
                     ").AddLink(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -741,13 +1429,13 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to link with action granted pro" +
                     "perty", null, new string[] {
                         "Create-NormalCase"});
-#line 134
+#line 295
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 135
+#line 296
  testRunner.When("api.Policy.Create().WithRole(identifier).AddLink(identifier).ActionGranted(); cal" +
                     "led", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 136
+#line 297
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddLink(identifier).ActionGranted(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -762,12 +1450,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to link with readonly property", null, new string[] {
                         "Create-NormalCase"});
-#line 138
+#line 299
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 139
+#line 300
  testRunner.When("api.Policy.Create().WithRole(identifier).AddLink(identifier).Readonly(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 140
+#line 301
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddLink(identifier).Readonly(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -782,12 +1470,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create policy with role identifier and add policy to link with hide property", null, new string[] {
                         "Create-NormalCase"});
-#line 142
+#line 303
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 143
+#line 304
  testRunner.When("api.Policy.Create().WithRole(identifier).AddLink(identifier).Hide(); called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 144
+#line 305
  testRunner.Then("Operation done without throw exception on api.Policy.Create().WithRole(identifier" +
                     ").AddLink(identifier).Hide(); call", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -802,13 +1490,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty UserIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 147
+#line 308
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 148
+#line 309
   testRunner.When("api.Policy.Create().WithUser().AddPage(typeof(FakeClass)).AccessGranted(); called" +
                     " on WithUser method with empty UserIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 149
+#line 310
   testRunner.Then("NullReferanceException throws by WithUser method with empty UserIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -822,13 +1510,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null UserIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 151
+#line 312
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 152
+#line 313
   testRunner.When("api.Policy.Create().WithUser(null).AddPage(typeof(FakeClass)).AccessGranted(); ca" +
                     "lled on WithUser method with null UserIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 153
+#line 314
   testRunner.Then("NullReferanceException throws by WithUser method with null UserIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -842,13 +1530,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty RoleIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 155
+#line 316
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 156
+#line 317
   testRunner.When("api.Policy.Create().WithRole().AddPage(typeof(FakeClass)).AccessGranted(); called" +
                     " on WithRole method with empty RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 157
+#line 318
   testRunner.Then("NullReferanceException throws by WithRole method with empty RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -862,13 +1550,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null RoleIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 159
+#line 320
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 160
+#line 321
   testRunner.When("api.Policy.Create().WithRole(null).AddPage(typeof(FakeClass)).AccessGranted(); ca" +
                     "lled on WithRole method with null RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 161
+#line 322
   testRunner.Then("NullReferanceException throws by WithRole method with null RoleIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -882,13 +1570,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null PageType", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 164
+#line 325
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 165
+#line 326
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddPage(null).AccessGranted(); calle" +
                     "d on AddPage method with null PageType prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 166
+#line 327
   testRunner.Then("NullReferanceException throws by AddPage method with null PageType prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -902,13 +1590,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty ComponentIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 169
+#line 330
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 170
+#line 331
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddComponent().Show(); called on Add" +
                     "Component method with empty ComponentIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 171
+#line 332
   testRunner.Then("NullReferanceException throws by AddComponent method with empty ComponentIdentifi" +
                     "er prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -923,13 +1611,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null ComponentIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 173
+#line 334
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 174
+#line 335
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddComponent(null).Show(); called on" +
                     " AddComponent method with null ComponentIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 175
+#line 336
   testRunner.Then("NullReferanceException throws by AddComponent method with null ComponentIdentifie" +
                     "r prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -944,13 +1632,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty FormIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 178
+#line 339
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 179
+#line 340
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddForm().ActionGranted(); called on" +
                     " AddForm method with empty FormIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 180
+#line 341
   testRunner.Then("NullReferanceException throws by AddForm method with empty FormIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -964,13 +1652,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null FormIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 182
+#line 343
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 183
+#line 344
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddForm(null).ActionGranted(); calle" +
                     "d on AddForm method with null FormIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 184
+#line 345
   testRunner.Then("NullReferanceException throws by AddForm method with null FormIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -984,13 +1672,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty InputIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 187
+#line 348
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 188
+#line 349
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddInput().Readonly(); called on Add" +
                     "Input method with empty InputIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 189
+#line 350
   testRunner.Then("NullReferanceException throws by AddInput method with empty InputIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1004,13 +1692,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null InputIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 191
+#line 352
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 192
+#line 353
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddInput(null).Readonly(); called on" +
                     " AddForm method with null InputIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 193
+#line 354
   testRunner.Then("NullReferanceException throws by AddInput method with null InputIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1024,13 +1712,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty ButtonIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 196
+#line 357
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 197
+#line 358
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddButton().Readonly(); called on Ad" +
                     "dButton method with empty ButtonIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 198
+#line 359
   testRunner.Then("NullReferanceException throws by AddButton method with empty ButtonIdentifier pro" +
                     "p", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1045,13 +1733,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null ButtonIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 200
+#line 361
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 201
+#line 362
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddButton(null).Readonly(); called o" +
                     "n AddButton method with null ButtonIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 202
+#line 363
   testRunner.Then("NullReferanceException throws by AddButton method with null ButtonIdentifier prop" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1066,13 +1754,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with empty LinkIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 205
+#line 366
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 206
+#line 367
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddLink().Readonly(); called on AddL" +
                     "ink method with empty LinkIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 207
+#line 368
   testRunner.Then("NullReferanceException throws by AddLink method with empty LinkIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1086,13 +1774,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to create policy with null LinkIdentifier", null, new string[] {
                         "Create-ExceptionalCase"});
-#line 209
+#line 370
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 210
+#line 371
   testRunner.When("api.Policy.Create().WithUser(UserIdentifier).AddLink(null).Readonly(); called on " +
                     "AddLink method with null LinkIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 211
+#line 372
   testRunner.Then("NullReferanceException throws by AddLink method with null LinkIdentifier prop", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1109,12 +1797,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take valid PolicyId and method should return valid EmegelerPolicy enti" +
                     "ty", null, new string[] {
                         "Get-NormalCase"});
-#line 213
+#line 374
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 214
+#line 375
  testRunner.When("We pass valid PolicyId to Get method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 215
+#line 376
  testRunner.Then("Get method should return valid EmegelerPolicy entity from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1128,12 +1816,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take PolicyId with zero value and method throw exception", null, new string[] {
                         "Get-ExceptionalCase"});
-#line 217
+#line 378
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 218
+#line 379
  testRunner.When("We pass PolicyId with zero value to Get method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 219
+#line 380
  testRunner.Then("Get method should throw exception on PolicyId with zero value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1147,12 +1835,12 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get method take PolicyId with negative value and method throw exception", null, new string[] {
                         "Get-ExceptionalCase"});
-#line 221
+#line 382
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 222
+#line 383
  testRunner.When("We pass PolicyId with negative value to Get method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 223
+#line 384
  testRunner.Then("Get method should throw exception on PolicyId with negative value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1169,12 +1857,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method take valid Page and PageSize prop and method should return List of Po" +
                     "licies", null, new string[] {
                         "Take-NormalCase"});
-#line 226
+#line 387
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 227
+#line 388
  testRunner.When("We pass valid Page and PageSize prop on Take method from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 228
+#line 389
  testRunner.Then("Take method should return List of EmegelerPolicy entites from FluentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1188,13 +1876,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method take valid Page but PageSize is less than one", null, new string[] {
                         "Take-ExceptionalCase"});
-#line 230
+#line 391
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 231
+#line 392
  testRunner.When("We pass valid Page prop but PageSize value is less than one to Take method from F" +
                     "luentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 232
+#line 393
  testRunner.Then("Take method should throw exception on when PageSize value is less than one from F" +
                     "luentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1209,13 +1897,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take method take valid PageSize but Page is less than one", null, new string[] {
                         "Take-ExceptionalCase"});
-#line 234
+#line 395
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 235
+#line 396
  testRunner.When("We pass valid PageSize prop but Page value is less than one to Take method from F" +
                     "luentPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 236
+#line 397
  testRunner.Then("Take method should throw exception on when Page value is less than one from Fluen" +
                     "tPolicy class", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1233,12 +1921,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Count method when called return Count of Policies in EmegenlerTables from PolicyI" +
                     "nterface", null, new string[] {
                         "Count-NormalCase"});
-#line 239
+#line 400
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 240
+#line 401
  testRunner.When("Count method called from Pplicy interface", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 241
+#line 402
  testRunner.Then("Count method should return Count of Policies in EmegenlerTables from PolicyInterf" +
                     "ace", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1256,12 +1944,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromUser(identifier) method should get List of Policies belon" +
                     "g to User", null, new string[] {
                         "Take.FromUser-NormalCase"});
-#line 244
+#line 405
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 245
+#line 406
  testRunner.When("We pass valid identifier api.Policy().Take().FromUser(identifier) method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 246
+#line 407
  testRunner.Then("api.Policy().Take().FromUser(identifier) should return List of Policies belong to" +
                     " User", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1279,12 +1967,12 @@ namespace EmegenlerTests.Features.FluentApis
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromRole(identifier) method should get List of Policies belon" +
                     "g to Role", null, new string[] {
                         "Take.FromRole-NormalCase"});
-#line 249
+#line 410
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 250
+#line 411
  testRunner.When("We pass valid identifier api.Policy().Take().FromRole(identifier) method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 251
+#line 412
  testRunner.Then("api.Policy().Take().FromRole(identifier) should return List of Policies belong to" +
                     " Role", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1299,13 +1987,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromUser(Empty) method should throw exception", null, new string[] {
                         "Take.FromUser-ExceptionalCase"});
-#line 254
+#line 415
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 255
+#line 416
  testRunner.When("We pass Empty value as User identifier to api.Policy().Take().FromUser(Empty) met" +
                     "hod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 256
+#line 417
  testRunner.Then("api.Policy().Take().FromUser(Empty) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1319,13 +2007,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromUser(null) method should throw exception", null, new string[] {
                         "Take.FromUser-ExceptionalCase"});
-#line 259
+#line 420
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 260
+#line 421
  testRunner.When("We pass Null value as User identifier to api.Policy().Take().FromUser(null) metho" +
                     "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 261
+#line 422
  testRunner.Then("api.Policy().Take().FromUser(null) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1339,13 +2027,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromRole(Empty) method should throw exception", null, new string[] {
                         "Take.FromRole-ExceptionalCase"});
-#line 264
+#line 425
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 265
+#line 426
  testRunner.When("We pass Empty value as Role identifier to api.Policy().Take().FromRole(Empty) met" +
                     "hod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 266
+#line 427
  testRunner.Then("api.Policy().Take().FromRole(Empty) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1359,13 +2047,13 @@ namespace EmegenlerTests.Features.FluentApis
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("api.Policy().Take().FromRole(null) method should throw exception", null, new string[] {
                         "Take.FromRole-ExceptionalCase"});
-#line 269
+#line 430
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 270
+#line 431
  testRunner.When("We pass Null value as Role identifier to api.Policy().Take().FromRole(null) metho" +
                     "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 271
+#line 432
  testRunner.Then("api.Policy().Take().FromRole(null) method should throw exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

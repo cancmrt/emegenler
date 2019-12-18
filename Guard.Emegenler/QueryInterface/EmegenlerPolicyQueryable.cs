@@ -26,7 +26,7 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any User identifier");
                 }
-                authCreate.WithUser(output).ElementQueryDefine(splittedQuery[0],splittedQuery[1]);
+                authCreate.WithUser(output).ElementQueryDefine(splittedQuery[1],splittedQuery[2]);
 
             }
             else if(splittedQuery[0].Contains(UserType.Role))
@@ -36,7 +36,7 @@ namespace Guard.Emegenler.QueryInterface
                 {
                     throw new NullReferenceException("We didn't find any Role identifier");
                 }
-                authCreate.WithRole(output).ElementQueryDefine(splittedQuery[0],splittedQuery[1]);
+                authCreate.WithRole(output).ElementQueryDefine(splittedQuery[1],splittedQuery[2]);
             }
             else
             {
@@ -145,7 +145,7 @@ namespace Guard.Emegenler.QueryInterface
                     throw new NullReferenceException("We didn't find any Button identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddButton(output);
-                if (nextQuery == AccessProtocol.AccessGranted)
+                if (nextQuery == AccessProtocol.ActionGranted)
                 {
                     nextStepOfPolicy.ActionGranted();
                 }
@@ -170,7 +170,7 @@ namespace Guard.Emegenler.QueryInterface
                     throw new NullReferenceException("We didn't find any Link identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddLink(output);
-                if (nextQuery == AccessProtocol.AccessGranted)
+                if (nextQuery == AccessProtocol.ActionGranted)
                 {
                     nextStepOfPolicy.ActionGranted();
                 }
