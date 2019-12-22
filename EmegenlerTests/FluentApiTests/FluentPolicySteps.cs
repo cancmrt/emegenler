@@ -412,6 +412,163 @@ namespace EmegenlerTests.FluentApiTests
         }
 
 
+        [When(@"null command written in Query")]
+        public void WhenNullCommandWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery(null); };
+        }
+
+        [Then(@"Operation should throw exception on null query")]
+        public void ThenOperationShouldThrowExceptionOnNullQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"NOOWAY\(userIdentifier\)->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUserrUserIdentifier_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("NOOWAY(1)->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on NOOWAY\(userIdentifier\)->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUserrUserIdentifier_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUser_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->AHREF\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_PageeePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->AHREF(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->AHREF\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_PageeePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Page->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Page_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Page->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Page->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Page_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Page\(pageIdentifier\)->Access written in Query")]
+        public void WhenUserUserIdentifier_PagePageIdentifier_AccessWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Page(page/access)->Access"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Page\(pageIdentifier\)->Access query")]
+        public void ThenOperationShouldThrowExceptionOnUser_PagePageIdentifier_AccessQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Component->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Component_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Component->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Component->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Component_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Form->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Form_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Form->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Form->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Form_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Input->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Input_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Input->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Input->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Input_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Button->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Button_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Button->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Button->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Button_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Link->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Link_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Link->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Link->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Link_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"NOOOO\(roleIdentifier\)->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenRoleeRoleIdentifier_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("NOOOO(1)->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on NOOOO\(roleIdentifier\)->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnRoleeRoleIdentifier_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"Role->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenRole_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on Role->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnRole_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(userIdentifier\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); called")]
         public void WhenApi_Policy_Create_WithUserUserIdentifier_AddPageTypeofFakeClass_AccessGrantedCalled()
