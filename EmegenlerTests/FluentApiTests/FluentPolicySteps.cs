@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Guard.Emegenler;
 using Guard.Emegenler.FluentInterface;
+using Guard.Emegenler.QueryInterface;
 using Guard.Emegenler.UnitOfWork;
 using System;
 using TechTalk.SpecFlow;
@@ -24,6 +25,547 @@ namespace EmegenlerTests.FluentApiTests
             _fluent = new FluentApi(_uWork);
 
 
+        }
+
+        [When(@"User\(userIdentifier\)->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Page\(pageIdentifier\)->AccessDenied written in Query")]
+        public void WhenUserUserIdentifier_PagePageIdentifier_AccessDeniedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Page(page/access)->AccessDenied"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Page\(pageIdentifier\)->AccessDenied query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_PagePageIdentifier_AccessDeniedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Component\(componentIdentifier\)->Show written in Query")]
+        public void WhenUserUserIdentifier_ComponentComponentIdentifier_ShowWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Component(.leftMenu)->Show"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Component\(componentIdentifier\)->Show query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_ComponentComponentIdentifier_ShowQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Component\(componentIdentifier\)->Hide written in Query")]
+        public void WhenUserUserIdentifier_ComponentComponentIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Component(.leftMenu)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Component\(componentIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_ComponentComponentIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Form\(formIdentifier\)->ActionGranted written in Query")]
+        public void WhenUserUserIdentifier_FormFormIdentifier_ActionGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Form(.form)->ActionGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Form\(formIdentifier\)->ActionGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_FormFormIdentifier_ActionGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Form\(formIdentifier\)->Readonly written in Query")]
+        public void WhenUserUserIdentifier_FormFormIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Form(.form)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Form\(formIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_FormFormIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Form\(formIdentifier\)->Hide written in Query")]
+        public void WhenUserUserIdentifier_FormFormIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Form(.form)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Form\(formIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_FormFormIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Input\(inputIdentifier\)->Editable written in Query")]
+        public void WhenUserUserIdentifier_InputİnputIdentifier_EditableWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Input(.input)->Editable"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Input\(inputIdentifier\)->Editable query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_InputİnputIdentifier_EditableQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Input\(inputIdentifier\)->Readonly written in Query")]
+        public void WhenUserUserIdentifier_InputİnputIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Input(.input)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Input\(inputIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_InputİnputIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Input\(inputIdentifier\)->Hide written in Query")]
+        public void WhenUserUserIdentifier_InputİnputIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Input(.input)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Input\(inputIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_InputİnputIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Button\(buttonIdentifier\)->ActionGranted written in Query")]
+        public void WhenUserUserIdentifier_ButtonButtonIdentifier_ActionGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Button(.button)->ActionGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Button\(buttonIdentifier\)->ActionGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_ButtonButtonIdentifier_ActionGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Button\(buttonIdentifier\)->Readonly written in Query")]
+        public void WhenUserUserIdentifier_ButtonButtonIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Button(.button)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Button\(buttonIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_ButtonButtonIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Button\(buttonIdentifier\)->Hide written in Query")]
+        public void WhenUserUserIdentifier_ButtonButtonIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Button(.button)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Button\(buttonIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_ButtonButtonIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Link\(linkIdentifier\)->ActionGranted written in Query")]
+        public void WhenUserUserIdentifier_LinkLinkIdentifier_ActionGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Link(.link)->ActionGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Link\(linkIdentifier\)->ActionGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_LinkLinkIdentifier_ActionGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Link\(linkIdentifier\)->Readonly written in Query")]
+        public void WhenUserUserIdentifier_LinkLinkIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Link(.link)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Link\(linkIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_LinkLinkIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Link\(linkIdentifier\)->Hide written in Query")]
+        public void WhenUserUserIdentifier_LinkLinkIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Link(.link)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on User\(userIdentifier\)->Link\(linkIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnUserUserIdentifier_LinkLinkIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenRoleRoleIdentifier_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Page\(pageIdentifier\)->AccessDenied written in Query")]
+        public void WhenRoleRoleIdentifier_PagePageIdentifier_AccessDeniedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Page(page/access)->AccessDenied"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Page\(pageIdentifier\)->AccessDenied query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_PagePageIdentifier_AccessDeniedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Component\(componentIdentifier\)->Show written in Query")]
+        public void WhenRoleRoleIdentifier_ComponentComponentIdentifier_ShowWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Component(.component)->Show"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Component\(componentIdentifier\)->Show query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_ComponentComponentIdentifier_ShowQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Component\(componentIdentifier\)->Hide written in Query")]
+        public void WhenRoleRoleIdentifier_ComponentComponentIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Component(.component)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Component\(componentIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_ComponentComponentIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Form\(formIdentifier\)->ActionGranted written in Query")]
+        public void WhenRoleRoleIdentifier_FormFormIdentifier_ActionGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Form(.form)->ActionGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Form\(formIdentifier\)->ActionGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_FormFormIdentifier_ActionGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Form\(formIdentifier\)->Readonly written in Query")]
+        public void WhenRoleRoleIdentifier_FormFormIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Form(.form)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Form\(formIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_FormFormIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Form\(formIdentifier\)->Hide written in Query")]
+        public void WhenRoleRoleIdentifier_FormFormIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Form(.form)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Form\(formIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_FormFormIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Input\(inputIdentifier\)->Editable written in Query")]
+        public void WhenRoleRoleIdentifier_InputİnputIdentifier_EditableWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Input(.input)->Editable"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Input\(inputIdentifier\)->Editable query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_InputİnputIdentifier_EditableQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Input\(inputIdentifier\)->Readonly written in Query")]
+        public void WhenRoleRoleIdentifier_InputİnputIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Input(.input)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Input\(inputIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_InputİnputIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Input\(inputIdentifier\)->Hide written in Query")]
+        public void WhenRoleRoleIdentifier_InputİnputIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Input(.input)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Input\(inputIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_InputİnputIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Button\(buttonIdentifier\)->ActionGranted written in Query")]
+        public void WhenRoleRoleIdentifier_ButtonButtonIdentifier_ActionGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Button(.button)->ActionGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Button\(buttonIdentifier\)->ActionGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_ButtonButtonIdentifier_ActionGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Button\(buttonIdentifier\)->Readonly written in Query")]
+        public void WhenRoleRoleIdentifier_ButtonButtonIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Button(.button)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Button\(buttonIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_ButtonButtonIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Button\(buttonIdentifier\)->Hide written in Query")]
+        public void WhenRoleRoleIdentifier_ButtonButtonIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Button(.button)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Button\(buttonIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_ButtonButtonIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Link\(linkIdentifier\)->ActionGranted written in Query")]
+        public void WhenRoleRoleIdentifier_LinkLinkIdentifier_ActionGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Link(.link)->ActionGranted"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Link\(linkIdentifier\)->ActionGranted query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_LinkLinkIdentifier_ActionGrantedQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Link\(linkIdentifier\)->Readonly written in Query")]
+        public void WhenRoleRoleIdentifier_LinkLinkIdentifier_ReadonlyWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Link(.link)->Readonly"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Link\(linkIdentifier\)->Readonly query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_LinkLinkIdentifier_ReadonlyQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+        [When(@"Role\(roleIdentifier\)->Link\(linkIdentifier\)->Hide written in Query")]
+        public void WhenRoleRoleIdentifier_LinkLinkIdentifier_HideWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role(1)->Link(.link)->Hide"); };
+        }
+
+        [Then(@"Operation done without throw exception on Role\(roleIdentifier\)->Link\(linkIdentifier\)->Hide query")]
+        public void ThenOperationDoneWithoutThrowExceptionOnRoleRoleIdentifier_LinkLinkIdentifier_HideQuery()
+        {
+            act.Should().NotThrow<Exception>();
+        }
+
+
+        [When(@"null command written in Query")]
+        public void WhenNullCommandWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery(null); };
+        }
+
+        [Then(@"Operation should throw exception on null query")]
+        public void ThenOperationShouldThrowExceptionOnNullQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"NOOWAY\(userIdentifier\)->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUserrUserIdentifier_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("NOOWAY(1)->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on NOOWAY\(userIdentifier\)->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUserrUserIdentifier_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUser_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->AHREF\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_PageeePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->AHREF(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->AHREF\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_PageeePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Page->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Page_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Page->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Page->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Page_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Page\(pageIdentifier\)->Access written in Query")]
+        public void WhenUserUserIdentifier_PagePageIdentifier_AccessWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Page(page/access)->Access"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Page\(pageIdentifier\)->Access query")]
+        public void ThenOperationShouldThrowExceptionOnUser_PagePageIdentifier_AccessQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Component->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Component_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Component->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Component->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Component_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Form->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Form_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Form->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Form->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Form_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Input->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Input_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Input->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Input->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Input_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Button->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Button_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Button->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Button->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Button_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"User\(userIdentifier\)->Link->AccessGranted written in Query")]
+        public void WhenUserUserIdentifier_Link_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("User(1)->Link->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on User->Link->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnUser_Link_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"NOOOO\(roleIdentifier\)->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenRoleeRoleIdentifier_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("NOOOO(1)->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on NOOOO\(roleIdentifier\)->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnRoleeRoleIdentifier_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
+        }
+
+        [When(@"Role->Page\(pageIdentifier\)->AccessGranted written in Query")]
+        public void WhenRole_PagePageIdentifier_AccessGrantedWrittenİnQuery()
+        {
+            act = () => { _fluent.Policy.Create().ByQuery("Role->Page(page/access)->AccessGranted"); };
+        }
+
+        [Then(@"Operation should throw exception on Role->Page\(pageIdentifier\)->AccessGranted query")]
+        public void ThenOperationShouldThrowExceptionOnRole_PagePageIdentifier_AccessGrantedQuery()
+        {
+            act.Should().Throw<Exception>();
         }
 
 

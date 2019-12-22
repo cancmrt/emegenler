@@ -38,10 +38,6 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             return this;
         }
-        public IEmegenlerPolicyTakeBase Take()
-        {
-            return this;
-        }
         public EmegenlerPolicyDecorator Get(int Id)
         {
             var result = UWork.Policies.Get(Id);
@@ -75,7 +71,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
                 throw new Exception("Unspesified exception occourt on Policy.Take method");
             }
         }
-
+        public IEmegenlerPolicyTakeBase Take()
+        {
+            return this;
+        }
 
         public IEmegenlerPolicyAccess WithUser(string userIdentifier)
         {

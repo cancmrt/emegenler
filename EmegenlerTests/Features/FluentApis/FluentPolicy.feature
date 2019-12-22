@@ -1,5 +1,231 @@
 ﻿Feature: FluentPolicy
 	This class will do policy operation with fluent interface. Should create policy, edit policy, delete policy and get policy and policies with using fluent interface
+	Also you can use Query interface
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessGranted
+	When User(userIdentifier)->Page(pageIdentifier)->AccessGranted written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Page(pageIdentifier)->AccessGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Page(pageIdentifier)->AccessDenied
+	When User(userIdentifier)->Page(pageIdentifier)->AccessDenied written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Page(pageIdentifier)->AccessDenied query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Show
+	When User(userIdentifier)->Component(componentIdentifier)->Show written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Component(componentIdentifier)->Show query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Component(componentIdentifier)->Hide
+	When User(userIdentifier)->Component(componentIdentifier)->Hide written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Component(componentIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Form(formIdentifier)->ActionGranted
+	When User(userIdentifier)->Form(formIdentifier)->ActionGranted written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Form(formIdentifier)->ActionGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Form(formIdentifier)->Readonly
+	When User(userIdentifier)->Form(formIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Form(formIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Form(formIdentifier)->Hide
+	When User(userIdentifier)->Form(formIdentifier)->Hide written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Form(formIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Editable
+	When User(userIdentifier)->Input(inputIdentifier)->Editable written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Input(inputIdentifier)->Editable query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Readonly
+	When User(userIdentifier)->Input(inputIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Input(inputIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Input(inputIdentifier)->Hide
+	When User(userIdentifier)->Input(inputIdentifier)->Hide written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Input(inputIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->ActionGranted
+	When User(userIdentifier)->Button(buttonIdentifier)->ActionGranted written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Button(buttonIdentifier)->ActionGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Readonly
+	When User(userIdentifier)->Button(buttonIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Button(buttonIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Button(buttonIdentifier)->Hide
+	When User(userIdentifier)->Button(buttonIdentifier)->Hide written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Button(buttonIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Link(linkIdentifier)->ActionGranted
+	When User(userIdentifier)->Link(linkIdentifier)->ActionGranted written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Link(linkIdentifier)->ActionGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Readonly
+	When User(userIdentifier)->Link(linkIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Link(linkIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query User(userIdentifier)->Link(linkIdentifier)->Hide
+	When User(userIdentifier)->Link(linkIdentifier)->Hide written in Query
+	Then Operation done without throw exception on User(userIdentifier)->Link(linkIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessGranted
+	When Role(roleIdentifier)->Page(pageIdentifier)->AccessGranted written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Page(pageIdentifier)->AccessGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied
+	When Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Page(pageIdentifier)->AccessDenied query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Show
+	When Role(roleIdentifier)->Component(componentIdentifier)->Show written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Component(componentIdentifier)->Show query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Component(componentIdentifier)->Hide
+	When Role(roleIdentifier)->Component(componentIdentifier)->Hide written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Component(componentIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->ActionGranted
+	When Role(roleIdentifier)->Form(formIdentifier)->ActionGranted written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Form(formIdentifier)->ActionGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Readonly
+	When Role(roleIdentifier)->Form(formIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Form(formIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Form(formIdentifier)->Hide
+	When Role(roleIdentifier)->Form(formIdentifier)->Hide written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Form(formIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Editable
+	When Role(roleIdentifier)->Input(inputIdentifier)->Editable written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Input(inputIdentifier)->Editable query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Readonly
+	When Role(roleIdentifier)->Input(inputIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Input(inputIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Input(inputIdentifier)->Hide
+	When Role(roleIdentifier)->Input(inputIdentifier)->Hide written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Input(inputIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->ActionGranted
+	When Role(roleIdentifier)->Button(buttonIdentifier)->ActionGranted written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Button(buttonIdentifier)->ActionGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Readonly
+	When Role(roleIdentifier)->Button(buttonIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Button(buttonIdentifier)->Readonly query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Button(buttonIdentifier)->Hide
+	When Role(roleIdentifier)->Button(buttonIdentifier)->Hide written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Button(buttonIdentifier)->Hide query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->ActionGranted
+	When Role(roleIdentifier)->Link(linkIdentifier)->ActionGranted written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Link(linkIdentifier)->ActionGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Readonly
+	When Role(roleIdentifier)->Link(linkIdentifier)->Readonly written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Link(linkIdentifier)->Readonly query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with null Query should throw exception
+	When null command written in Query
+	Then Operation should throw exception on null query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query NOOWAY(userIdentifier)->Page(pageIdentifier)->AccessGranted should throw exception
+	When NOOWAY(userIdentifier)->Page(pageIdentifier)->AccessGranted written in Query
+	Then Operation should throw exception on NOOWAY(userIdentifier)->Page(pageIdentifier)->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User->Page(pageIdentifier)->AccessGranted should throw exception
+	When User->Page(pageIdentifier)->AccessGranted written in Query
+	Then Operation should throw exception on User->Page(pageIdentifier)->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->AHREF(pageIdentifier)->AccessGranted should throw exception
+	When User(userIdentifier)->AHREF(pageIdentifier)->AccessGranted written in Query
+	Then Operation should throw exception on User->AHREF(pageIdentifier)->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Page->AccessGranted should throw exception
+	When User(userIdentifier)->Page->AccessGranted written in Query
+	Then Operation should throw exception on User->Page->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Page(pageIdentifier)->Access should throw exception
+	When User(userIdentifier)->Page(pageIdentifier)->Access written in Query
+	Then Operation should throw exception on User->Page(pageIdentifier)->Access query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Component->AccessGranted should throw exception
+	When User(userIdentifier)->Component->AccessGranted written in Query
+	Then Operation should throw exception on User->Component->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Form->AccessGranted should throw exception
+	When User(userIdentifier)->Form->AccessGranted written in Query
+	Then Operation should throw exception on User->Form->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Input->AccessGranted should throw exception
+	When User(userIdentifier)->Input->AccessGranted written in Query
+	Then Operation should throw exception on User->Input->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Button->AccessGranted should throw exception
+	When User(userIdentifier)->Button->AccessGranted written in Query
+	Then Operation should throw exception on User->Button->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query User(userIdentifier)->Link->AccessGranted should throw exception
+	When User(userIdentifier)->Link->AccessGranted written in Query
+	Then Operation should throw exception on User->Link->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query NOOOO(roleIdentifier)->Page(pageIdentifier)->AccessGranted should throw exception
+	When NOOOO(roleIdentifier)->Page(pageIdentifier)->AccessGranted written in Query
+	Then Operation should throw exception on NOOOO(roleIdentifier)->Page(pageIdentifier)->AccessGranted query
+
+	@Query-ExceptionalCase
+	Scenario: Create policy with Query Role->Page(pageIdentifier)->AccessGranted should throw exception
+	When Role->Page(pageIdentifier)->AccessGranted written in Query
+	Then Operation should throw exception on Role->Page(pageIdentifier)->AccessGranted query
+
+	@Query-NormalCase
+	Scenario: Create policy with Query Role(roleIdentifier)->Link(linkIdentifier)->Hide
+	When Role(roleIdentifier)->Link(linkIdentifier)->Hide written in Query
+	Then Operation done without throw exception on Role(roleIdentifier)->Link(linkIdentifier)->Hide query
 
 	@Create-NormalCase
 	Scenario: Create policy with user identifier and add policy to page with access granted property
