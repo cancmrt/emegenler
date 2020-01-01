@@ -19,7 +19,6 @@ namespace EmegenlerMvcPlayground.Controllers
     public class AuthController : Controller
     {
         private readonly IEmegenlerFluentApi API;
-        private readonly IEmegenlerClaims Claims;
         private readonly PlaygroundContext _context;
         public AuthController(IEmegenlerFluentApi api,PlaygroundContext context)
         {
