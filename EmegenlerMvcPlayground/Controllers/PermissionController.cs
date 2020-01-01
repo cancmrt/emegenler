@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using EmegenlerMvcPlayground.Context;
 using EmegenlerMvcPlayground.Logic.PaginationLogic;
+using EmegenlerMvcPlayground.Models;
+using EmegenlerMvcPlayground.Models.ViewModels;
+using Guard.Emegenler.Domains.Decorators;
 using Guard.Emegenler.FluentInterface;
+using Guard.Emegenler.FluentInterface.Policy.Types;
 using Guard.Emegenler.FluentInterface.Policy.UserStyles;
 using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
 using Microsoft.AspNetCore.Http;
@@ -27,7 +32,8 @@ namespace EmegenlerMvcPlayground.Controllers
             long ElementRowCountOnPage = 10;
             var Paginate = Pagination.Calculate(TotalCountOfPolicy, ChoosedPage, ElementRowCountOnPage);
             var Policies = API.Policy.Take(Convert.ToInt32(Paginate.CurrentPage), Convert.ToInt32(Paginate.RangeSize));
-            ViewData["Policies"] = Policies;
+
+            ViewData["Policies"] = MapEmegenlerPolicy_TO_PolictView(Policies);
             ViewData["Paginate"] = Paginate;
             return View();
         }
@@ -125,6 +131,80 @@ namespace EmegenlerMvcPlayground.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        private List<PolicyView> MapEmegenlerPolicy_TO_PolictView(IList<EmegenlerPolicyDecorator> Policies)
+        {
+            var policiesAccessRoles = Policies.Select(x => new
+            {
+                AuthType = x.AuthBase,
+                Identifier = x.AuthBaseIdentifier
+            }).Distinct().Where(a => a.AuthType == AuthBase.Role);
+
+            var RoleList = new List<Group>();
+
+            foreach (var role in policiesAccessRoles)
+            {
+                var dbRole = _context.Groups.Where(gr => gr.Id == Convert.ToInt32(role.Identifier)).FirstOrDefault();
+                RoleList.Add(dbRole);
+
+            }
+
+
+            var policiesAccessUsers = Policies.Select(x => new
+            {
+                AuthType = x.AuthBase,
+                Identifier = x.AuthBaseIdentifier
+            }).Distinct().Where(a => a.AuthType == AuthBase.User);
+
+
+            var UserList = new List<User>();
+
+            foreach (var user in policiesAccessUsers)
+            {
+                var dbUser = _context.Users.Where(gr => gr.Id == Convert.ToInt32(user.Identifier)).FirstOrDefault();
+                UserList.Add(dbUser);
+            }
+
+
+            var ListOfPolicyViews = new List<PolicyView>();
+
+            var localMapConfiguration = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<EmegenlerPolicyDecorator, PolicyView>();
+            });
+
+            IMapper autoMapper = localMapConfiguration.CreateMapper();
+
+            foreach (var policy in Policies)
+            {
+                var policyView = new PolicyView();
+                autoMapper.Map(policy, policyView);
+
+                if (policy.AuthBase == AuthBase.Role)
+                {
+                    var getRoleName = RoleList
+                        .Where(r => r.Id == Convert.ToInt32(policy.AuthBaseIdentifier))
+                        .FirstOrDefault()
+                        .Name;
+                    policyView.IdentifierName = getRoleName;
+                }
+                if (policy.AuthBase == AuthBase.User)
+                {
+                    var getUser = UserList
+                        .Where(r => r.Id == Convert.ToInt32(policy.AuthBaseIdentifier))
+                        .FirstOrDefault();
+
+                    var getUserName = getUser.Name + " " + getUser.Surname;
+
+                    policyView.IdentifierName = getUserName;
+                }
+
+                ListOfPolicyViews.Add(policyView);
+            }
+
+            return ListOfPolicyViews;
+
         }
     }
 }
