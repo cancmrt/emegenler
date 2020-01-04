@@ -10,7 +10,7 @@
 }
 <div class="row">
     <div class="col-12">
-        <a href="permission/add" class="btn btn-outline-success">Add Policy</a>
+        <a href="permission/add" class="btn btn-outline-success"><i class="fas fa-lock"></i> Add Policy</a>
         <!--<a href="group/add" class="btn btn-outline-success">Add Group</a>
         <a href="user/add" class="btn btn-outline-success">Add User</a>-->
     </div>
@@ -29,8 +29,8 @@
                     <li class="list-group-item"><b>Permission: </b>@policy.AccessProtocol</li>
                 </ul>
                 <div class="btn-group btn-block">
-                    <a href="permission/edit" class="btn btn-outline-primary">Edit Permission</a>
-                    <a href="permission/delete" class="btn btn-outline-danger">Delete Permission</a>
+                    <a href="permission/edit/@policy.PolicyId" class="btn btn-outline-primary"><i class="far fa-edit"></i> Edit Permission</a>
+                    <a href="permission/delete/@policy.PolicyId" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i> Delete Permission</a>
                 </div>
             </div>
         </div>

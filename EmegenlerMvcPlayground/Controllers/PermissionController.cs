@@ -29,7 +29,7 @@ namespace EmegenlerMvcPlayground.Controllers
         public IActionResult Index(int ChoosedPage)
         {
             long TotalCountOfPolicy = API.Policy.Count();
-            long ElementRowCountOnPage = 10;
+            long ElementRowCountOnPage = 6;
             var Paginate = Pagination.Calculate(TotalCountOfPolicy, ChoosedPage, ElementRowCountOnPage);
             var Policies = API.Policy.Take(Convert.ToInt32(Paginate.CurrentPage), Convert.ToInt32(Paginate.RangeSize));
 
@@ -38,6 +38,149 @@ namespace EmegenlerMvcPlayground.Controllers
             return View();
         }
         public IActionResult Add()
+        {
+
+            AssignToViewPermissionsData();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(IFormCollection form)
+        {
+            var PolicyCreation = API.Policy.Create();
+            IEmegenlerPolicyAccess AuthBase = null;
+            if(form["SelectedAccessRole"] == "1")
+            {
+                AuthBase = PolicyCreation.WithUser(form["SelectedUser"]);
+            }
+            else if (form["SelectedAccessRole"] == "2")
+            {
+                AuthBase = PolicyCreation.WithRole(form["SelectedGroup"]);
+            }
+            if(form["SelectedElementType"] == "1")
+            {
+                var PagePolicy = AuthBase.AddPage(form["SelectedPage"]);
+                if(form["SelectedPageRule"] == "AccessGranted")
+                {
+                    PagePolicy.AccessGranted();
+                }
+                else if(form["SelectedPageRule"] == "AccessDenied")
+                {
+                    PagePolicy.AccessDenied();
+                }
+            }
+            else if(form["SelectedElementType"] == "2")
+            {
+                var ReportPolicy = AuthBase.AddComponent(form["SelectedReport"]);
+                if (form["SelectedReportRule"] == "Show")
+                {
+                    ReportPolicy.Show();
+                }
+                else if (form["SelectedReportRule"] == "Hide")
+                {
+                    ReportPolicy.Hide();
+                }
+            }
+            else if(form["SelectedElementType"] == "3")
+            {
+                var FormPolicy = AuthBase.AddForm(form["SelectedForm"]);
+                if (form["SelectedFormRule"] == "ActionGranted")
+                {
+                    FormPolicy.ActionGranted();
+                }
+                else if (form["SelectedFormRule"] == "Readonly")
+                {
+                    FormPolicy.Readonly();
+                }
+                else if (form["SelectedFormRule"] == "Hide")
+                {
+                    FormPolicy.Hide();
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("permission/edit/{PolicyId}")]
+        public IActionResult Edit(int PolicyId)
+        {
+
+            var selectedPolicy = API.Policy.Get(PolicyId);
+
+            ViewData["SelectedPolicy"] = selectedPolicy;
+
+            AssignToViewPermissionsData();
+
+            return View();
+        }
+
+        public IActionResult Edit(IFormCollection form)
+        {
+            var selectedPolicy = API.Policy.Get(Convert.ToInt32(form["PolicyId"]));
+
+            if (form["SelectedAccessRole"] == "1")
+            {
+                selectedPolicy.AuthBase = Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.User;
+                selectedPolicy.AuthBaseIdentifier = form["SelectedUser"];
+            }
+            else if (form["SelectedAccessRole"] == "2")
+            {
+                selectedPolicy.AuthBase = Guard.Emegenler.FluentInterface.Policy.Types.AuthBase.Role;
+                selectedPolicy.AuthBaseIdentifier = form["SelectedGroup"];
+            }
+
+            if (form["SelectedElementType"] == "1")
+            {
+                selectedPolicy.PolicyElement = Guard.Emegenler.Types.ElementType.Page;
+                selectedPolicy.PolicyElementIdentifier = form["SelectedPage"];
+                if (form["SelectedPageRule"] == "AccessGranted")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.AccessGranted;
+                }
+                else if (form["SelectedPageRule"] == "AccessDenied")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.AccessDenied;
+                }
+                
+            }
+            else if (form["SelectedElementType"] == "2")
+            {
+                selectedPolicy.PolicyElement = Guard.Emegenler.Types.ElementType.Component;
+                selectedPolicy.PolicyElementIdentifier = form["SelectedReport"];
+                if (form["SelectedReportRule"] == "Show")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.Show;
+                }
+                else if (form["SelectedReportRule"] == "Hide")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.Hide;
+                }
+            }
+            else if (form["SelectedElementType"] == "3")
+            {
+                selectedPolicy.PolicyElement = Guard.Emegenler.Types.ElementType.Form;
+                selectedPolicy.PolicyElementIdentifier = form["SelectedForm"];
+                if (form["SelectedFormRule"] == "ActionGranted")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.ActionGranted;
+                }
+                else if (form["SelectedFormRule"] == "Readonly")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.Readonly;
+                }
+                else if (form["SelectedFormRule"] == "Hide")
+                {
+                    selectedPolicy.AccessProtocol = Guard.Emegenler.Types.AccessProtocol.Hide;
+                }
+            }
+
+            selectedPolicy.Update();
+
+            return RedirectToAction("Index");
+        }
+
+        private void AssignToViewPermissionsData()
         {
             ViewData["Users"] = _context.Users.ToList();
             ViewData["Groups"] = _context.Groups.ToList();
@@ -59,9 +202,9 @@ namespace EmegenlerMvcPlayground.Controllers
             Forms.Add("HR Report Form", "#HrReportForm");
 
 
-            string[] PageAccessRules = new string[] { "Access Granted", "Access Denied" };
+            string[] PageAccessRules = new string[] { "AccessGranted", "AccessDenied" };
             string[] ReportsAccessRules = new string[] { "Show", "Hide" };
-            string[] FormAccessRules = new string[] { "Action Granted", "Readonly", "Hide" };
+            string[] FormAccessRules = new string[] { "ActionGranted", "Readonly", "Hide" };
 
             ViewData["Pages"] = Pages;
             ViewData["Reports"] = Reports;
@@ -70,67 +213,6 @@ namespace EmegenlerMvcPlayground.Controllers
             ViewData["PageRules"] = PageAccessRules;
             ViewData["ReportRules"] = ReportsAccessRules;
             ViewData["FormRules"] = FormAccessRules;
-
-
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Add(IFormCollection form)
-        {
-            var PolicyCreation = API.Policy.Create();
-            IEmegenlerPolicyAccess AuthBase = null;
-            if(form["SelectedAccessRole"] == "1")
-            {
-                AuthBase = PolicyCreation.WithUser(form["SelectedUser"]);
-            }
-            else if (form["SelectedAccessRole"] == "2")
-            {
-                AuthBase = PolicyCreation.WithRole(form["SelectedGroup"]);
-            }
-            if(form["SelectedElementType"] == "1")
-            {
-                var PagePolicy = AuthBase.AddPage(form["SelectedPage"]);
-                if(form["SelectedPageRule"] == "Access Granted")
-                {
-                    PagePolicy.AccessGranted();
-                }
-                else if(form["SelectedPageRule"] == "Access Denied")
-                {
-                    PagePolicy.AccessDenied();
-                }
-            }
-            else if(form["SelectedElementType"] == "2")
-            {
-                var ReportPolicy = AuthBase.AddComponent(form["SelectedReport"]);
-                if (form["SelectedReportRule"] == "Show")
-                {
-                    ReportPolicy.Show();
-                }
-                else if (form["SelectedReportRule"] == "Hide")
-                {
-                    ReportPolicy.Hide();
-                }
-            }
-            else if(form["SelectedElementType"] == "3")
-            {
-                var FormPolicy = AuthBase.AddForm(form["SelectedForm"]);
-                if (form["SelectedFormRule"] == "Action Granted")
-                {
-                    FormPolicy.ActionGranted();
-                }
-                else if (form["SelectedFormRule"] == "Readonly")
-                {
-                    FormPolicy.Readonly();
-                }
-                else if (form["SelectedFormRule"] == "Hide")
-                {
-                    FormPolicy.Hide();
-                }
-            }
-
-            return RedirectToAction("Index");
         }
 
         private List<PolicyView> MapEmegenlerPolicy_TO_PolictView(IList<EmegenlerPolicyDecorator> Policies)
