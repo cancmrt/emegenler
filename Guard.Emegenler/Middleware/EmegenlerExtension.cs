@@ -17,8 +17,10 @@ namespace Guard.Emegenler.Middleware
             using (var serviceScope = serviceProvider.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<EmegenlerDbContext>();
-                // auto migration
-                context.Database.Migrate();
+                if (context.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+                {
+                    context.Database.Migrate();
+                }
             }
             return applicationBuilder.UseMiddleware<GuardMiddleware>();
 

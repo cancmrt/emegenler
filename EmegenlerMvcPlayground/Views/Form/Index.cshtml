@@ -1,0 +1,27 @@
+﻿@section Header {
+
+    <partial name="~/Views/Shared/_Navbar.cshtml" />
+
+}
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div style="text-align:center;">
+                    <button class="btn btn-primary" style="height:150px; width:165px;" href="/form/sale"  onclick="window.location.href = '/form/sale';"><i class="fas fa-dollar-sign" style="font-size:64px;"></i><br /> Sales Form</button>
+                    <button class="btn btn-secondary" style="height:150px; width:165px;"><i class="fas fa-laptop" style="font-size:64px;" onclick="window.location.href = '/form/it';"></i><br /> IT Form</button>
+                    <button class="btn btn-success" style="height:150px; width:165px;"><i class="fas fa-people-carry" style="font-size:64px;" onclick="window.location.href = '/form/hr';"></i><br /> Human Resource Form</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+

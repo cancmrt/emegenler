@@ -6,6 +6,7 @@ using EmegenlerMvcPlayground.Context;
 using Guard.Emegenler.Middleware;
 using Guard.Emegenler.Options;
 using Guard.Emegenler.Options.DefaultBehaviours;
+using Guard.Emegenler.Services.InMemoryServer;
 using Guard.Emegenler.Services.MssqlServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -32,8 +33,8 @@ namespace EmegenlerMvcPlayground
         {
            
             services.AddDbContext<PlaygroundContext>(options => options.UseSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"));
-            services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"
-                , new EmegenlerOptions
+            services.AddEmegenlerToInMemoryServer(
+                new EmegenlerOptions
                 {
                     PageAccessDeniedUrl = "/home/accessdenied",
                     ComponentDefaultBehaviour = ComponentDefaultBehaviour.Hide,

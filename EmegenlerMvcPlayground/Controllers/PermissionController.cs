@@ -180,6 +180,17 @@ namespace EmegenlerMvcPlayground.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet("permission/delete/{PolicyId}")]
+        public IActionResult Delete(int PolicyId)
+        {
+
+            var selectedPolicy = API.Policy.Get(PolicyId);
+
+            selectedPolicy.Delete();
+
+            return RedirectToAction("Index");
+        }
+
         private void AssignToViewPermissionsData()
         {
             ViewData["Users"] = _context.Users.ToList();
