@@ -1,0 +1,129 @@
+﻿@section Header {
+
+    <partial name="~/Views/Shared/_Navbar.cshtml" />
+
+}
+@{
+    ViewData["Title"] = "Sales";
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <a class="btn btn-outline-info" href="/form/salelist"><i class="fas fa-dollar-sign"></i> Sale Forms List</a>
+        <br />
+        <br />
+        <div class="card">
+            <div class="card-body">
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-6">
+                        <img src="~/img/emegenler-crop-logo.png" width="200" />
+                    </div>
+                    <div class="col-6" style="text-align:right;">
+                        <br />
+                        <h1>Sale Form</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Sales Amount:</label>
+                        <input name="SalesAmount" type="number" class="form-control salesamount" />
+                    </div>
+                    <div class="col-md-8">
+                        <label>Product:</label>
+                        <select class="form-control product">
+                            <option selected value="999">Acme Product 1000</option>
+                            <option value="1599"> Acme  Super Product 1100</option>
+                            <option value="599">Acme Half Product 800</option>
+                            <option value="1999">Acme Product 2000</option>
+                            <option value="2599"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label>Company Name:</label>
+                        <input name="CompanyName" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <label>Company Address:</label>
+                        <input name="CompanyAddress" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <label>Company Telephone:</label>
+                        <input name="CompanyTelephone" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <label>Special Desire:</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                    <div class="col-7">
+                        <label>Calculations:</label>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>Tax Rate(%)</td>
+                                    <td>Shipping</td>
+                                    <td>Total</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="Tax"></td>
+                                    <td class="TaxRate"></td>
+                                    <td class="Shipping"></td>
+                                    <td class="Total"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-block btn-success">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+@section Scripts
+{
+    <script>
+        function CalculationOfPays(taxRate, productPrize, salesAmount, shipping) {
+
+            var subTotal = productPrize * salesAmount;
+            var calculatedTax = subTotal * taxRate / 100;
+            var total = subTotal + calculatedTax + shipping;
+
+            $(".TaxRate").html("<b>" + taxRate + "</b>");
+            $(".Shipping").html("<b>" + shipping + "</b>");
+            $(".Tax").html("<b>" + calculatedTax + "</b>");
+            $(".Total").html("<b>" + total + "</b>");
+        }
+
+        var TaxRate = 18;
+        var Shipping = 20;
+
+        $(".product").on("change", function () {
+            var ProductPrize = parseInt($(this).val(), 10);
+            var SalesAmount = parseInt($(".salesamount").val(),10);
+            CalculationOfPays(TaxRate, ProductPrize, SalesAmount, Shipping);
+        });
+        $(".salesamount").on("keyup", function () {
+            var SalesAmount = parseInt($(".salesamount").val(), 10);
+            var ProductPrize = parseInt($(".product").children("option:selected").val(), 10);
+            CalculationOfPays(TaxRate, ProductPrize, SalesAmount, Shipping);
+        })
+
+
+    </script>
+}
+
