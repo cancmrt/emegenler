@@ -4,4 +4,8 @@ dotnet: 3.0
 script:
     - dotnet restore
     - dotnet build
-    - dotnet test EmegenlerTests/EmegenlerTests.csproj
+    - dotnet test
+    - dotnet tool install --global dotnet-sonarscanner --version 4.7.1
+    - dotnet sonarscanner begin /k:"${PROJECT_KEY}" /o:"${ORGANIZATION}" /d:sonar.login="${LOGIN}" 
+    - dotnet build EmegenlerSolution.sln
+    - dotnet sonarscanner end /d:sonar.login="${LOGIN}" 

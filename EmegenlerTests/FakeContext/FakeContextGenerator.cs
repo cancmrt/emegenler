@@ -2,8 +2,6 @@
 using Guard.Emegenler.Domains.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EmegenlerTests.FakeContext
 {
