@@ -33,7 +33,7 @@ namespace EmegenlerMvcPlayground
         {
            
             services.AddDbContext<PlaygroundContext>(options => options.UseSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"));
-            services.AddEmegenlerToInMemoryServer(
+            services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;",
                 new EmegenlerOptions
                 {
                     PageAccessDeniedUrl = "/home/accessdenied",

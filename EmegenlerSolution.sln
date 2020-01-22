@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33B49088-F0C3-466D-AD57-8036095B45DE}"
 	ProjectSection(SolutionItems) = preProject
 		.sonarcloud.properties = .sonarcloud.properties
+		.travis.yml = .travis.yml
 	EndProjectSection
 EndProject
 Global

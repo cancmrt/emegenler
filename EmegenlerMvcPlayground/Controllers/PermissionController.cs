@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using EmegenlerMvcPlayground.Context;
 using EmegenlerMvcPlayground.Logic.PaginationLogic;
@@ -10,7 +9,6 @@ using EmegenlerMvcPlayground.Models.ViewModels;
 using Guard.Emegenler.Domains.Decorators;
 using Guard.Emegenler.FluentInterface;
 using Guard.Emegenler.FluentInterface.Policy.Types;
-using Guard.Emegenler.FluentInterface.Policy.UserStyles;
 using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +18,7 @@ namespace EmegenlerMvcPlayground.Controllers
     public class PermissionController : Controller
     {
         private readonly IEmegenlerFluentApi API;
-        PlaygroundContext _context;
+        private readonly PlaygroundContext _context;
         public PermissionController(IEmegenlerFluentApi api, PlaygroundContext context)
         {
             API = api;
@@ -49,7 +47,8 @@ namespace EmegenlerMvcPlayground.Controllers
         public IActionResult Add(IFormCollection form)
         {
             var PolicyCreation = API.Policy.Create();
-            IEmegenlerPolicyAccess AuthBase = null;
+            IEmegenlerPolicyAccess AuthBase;
+
             if(form["SelectedAccessRole"] == "1")
             {
                 AuthBase = PolicyCreation.WithUser(form["SelectedUser"]);
@@ -58,6 +57,12 @@ namespace EmegenlerMvcPlayground.Controllers
             {
                 AuthBase = PolicyCreation.WithRole(form["SelectedGroup"]);
             }
+            else
+            {
+                AuthBase = PolicyCreation.WithUser(form["SelectedUser"]);
+            }
+
+
             if(form["SelectedElementType"] == "1")
             {
                 var PagePolicy = AuthBase.AddPage(form["SelectedPage"]);

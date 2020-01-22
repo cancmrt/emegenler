@@ -1,5 +1,4 @@
-﻿using Guard.Emegenler.DAL;
-using Guard.Emegenler.Domains.Decorators;
+﻿using Guard.Emegenler.Domains.Decorators;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.FluentInterface.Policy.AccessStyles;
 using Guard.Emegenler.FluentInterface.Policy.Types;
@@ -8,8 +7,6 @@ using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
 using Guard.Emegenler.UnitOfWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Guard.Emegenler.FluentInterface.Policy
 {
@@ -34,10 +31,19 @@ namespace Guard.Emegenler.FluentInterface.Policy
             EmegenlerPolicy = new EmegenlerPolicy();
         }
 
+        /// <summary>
+        /// This method beggining of create policy chain
+        /// </summary>
+        /// <returns>IEmegenlerPolicyAccess for user type selection</returns>
         public IEmegenlerPolicyAuthBase Create()
         {
             return this;
         }
+        /// <summary>
+        /// This method getting Policy from db with Update and Delete operations
+        /// </summary>
+        /// <param name="Id">PolicyId</param>
+        /// <returns>EmegenlerPolicyDecorator includes data with Update and Delete operations</returns>
         public EmegenlerPolicyDecorator Get(int Id)
         {
             var result = UWork.Policies.Get(Id);
@@ -51,10 +57,16 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Policy.Get method");
+                throw new ArgumentException("Unspesified exception occourt on Policy.Get method");
             }
 
         }
+        /// <summary>
+        /// This method getting List of Policies using pagination system
+        /// </summary>
+        /// <param name="Page">Start Page</param>
+        /// <param name="PageSize">Page Item Count</param>
+        /// <returns>List of EmegenlerPolicyDecorator which include data also include Update and Delete operations</returns>
         public IList<EmegenlerPolicyDecorator> Take(int Page, int PageSize)
         {
             var result = UWork.Policies.Take(Page,PageSize);
@@ -68,9 +80,13 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Policy.Take method");
+                throw new ArgumentException("Unspesified exception occourt on Policy.Take method");
             }
         }
+        /// <summary>
+        /// This method using in FluentApi interface chain for Take policies 
+        /// </summary>
+        /// <returns></returns>
         public IEmegenlerPolicyTakeBase Take()
         {
             return this;
