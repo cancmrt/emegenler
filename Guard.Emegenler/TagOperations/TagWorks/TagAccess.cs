@@ -1,15 +1,11 @@
 ﻿using Guard.Emegenler.Claims;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
-using HtmlAgilityPack;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 
 namespace Guard.Emegenler.TagOperations.TagWorks
 {
@@ -29,7 +25,7 @@ namespace Guard.Emegenler.TagOperations.TagWorks
         {
             TagHelperAttributeList listOfAttirubutes = output.Attributes;
             List<EmegenlerPolicy> policies = _claims.UserPolicies;
-            if(policies is List<EmegenlerPolicy>)
+            if(policies != null)
             {
                 var findedClassAttiribute = listOfAttirubutes
                                                         .AsParallel()
@@ -47,13 +43,13 @@ namespace Guard.Emegenler.TagOperations.TagWorks
                     .AsParallel()
                     .Where(p => p.PolicyElement == EmegenlerElementType 
                            && p.PolicyElementIdentifier.StartsWith(".") 
-                           && (findedClassAttiribute?.Value.ToString() ?? new Guid().ToString()).Contains(p.PolicyElementIdentifier.Replace(".", "")))
+                           && (findedClassAttiribute?.Value.ToString() ?? Guid.NewGuid().ToString()).Contains(p.PolicyElementIdentifier.Replace(".", "")))
                     .LastOrDefault();
                 var idPolicy= policies
                     .AsParallel()
                     .Where(p => p.PolicyElement == EmegenlerElementType
                            && p.PolicyElementIdentifier.StartsWith("#")
-                           && p.PolicyElementIdentifier.Replace("#", "") == (findedIdAttirubute?.Value.ToString() ?? new Guid().ToString()))
+                           && p.PolicyElementIdentifier.Replace("#", "") == (findedIdAttirubute?.Value.ToString() ?? Guid.NewGuid().ToString()))
                     .LastOrDefault();
 
                 var tagPolicy = policies
@@ -71,11 +67,11 @@ namespace Guard.Emegenler.TagOperations.TagWorks
                 {
                     return Returner<EmegenlerPolicy>.SuccessReturn(tagPolicy);
                 }
-                else if(idPolicy is null && tagPolicy is null && !(classPolicy is null))
+                else if(idPolicy is null && !(classPolicy is null))
                 {
                     return Returner<EmegenlerPolicy>.SuccessReturn(classPolicy);
                 }
-                else if(classPolicy is null && tagPolicy is null && !(idPolicy is null))
+                else if(classPolicy is null && !(idPolicy is null))
                 {
                     return Returner<EmegenlerPolicy>.SuccessReturn(idPolicy);
                 }

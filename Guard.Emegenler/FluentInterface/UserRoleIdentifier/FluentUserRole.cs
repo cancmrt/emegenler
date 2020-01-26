@@ -5,8 +5,6 @@ using Guard.Emegenler.FluentInterface.UserRoleIdentifier.UserIdentify;
 using Guard.Emegenler.UnitOfWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
 {
@@ -28,7 +26,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
         {
             if (string.IsNullOrEmpty(RoleIdentifier))
             {
-                throw new NullReferenceException("AssociateRole method user identifier cannot be null or empty");
+                throw new ArgumentException("AssociateRole method user identifier cannot be null or empty");
             }
             UserRole.RoleIdentifier = RoleIdentifier;
             return this;
@@ -37,7 +35,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
         {
             if (string.IsNullOrEmpty(UserIdentifier))
             {
-                throw new NullReferenceException("AssociateUser method user identifier cannot be null or empty");
+                throw new ArgumentException("AssociateUser method user identifier cannot be null or empty");
             }
             UserRole.UserIdentifier = UserIdentifier;
             return this;
@@ -46,7 +44,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
         {
             if (string.IsNullOrEmpty(RoleIdentifier))
             {
-                throw new NullReferenceException("ToRole method user identifier cannot be null or empty");
+                throw new ArgumentException("ToRole method user identifier cannot be null or empty");
             }
             UserRole.RoleIdentifier = RoleIdentifier;
             var result = UWork.UserRoles.Insert(UserRole);
@@ -59,7 +57,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
         {
             if (string.IsNullOrEmpty(UserIdentifier))
             {
-                throw new NullReferenceException("ToUser method user identifier cannot be null or empty");
+                throw new ArgumentException("ToUser method user identifier cannot be null or empty");
             }
             UserRole.UserIdentifier = UserIdentifier;
             var result = UWork.UserRoles.Insert(UserRole);
@@ -81,7 +79,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on UserRole.Get method");
+                throw new InvalidOperationException("Unspesified exception occourt on UserRole.Get method");
             }
         }
         public IList<EmegenlerUserRoleDecorator> Take(int Page, int PageSize)
@@ -97,7 +95,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on UserRole.Take method");
+                throw new InvalidOperationException("Unspesified exception occourt on UserRole.Take method");
             }
         }
 
@@ -124,7 +122,7 @@ namespace Guard.Emegenler.FluentInterface.UserRoleIdentifier
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on UserRole.Count method");
+                throw new InvalidOperationException("Unspesified exception occourt on UserRole.Count method");
             }
         }
     }

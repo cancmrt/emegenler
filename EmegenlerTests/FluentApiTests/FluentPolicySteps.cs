@@ -971,7 +971,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by WithUser method with empty UserIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByWithUserMethodWithEmptyUserIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(null\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); called on WithUser method with null UserIdentifier prop")]
@@ -983,7 +983,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by WithUser method with null UserIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByWithUserMethodWithNullUserIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithRole\(\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); called on WithRole method with empty RoleIdentifier prop")]
@@ -995,7 +995,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by WithRole method with empty RoleIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByWithRoleMethodWithEmptyRoleIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithRole\(null\)\.AddPage\(typeof\(FakeClass\)\)\.AccessGranted\(\); called on WithRole method with null RoleIdentifier prop")]
@@ -1007,7 +1007,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by WithRole method with null RoleIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByWithRoleMethodWithNullRoleIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddPage\(null\)\.AccessGranted\(\); called on AddPage method with null PageType prop")]
@@ -1019,7 +1019,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddPage method with null PageType prop")]
         public void ThenNullReferanceExceptionThrowsByAddPageMethodWithNullPageTypeProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddComponent\(\)\.Show\(\); called on AddComponent method with empty ComponentIdentifier prop")]
@@ -1031,7 +1031,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddComponent method with empty ComponentIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddComponentMethodWithEmptyComponentIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddComponent\(null\)\.Show\(\); called on AddComponent method with null ComponentIdentifier prop")]
@@ -1043,7 +1043,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddComponent method with null ComponentIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddComponentMethodWithNullComponentIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddForm\(\)\.ActionGranted\(\); called on AddForm method with empty FormIdentifier prop")]
@@ -1055,7 +1055,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddForm method with empty FormIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddFormMethodWithEmptyFormIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddForm\(null\)\.ActionGranted\(\); called on AddForm method with null FormIdentifier prop")]
@@ -1067,7 +1067,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddForm method with null FormIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddFormMethodWithNullFormIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddInput\(\)\.Readonly\(\); called on AddInput method with empty InputIdentifier prop")]
@@ -1079,7 +1079,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddInput method with empty InputIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddInputMethodWithEmptyInputIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddInput\(null\)\.Readonly\(\); called on AddForm method with null InputIdentifier prop")]
@@ -1091,7 +1091,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddInput method with null InputIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddInputMethodWithNullInputIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddButton\(\)\.Readonly\(\); called on AddButton method with empty ButtonIdentifier prop")]
@@ -1103,7 +1103,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddButton method with empty ButtonIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddButtonMethodWithEmptyButtonIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddButton\(null\)\.Readonly\(\); called on AddButton method with null ButtonIdentifier prop")]
@@ -1115,7 +1115,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddButton method with null ButtonIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddButtonMethodWithNullButtonIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddLink\(\)\.Readonly\(\); called on AddLink method with empty LinkIdentifier prop")]
@@ -1127,7 +1127,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddLink method with empty LinkIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddLinkMethodWithEmptyLinkIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"api\.Policy\.Create\(\)\.WithUser\(UserIdentifier\)\.AddLink\(null\)\.Readonly\(\); called on AddLink method with null LinkIdentifier prop")]
@@ -1139,7 +1139,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"NullReferanceException throws by AddLink method with null LinkIdentifier prop")]
         public void ThenNullReferanceExceptionThrowsByAddLinkMethodWithNullLinkIdentifierProp()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass valid PolicyId to Get method from FluentPolicy class")]
@@ -1181,7 +1181,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"We pass valid Page and PageSize prop on Take method from FluentPolicy class")]
         public void WhenWePassValidPageAndPageSizePropOnTakeMethodFromFluentPolicyClass()
         {
-            act = () => { _fluent.Policy.Take(1,1); };
+            act = () => { _fluent.Policy.TakeList(1,1); };
         }
 
         [Then(@"Take method should return List of EmegelerPolicy entites from FluentPolicy class")]
@@ -1193,7 +1193,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"We pass valid Page prop but PageSize value is less than one to Take method from FluentPolicy class")]
         public void WhenWePassValidPagePropButPageSizeValueİsLessThanOneToTakeMethodFromFluentPolicyClass()
         {
-            act = () => { _fluent.Policy.Take(1, 0); };
+            act = () => { _fluent.Policy.TakeList(1, 0); };
         }
 
         [Then(@"Take method should throw exception on when PageSize value is less than one from FluentPolicy class")]
@@ -1205,7 +1205,7 @@ namespace EmegenlerTests.FluentApiTests
         [When(@"We pass valid PageSize prop but Page value is less than one to Take method from FluentPolicy class")]
         public void WhenWePassValidPageSizePropButPageValueİsLessThanOneToTakeMethodFromFluentPolicyClass()
         {
-            act = () => { _fluent.Policy.Take(0, 1); };
+            act = () => { _fluent.Policy.TakeList(0, 1); };
         }
 
         [Then(@"Take method should throw exception on when Page value is less than one from FluentPolicy class")]

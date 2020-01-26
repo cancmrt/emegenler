@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Guard.Emegenler.Domains.Decorators;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.UnitOfWork;
@@ -22,7 +20,7 @@ namespace Guard.Emegenler.FluentInterface.Role
         {
             if (String.IsNullOrEmpty(RoleIdentifier))
             {
-                throw new NullReferenceException("Create method form RoleIdentifier cannot be null or empty");
+                throw new ArgumentException("Create method form RoleIdentifier cannot be null or empty");
             }
             else
             {
@@ -50,7 +48,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Role.Get method");
+                throw new InvalidOperationException("Unspesified exception occourt on Role.Get method");
             }
         }
 
@@ -67,7 +65,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Role.Take method");
+                throw new InvalidOperationException("Unspesified exception occourt on Role.Take method");
             }
         }
 
@@ -94,7 +92,7 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Role.Count method");
+                throw new InvalidOperationException("Unspesified exception occourt on Role.Count method");
             }
         }
     }

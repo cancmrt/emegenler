@@ -1,10 +1,6 @@
 ﻿using Guard.Emegenler.DAL;
 using Guard.Emegenler.UnitOfWork;
 using Guard.Emegenler.UnitOfWork.Repositories;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Guard.Emegenler
 {

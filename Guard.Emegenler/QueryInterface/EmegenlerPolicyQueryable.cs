@@ -2,9 +2,6 @@
 using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
 using Guard.Emegenler.Types;
 using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Guard.Emegenler.QueryInterface
 {
     public static class EmegenlerPolicyQueryable
@@ -17,14 +14,14 @@ namespace Guard.Emegenler.QueryInterface
             var splittedQuery = query.Split("->");
             if(splittedQuery.Length != 3)
             {
-                throw new ArgumentOutOfRangeException("Query must have 3 level UserType->ElementType-AccessType");
+                throw new ArgumentException("Query must have 3 level UserType->ElementType-AccessType");
             }
             if (splittedQuery[0].Contains(UserType.User))
             {
                 string output = GetParanthesisInsideValue(splittedQuery[0]);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any User identifier");
+                    throw new ArgumentException("We didn't find any User identifier");
                 }
                 authCreate.WithUser(output).ElementQueryDefine(splittedQuery[1],splittedQuery[2]);
 
@@ -34,7 +31,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(splittedQuery[0]);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Role identifier");
+                    throw new ArgumentException("We didn't find any Role identifier");
                 }
                 authCreate.WithRole(output).ElementQueryDefine(splittedQuery[1],splittedQuery[2]);
             }
@@ -50,7 +47,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(query);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Page identifier");
+                    throw new ArgumentException("We didn't find any Page identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddPage(output);
                 if(nextQuery == AccessProtocol.AccessGranted)
@@ -71,7 +68,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(query);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Component identifier");
+                    throw new ArgumentException("We didn't find any Component identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddComponent(output);
                 if(nextQuery == AccessProtocol.Show)
@@ -92,7 +89,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(query);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Form identifier");
+                    throw new ArgumentException("We didn't find any Form identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddForm(output);
                 if(nextQuery == AccessProtocol.ActionGranted)
@@ -117,7 +114,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(query);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Input identifier");
+                    throw new ArgumentException("We didn't find any Input identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddInput(output);
                 if(nextQuery == AccessProtocol.Editable)
@@ -142,7 +139,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(query);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Button identifier");
+                    throw new ArgumentException("We didn't find any Button identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddButton(output);
                 if (nextQuery == AccessProtocol.ActionGranted)
@@ -167,7 +164,7 @@ namespace Guard.Emegenler.QueryInterface
                 string output = GetParanthesisInsideValue(query);
                 if (string.IsNullOrWhiteSpace(output))
                 {
-                    throw new NullReferenceException("We didn't find any Link identifier");
+                    throw new ArgumentException("We didn't find any Link identifier");
                 }
                 var nextStepOfPolicy = elementPolicy.AddLink(output);
                 if (nextQuery == AccessProtocol.ActionGranted)

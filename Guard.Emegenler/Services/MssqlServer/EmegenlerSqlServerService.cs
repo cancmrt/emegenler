@@ -1,15 +1,8 @@
-﻿using Guard.Emegenler;
-using Guard.Emegenler.DAL;
-using Guard.Emegenler.FluentInterface;
+﻿using Guard.Emegenler.DAL;
 using Guard.Emegenler.Options;
 using Guard.Emegenler.Services.General;
-using Guard.Emegenler.UnitOfWork;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Guard.Emegenler.Services.MssqlServer
 {

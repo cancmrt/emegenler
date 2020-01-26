@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Guard.Emegenler.UnitOfWork.Repositories
 {
@@ -13,7 +12,7 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
     {
         
 
-        public EmegenlerDbContext _context;
+        private readonly EmegenlerDbContext _context;
 
         public EmegenlerUserRoleIdentifierRepository(EmegenlerDbContext context)
         {

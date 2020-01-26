@@ -2,11 +2,8 @@
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.MethodReturner;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 
 namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
 {
@@ -24,7 +21,7 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
         public Returner<EmegenlerPolicy> CheckPolicy(string path)
         {
             List<EmegenlerPolicy> policies = _claims.UserPolicies;
-            if (policies is List<EmegenlerPolicy>)
+            if (policies != null)
             {
                 policies = policies.Where(p => p.PolicyElement == "Page").ToList();
                 foreach(var policy in policies)

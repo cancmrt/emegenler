@@ -9,8 +9,6 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
     public class GuardMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IEmegenlerClaims _claims;
-
 
         public GuardMiddleware(RequestDelegate next)
         {
@@ -35,10 +33,6 @@ namespace Guard.Emegenler.Middleware.EmegenlerMiddleaware
                         await _next.Invoke(context);
                     }
 
-                }
-                else
-                {
-                    
                 }
             });
             await _next.Invoke(context);

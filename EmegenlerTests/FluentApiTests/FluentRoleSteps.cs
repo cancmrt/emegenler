@@ -45,7 +45,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"Create method should throw exception on empty RoleIdentifier from FluentRole class")]
         public void ThenCreateMethodShouldThrowExceptionOnEmptyRoleIdentifierFromFluentRoleClass()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass null RoleIdentifier to Create method from FluentRole class")]
@@ -57,7 +57,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"Create method should throw exception on null RoleIdentifier from FluentRole class")]
         public void ThenCreateMethodShouldThrowExceptionOnNullRoleIdentifierFromFluentRoleClass()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass valid RoleId to Get method from FluentRole class")]
