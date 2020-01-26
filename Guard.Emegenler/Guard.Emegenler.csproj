@@ -4,6 +4,10 @@
     <TargetFrameworks>
       netcoreapp2.2;netcoreapp3.0
     </TargetFrameworks>
+    <!-- Code Coverage Analysis requires Full Debug-->
+    <DebugType>Full</DebugType>
+    <!-- SonarQube needs this -->
+    <ProjectGuid>{1F1CACC9-F479-4F46-819E-0C78EF8A29E5}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
     <PackageReference Include="Microsoft.EntityFrameworkCore">
