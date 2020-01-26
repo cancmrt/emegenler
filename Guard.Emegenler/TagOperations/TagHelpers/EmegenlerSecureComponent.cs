@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.Security.Claims;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.TagOperations.TagWorks;
 using Guard.Emegenler.Types;
 using Guard.Emegenler.Options;
@@ -20,9 +14,9 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
     public class EmegenlerSecureComponent:TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
-        private static string EmegenlerElementType = ElementType.Component;
+        private static readonly string EmegenlerElementType = ElementType.Component;
         private TagAccess TagAccess { get; set; }
-        private EmegenlerOptions Options;
+        private readonly EmegenlerOptions Options;
 
         public EmegenlerSecureComponent(IHttpContextAccessor httpContextAccessor,IEmegenlerClaims claims, EmegenlerOptions options)
         {

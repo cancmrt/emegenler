@@ -1,8 +1,4 @@
-﻿using Guard.Emegenler.Domains.Decorators;
-using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Guard.Emegenler.Policy.FluentInterface.PolicyAccess;
 
 namespace Guard.Emegenler.FluentInterface.Policy.UserStyles
 {

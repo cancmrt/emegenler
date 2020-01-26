@@ -5,9 +5,7 @@ using Guard.Emegenler.TagOperations.TagWorks;
 using Guard.Emegenler.Types;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
@@ -17,9 +15,9 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
     public class EmegenlerSecureInput : TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
-        private static string EmegenlerElementType = ElementType.Input;
+        private static readonly string EmegenlerElementType = ElementType.Input;
         private TagAccess TagAccess { get; set; }
-        private EmegenlerOptions Options;
+        private readonly EmegenlerOptions Options;
 
         public EmegenlerSecureInput(IHttpContextAccessor httpContextAccessor,IEmegenlerClaims claims, EmegenlerOptions options)
         {

@@ -6,10 +6,6 @@ using Guard.Emegenler.Types;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Encodings.Web;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
@@ -17,9 +13,9 @@ namespace Guard.Emegenler.TagOperations.TagHelpers
     public class EmegenlerSecureForm : TagHelper
     {
         private const string ComponentAttiributeName = "emegenler-guard";
-        private static string EmegenlerElementType = ElementType.Form;
+        private static readonly string EmegenlerElementType = ElementType.Form;
         private TagAccess TagAccess { get; set; }
-        private EmegenlerOptions Options;
+        private readonly EmegenlerOptions Options;
 
         public EmegenlerSecureForm(IHttpContextAccessor httpContextAccessor,IEmegenlerClaims claims, EmegenlerOptions options)
         {

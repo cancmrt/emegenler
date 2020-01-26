@@ -67,7 +67,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         /// <param name="Page">Start Page</param>
         /// <param name="PageSize">Page Item Count</param>
         /// <returns>List of EmegenlerPolicyDecorator which include data also include Update and Delete operations</returns>
-        public IList<EmegenlerPolicyDecorator> Take(int Page, int PageSize)
+        public IList<EmegenlerPolicyDecorator> TakeList(int Page, int PageSize)
         {
             var result = UWork.Policies.Take(Page,PageSize);
             if (result.IsFail())
@@ -96,7 +96,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if (String.IsNullOrEmpty(userIdentifier))
             {
-                throw new NullReferenceException("WithUser method user identifier cannot be null or empty");
+                throw new ArgumentException("WithUser method user identifier cannot be null or empty");
             }
             EmegenlerPolicy.AuthBase = AuthBase.User;
             EmegenlerPolicy.AuthBaseIdentifier = userIdentifier;
@@ -107,7 +107,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if (String.IsNullOrEmpty(roleIdentifier))
             {
-                throw new NullReferenceException("WithRole method role identifier cannot be null or empty");
+                throw new ArgumentException("WithRole method role identifier cannot be null or empty");
             }
             EmegenlerPolicy.AuthBase = AuthBase.Role;
             EmegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
@@ -128,7 +128,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Policy.Take.FromUser method");
+                throw new InvalidOperationException("Unspesified exception occourt on Policy.Take.FromUser method");
             }
         }
 
@@ -146,7 +146,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Policy.Take.FromRole method");
+                throw new InvalidOperationException("Unspesified exception occourt on Policy.Take.FromRole method");
             }
         }
 
@@ -156,7 +156,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if (String.IsNullOrEmpty(buttonIdentifier))
             {
-                throw new NullReferenceException("AddButton method button identifier cannot be null or empty");
+                throw new ArgumentException("AddButton method button identifier cannot be null or empty");
             }
             EmegenlerPolicy.PolicyElement = "Button";
             EmegenlerPolicy.PolicyElementIdentifier = buttonIdentifier;
@@ -167,7 +167,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if (String.IsNullOrEmpty(componentIdentifier))
             {
-                throw new NullReferenceException("AddComponent method component identifier cannot be null or empty");
+                throw new ArgumentException("AddComponent method component identifier cannot be null or empty");
             }
             EmegenlerPolicy.PolicyElement = "Component";
             EmegenlerPolicy.PolicyElementIdentifier = componentIdentifier;
@@ -178,7 +178,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if (String.IsNullOrEmpty(formIdentifier))
             {
-                throw new NullReferenceException("AddForm method form identifier cannot be null or empty");
+                throw new ArgumentException("AddForm method form identifier cannot be null or empty");
             }
             EmegenlerPolicy.PolicyElement = "Form";
             EmegenlerPolicy.PolicyElementIdentifier = formIdentifier;
@@ -189,7 +189,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if (String.IsNullOrEmpty(inputIdentifier))
             {
-                throw new NullReferenceException("AddInput method input identifier cannot be null or empty");
+                throw new ArgumentException("AddInput method input identifier cannot be null or empty");
             }
             EmegenlerPolicy.PolicyElement = "Input";
             EmegenlerPolicy.PolicyElementIdentifier = inputIdentifier;
@@ -200,7 +200,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if(String.IsNullOrEmpty(linkIdentifier))
             {
-                throw new NullReferenceException("AddLink method link identifier cannot be null or empty");
+                throw new ArgumentException("AddLink method link identifier cannot be null or empty");
             }
             EmegenlerPolicy.PolicyElement = "Link";
             EmegenlerPolicy.PolicyElementIdentifier = linkIdentifier;
@@ -211,7 +211,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
         {
             if(string.IsNullOrEmpty(pathIdentifier))
             {
-                throw new NullReferenceException("AddPage method path identifier cannot be null");
+                throw new ArgumentException("AddPage method path identifier cannot be null");
             }
             EmegenlerPolicy.PolicyElement = "Page";
             EmegenlerPolicy.PolicyElementIdentifier = pathIdentifier;
@@ -295,7 +295,7 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
             else
             {
-                throw new Exception("Unspesified exception occourt on Policy.Count method");
+                throw new InvalidOperationException("Unspesified exception occourt on Policy.Count method");
             }
             
         }

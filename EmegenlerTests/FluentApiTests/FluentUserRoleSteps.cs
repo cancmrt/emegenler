@@ -56,7 +56,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateUser\(Empty\) and ToRole\(identifier\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateUserEmptyAndToRoleİdentifierPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateUser\(null\) and valid ToRole\(identifier\) to FluentUserRoleApi")]
@@ -68,7 +68,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateUser\(null\) and ToRole\(identifier\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateUserNullAndToRoleİdentifierPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateUser\(identifier\) and valid ToRole\(Empty\) to FluentUserRoleApi")]
@@ -80,7 +80,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateUser\(identifier\) and ToRole\(Empty\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateUserİdentifierAndToRoleEmptyPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateUser\(identifier\) and valid ToRole\(null\) to FluentUserRoleApi")]
@@ -92,7 +92,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateUser\(identifier\) and ToRole\(null\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateUserİdentifierAndToRoleNullPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateRole\(Empty\) and valid ToUser\(identifier\) to FluentUserRoleApi")]
@@ -104,7 +104,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateRole\(Empty\) and ToUser\(identifier\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateRoleEmptyAndToUserİdentifierPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateRole\(null\) and valid ToUser\(identifier\) to FluentUserRoleApi")]
@@ -116,7 +116,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateRole\(null\) and ToUser\(identifier\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateRoleNullAndToUserİdentifierPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateRole\(identifier\) and valid ToUser\(Empty\) to FluentUserRoleApi")]
@@ -128,7 +128,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateRole\(identifier\) and ToUser\(Empty\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateRoleİdentifierAndToUserEmptyPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"We pass not valid AssociateRole\(identifier\) and valid ToUser\(null\) to FluentUserRoleApi")]
@@ -140,7 +140,7 @@ namespace EmegenlerTests.FluentApiTests
         [Then(@"FluentUserRole api should throw exception on not valid AssociateRole\(identifier\) and ToUser\(null\) passage on method")]
         public void ThenFluentUserRoleApiShouldThrowExceptionOnNotValidAssociateRoleİdentifierAndToUserNullPassageOnMethod()
         {
-            act.Should().Throw<NullReferenceException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [When(@"Count method called from UserRole interface")]

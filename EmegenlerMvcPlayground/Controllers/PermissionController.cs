@@ -29,7 +29,7 @@ namespace EmegenlerMvcPlayground.Controllers
             long TotalCountOfPolicy = API.Policy.Count();
             long ElementRowCountOnPage = 6;
             var Paginate = Pagination.Calculate(TotalCountOfPolicy, ChoosedPage, ElementRowCountOnPage);
-            var Policies = API.Policy.Take(Convert.ToInt32(Paginate.CurrentPage), Convert.ToInt32(Paginate.RangeSize));
+            var Policies = API.Policy.TakeList(Convert.ToInt32(Paginate.CurrentPage), Convert.ToInt32(Paginate.RangeSize));
 
             ViewData["Policies"] = MapEmegenlerPolicy_TO_PolictView(Policies);
             ViewData["Paginate"] = Paginate;
@@ -201,21 +201,27 @@ namespace EmegenlerMvcPlayground.Controllers
             ViewData["Users"] = _context.Users.ToList();
             ViewData["Groups"] = _context.Groups.ToList();
 
-            Dictionary<string, string> Pages = new Dictionary<string, string>();
-            Pages.Add("Add Permissions", "permission/add");
-            Pages.Add("Edit Permissions", "permission/edit");
-            Pages.Add("Remove Permissions", "permission/delete");
-            Pages.Add("Permissions All", "permission/*");
+            Dictionary<string, string> Pages = new Dictionary<string, string>
+            {
+                { "Add Permissions", "permission/add" },
+                { "Edit Permissions", "permission/edit" },
+                { "Remove Permissions", "permission/delete" },
+                { "Permissions All", "permission/*" }
+            };
 
-            Dictionary<string, string> Reports = new Dictionary<string, string>();
-            Reports.Add("Sales Reports", ".salessection");
-            Reports.Add("IT Reports", ".itsection");
-            Reports.Add("HR Reports", ".hrsection");
+            Dictionary<string, string> Reports = new Dictionary<string, string>
+            {
+                { "Sales Reports", ".salessection" },
+                { "IT Reports", ".itsection" },
+                { "HR Reports", ".hrsection" }
+            };
 
-            Dictionary<string, string> Forms = new Dictionary<string, string>();
-            Forms.Add("Sale Report Form", "#SaleReportForm");
-            Forms.Add("It Report Form", "#ItReportForm");
-            Forms.Add("HR Report Form", "#HrReportForm");
+            Dictionary<string, string> Forms = new Dictionary<string, string>
+            {
+                { "Sale Report Form", "#SaleReportForm" },
+                { "It Report Form", "#ItReportForm" },
+                { "HR Report Form", "#HrReportForm" }
+            };
 
 
             string[] PageAccessRules = new string[] { "AccessGranted", "AccessDenied" };
@@ -282,16 +288,14 @@ namespace EmegenlerMvcPlayground.Controllers
                 if (policy.AuthBase == AuthBase.Role)
                 {
                     var getRoleName = RoleList
-                        .Where(r => r.Id == Convert.ToInt32(policy.AuthBaseIdentifier))
-                        .FirstOrDefault()
+                        .FirstOrDefault(r => r.Id == Convert.ToInt32(policy.AuthBaseIdentifier))
                         .Name;
                     policyView.IdentifierName = getRoleName;
                 }
                 if (policy.AuthBase == AuthBase.User)
                 {
                     var getUser = UserList
-                        .Where(r => r.Id == Convert.ToInt32(policy.AuthBaseIdentifier))
-                        .FirstOrDefault();
+                        .FirstOrDefault(r => r.Id == Convert.ToInt32(policy.AuthBaseIdentifier));
 
                     var getUserName = getUser.Name + " " + getUser.Surname;
 

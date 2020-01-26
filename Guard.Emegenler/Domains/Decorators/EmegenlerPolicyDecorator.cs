@@ -2,9 +2,6 @@
 using Guard.Emegenler.Domains.Decorators.Overloads.Repository;
 using Guard.Emegenler.Domains.Models;
 using Guard.Emegenler.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Guard.Emegenler.Domains.Decorators
 {

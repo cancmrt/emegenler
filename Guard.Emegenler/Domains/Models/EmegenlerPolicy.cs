@@ -1,10 +1,5 @@
 ﻿using Guard.Emegenler.FluentInterface.Policy.Types;
-using Guard.Emegenler.UnitOfWork;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Guard.Emegenler.Domains.Models
 {
