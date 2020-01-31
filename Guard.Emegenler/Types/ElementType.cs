@@ -1,6 +1,9 @@
 ﻿
 namespace Guard.Emegenler.Types
 {
+    /// <summary>
+    /// Type container for Emegenler Element types
+    /// </summary>
     public static class ElementType
     {
         public static readonly string Page = "Page";

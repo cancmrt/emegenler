@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
+    /// <summary>
+    /// Emegenler Input type tag helper based on policy appliying html rules
+    /// </summary>
     [HtmlTargetElement("input", Attributes = ComponentAttiributeName)]
     [HtmlTargetElement("select", Attributes = ComponentAttiributeName)]
     [HtmlTargetElement("textarea", Attributes = ComponentAttiributeName)]

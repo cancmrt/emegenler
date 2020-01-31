@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Guard.Emegenler.DAL
 {
+    /// <summary>
+    /// DbContext of Emegenler
+    /// </summary>
     public class EmegenlerDbContext:DbContext
     {
         public EmegenlerDbContext(DbContextOptions<EmegenlerDbContext> options) : base(options)

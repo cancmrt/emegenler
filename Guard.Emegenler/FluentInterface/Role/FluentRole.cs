@@ -16,6 +16,11 @@ namespace Guard.Emegenler.FluentInterface.Role
             UWork = uWork;
             EmegenlerRole = new EmegenlerRole();
         }
+
+        /// <summary>
+        /// Create Role Identifier in Source
+        /// </summary>
+        /// <param name="RoleIdentifier">Role Identifier</param>
         public void Create(string RoleIdentifier)
         {
             if (String.IsNullOrEmpty(RoleIdentifier))
@@ -35,6 +40,11 @@ namespace Guard.Emegenler.FluentInterface.Role
             
         }
 
+        /// <summary>
+        /// Get Role Identifier from Source
+        /// </summary>
+        /// <param name="Id">Role Id in Source</param>
+        /// <returns>Role entity from Source</returns>
         public EmegenlerRoleDecorator Get(int Id)
         {
             var result = UWork.Roles.Get(Id);
@@ -52,6 +62,12 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
         }
 
+        /// <summary>
+        /// Taking Role entities from Source
+        /// </summary>
+        /// <param name="Page">List Page</param>
+        /// <param name="PageSize">List Size</param>
+        /// <returns>List of Role entities from soruce</returns>
         public IList<EmegenlerRoleDecorator> Take(int Page, int PageSize)
         {
             var result = UWork.Roles.Take(Page, PageSize);
@@ -69,6 +85,11 @@ namespace Guard.Emegenler.FluentInterface.Role
             }
         }
 
+        /// <summary>
+        /// Injecction Decorator to Role entities
+        /// </summary>
+        /// <param name="listOfRoles">List of Role entities</param>
+        /// <returns>List of Decorated Role entities</returns>
         private IList<EmegenlerRoleDecorator> ListOfRolesDecoratorInjection(IList<EmegenlerRole> listOfRoles)
         {
             List<EmegenlerRoleDecorator> ExtendedRoles = new List<EmegenlerRoleDecorator>();
@@ -79,6 +100,10 @@ namespace Guard.Emegenler.FluentInterface.Role
             return ExtendedRoles;
         }
 
+        /// <summary>
+        /// Count of Role entities in Source
+        /// </summary>
+        /// <returns>Role entities count</returns>
         public long Count()
         {
             var result = UWork.Roles.Count();

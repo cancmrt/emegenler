@@ -12,6 +12,11 @@ namespace Guard.Emegenler.Claims
         public  string UserIdentifier { get; set; }
         public List<EmegenlerPolicy> UserPolicies { get; set; }
         public bool IsLoaded { get; set; }
+
+        /// <summary>
+        /// This function loading UserPolicies from HttpContext
+        /// </summary>
+        /// <param name="context">HttpContext for NetCore application</param>
         public void LoadClaims(HttpContext context)
         {
             if(context.User.Identity.IsAuthenticated)

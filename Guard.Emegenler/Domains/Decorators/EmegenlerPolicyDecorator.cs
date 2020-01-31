@@ -5,6 +5,9 @@ using Guard.Emegenler.UnitOfWork;
 
 namespace Guard.Emegenler.Domains.Decorators
 {
+    /// <summary>
+    /// Decorate EmegenlerPolicy adding Update and Delete method on returning entity
+    /// </summary>
     public static class EmegenlerPolicyExtension
     {
         public static EmegenlerPolicyDecorator Extend(this EmegenlerPolicy policy, IEmegenlerUWork UWork)

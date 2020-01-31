@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
+    /// <summary>
+    /// Emegenler Component type tag helper based on policy appliying html rules
+    /// </summary>
     [HtmlTargetElement("button", Attributes = ComponentAttiributeName)]
     public class EmegenlerSecureButton:TagHelper
     {

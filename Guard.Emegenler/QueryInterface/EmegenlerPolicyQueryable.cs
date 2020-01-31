@@ -6,7 +6,11 @@ namespace Guard.Emegenler.QueryInterface
 {
     public static class EmegenlerPolicyQueryable
     {
-
+        /// <summary>
+        /// This extension parse policy using string query
+        /// </summary>
+        /// <param name="authCreate">extension Policy Authbase</param>
+        /// <param name="query">String query</param>
         public static void ByQuery(this IEmegenlerPolicyAuthBase authCreate, string query)
         {
             
@@ -40,6 +44,12 @@ namespace Guard.Emegenler.QueryInterface
                 throw new ArgumentException("UserType level couldn't find, Did you missed User or Role keyword");
             }
         }
+        /// <summary>
+        /// Parse query by Element type
+        /// </summary>
+        /// <param name="elementPolicy">extension PolicyAccess</param>
+        /// <param name="query">String query written by User</param>
+        /// <param name="nextQuery">Next part of query</param>
         private static void ElementQueryDefine(this IEmegenlerPolicyAccess elementPolicy, string query, string nextQuery)
         {
             if(query.Contains(ElementType.Page))
@@ -189,6 +199,11 @@ namespace Guard.Emegenler.QueryInterface
                 throw new ArgumentException("ElementType level couldn't find, Did you missed Page,Component,Form... etc keywords");
             }
         }
+        /// <summary>
+        /// Getting inside of () paranthesis
+        /// </summary>
+        /// <param name="query">String query</param>
+        /// <returns>Inside of () paranthesis</returns>
         private static string GetParanthesisInsideValue(string query)
         {
             return query.Split('(', ')')[1];

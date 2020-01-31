@@ -15,6 +15,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
         {
             _context = context;
         }
+        /// <summary>
+        /// Insert new Emegenler Role to source
+        /// </summary>
+        /// <param name="newRole">Emegenler Role entity params</param>
+        /// <returns>Added Emegenler role</returns>
         public Returner<EmegenlerRole> Insert(EmegenlerRole newRole)
         {
             try
@@ -50,6 +55,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
 
         }
 
+        /// <summary>
+        /// Getting Emegenler Role with entity id
+        /// </summary>
+        /// <param name="roleId">Role id which belongs to entity</param>
+        /// <returns></returns>
         public Returner<EmegenlerRole> Get(int roleId)
         {
             try
@@ -79,6 +89,10 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Total Count of Emegenler Role in source
+        /// </summary>
+        /// <returns>Total Count of Emegenler Role</returns>
         public Returner<long> Count()
         {
             try
@@ -92,6 +106,12 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Getting Emegenler Role entities in spesified range
+        /// </summary>
+        /// <param name="page">Start Page</param>
+        /// <param name="pageSize">List Range</param>
+        /// <returns>List of Emegenler Role</returns>
         public Returner<IList<EmegenlerRole>> Take(int page, int pageSize)
         {
             if (page > 0 && pageSize > 0)
@@ -123,6 +143,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Delete desired Emegenler role entity from source
+        /// </summary>
+        /// <param name="deleteThisRole">Emegenler Role entity for desire to delete</param>
+        /// <returns>Deleted Emegenler Role</returns>
         public Returner<EmegenlerRole> Delete(EmegenlerRole deleteThisRole)
         {
             try
