@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
+    /// <summary>
+    /// Emegenler Link type tag helper based on policy appliying html rules
+    /// </summary>
     [HtmlTargetElement("a", Attributes = ComponentAttiributeName)]
     public class EmegenlerSecureLink:TagHelper
     {

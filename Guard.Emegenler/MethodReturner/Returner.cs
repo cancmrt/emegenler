@@ -2,6 +2,10 @@
 
 namespace Guard.Emegenler.MethodReturner
 {
+    /// <summary>
+    /// Returner logic Emegenler for Success or Failure
+    /// </summary>
+    /// <typeparam name="T">Returner Type</typeparam>
     public sealed class Returner<T>
     {
         private bool SuccessState { get; set; }

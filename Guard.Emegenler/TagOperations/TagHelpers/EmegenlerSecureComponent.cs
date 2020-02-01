@@ -8,7 +8,9 @@ using Guard.Emegenler.Claims;
 
 namespace Guard.Emegenler.TagOperations.TagHelpers
 {
-
+    /// <summary>
+    /// Emegenler Component type tag helper based on policy appliying html rules
+    /// </summary>
     [HtmlTargetElement("div", Attributes = ComponentAttiributeName)]
     [HtmlTargetElement("script", Attributes = ComponentAttiributeName)]
     public class EmegenlerSecureComponent:TagHelper

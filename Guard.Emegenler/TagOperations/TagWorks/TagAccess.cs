@@ -20,7 +20,12 @@ namespace Guard.Emegenler.TagOperations.TagWorks
             }
             _claims = claims;
         }
-
+        /// <summary>
+        /// Checking and Finding policies based on html tag and user claims
+        /// </summary>
+        /// <param name="EmegenlerElementType">Emegenler Element Type</param>
+        /// <param name="output">Tag Helper Output</param>
+        /// <returns>Finded Emegenler Policy belongs to rule</returns>
         public Returner<EmegenlerPolicy> CheckPolicy(string EmegenlerElementType,TagHelperOutput output)
         {
             TagHelperAttributeList listOfAttirubutes = output.Attributes;

@@ -18,6 +18,12 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Insert EmegenlerUserRoleIdentifier to source
+        /// </summary>
+        /// <param name="newUserRoleIdentifier">EmegenlerUserRoleIdentifier entity</param>
+        /// <returns>Add EmegenlerUserRoleIdentifier entity</returns>
         public Returner<EmegenlerUserRoleIdentifier> Insert(EmegenlerUserRoleIdentifier newUserRoleIdentifier)
         {
             try
@@ -53,6 +59,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Getting EmegenlerUserRoleIdentifier with id
+        /// </summary>
+        /// <param name="userRoleIdentifierId">Id of EmegenlerUserRoleIdentifier</param>
+        /// <returns>EmegenlerUserRoleIdentifier entitiy</returns>
         public Returner<EmegenlerUserRoleIdentifier> Get(int userRoleIdentifierId)
         {
             try
@@ -82,6 +93,10 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Total count of EmegenlerUserRoleIdentifier entity
+        /// </summary>
+        /// <returns>Count of EmegenlerUserRoleIdentifier entites</returns>
         public Returner<long> Count()
         {
             try
@@ -95,6 +110,12 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Getting EmegenlerUserRoleIdentifier entites in spesific range
+        /// </summary>
+        /// <param name="page">Start Page</param>
+        /// <param name="pageSize">List Range</param>
+        /// <returns>List of EmegenlerUserRoleIdentifier</returns>
         public Returner<IList<EmegenlerUserRoleIdentifier>> Take(int page, int pageSize)
         {
             if (page > 0 && pageSize > 0)
@@ -126,6 +147,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Deleting EmegenlerUserRoleIdentifier entity from source
+        /// </summary>
+        /// <param name="deleteThisUserRole">Deleted User Role Identifier</param>
+        /// <returns>Deleted EmegenlerUserRoleIdentifier entity</returns>
         public Returner<EmegenlerUserRoleIdentifier> Delete(EmegenlerUserRoleIdentifier deleteThisUserRole)
         {
             try

@@ -86,12 +86,16 @@ namespace Guard.Emegenler.FluentInterface.Policy
         /// <summary>
         /// This method using in FluentApi interface chain for Take policies 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>FromUser FromRole options</returns>
         public IEmegenlerPolicyTakeBase Take()
         {
             return this;
         }
-
+        /// <summary>
+        /// Chain for Create method, defining identifier to User
+        /// </summary>
+        /// <param name="userIdentifier">User Identtifier</param>
+        /// <returns>Chain of Access definitions</returns>
         public IEmegenlerPolicyAccess WithUser(string userIdentifier)
         {
             if (String.IsNullOrEmpty(userIdentifier))
@@ -102,7 +106,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             EmegenlerPolicy.AuthBaseIdentifier = userIdentifier;
             return this;
         }
-
+        /// <summary>
+        /// Chain for Create method, defining identifier to Role
+        /// </summary>
+        /// <param name="roleIdentifier">Role Identtifier</param>
+        /// <returns>Chain of Access definitions</returns>
         public IEmegenlerPolicyAccess WithRole(string roleIdentifier)
         {
             if (String.IsNullOrEmpty(roleIdentifier))
@@ -113,7 +121,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             EmegenlerPolicy.AuthBaseIdentifier = roleIdentifier;
             return this;
         }
-
+        /// <summary>
+        /// Last chain part of Take method getting Policies belong to User Identifier
+        /// </summary>
+        /// <param name="userIdentifier">User Identifier</param>
+        /// <returns>List of Policies belongs to User Identifier</returns>
         public IList<EmegenlerPolicyDecorator> FromUser(string userIdentifier)
         {
             var result = UWork.Policies.TakePolicies(AuthBase.User, userIdentifier);
@@ -132,6 +144,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
         }
 
+        /// <summary>
+        /// Last chain part of Take method getting Policies belong to Role Identifier
+        /// </summary>
+        /// <param name="roleIdentifier">Role Identifier</param>
+        /// <returns>List of Policies belongs to Role Identifier</returns>
         public IList<EmegenlerPolicyDecorator> FromRole(string roleIdentifier)
         {
             var result = UWork.Policies.TakePolicies(AuthBase.Role, roleIdentifier);
@@ -151,7 +168,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
         }
 
 
-        ///IEmegenlerPolicyElement start
+        /// <summary>
+        /// Chain for WithUser or WithRole method for defining policy as a Button
+        /// </summary>
+        /// <param name="buttonIdentifier">Button Identifier</param>
+        /// <returns>Chain of Button Access</returns>
         public IEmegenlerPolicyButtonAccess AddButton(string buttonIdentifier)
         {
             if (String.IsNullOrEmpty(buttonIdentifier))
@@ -163,6 +184,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
+        /// <summary>
+        /// Chain for WithUser or WithRole method for defining policy as a Component
+        /// </summary>
+        /// <param name="componentIdentifier">Component Identifier</param>
+        /// <returns>Chain of Component Access</returns>
         public IEmegenlerPolicyComponentAccess AddComponent(string componentIdentifier)
         {
             if (String.IsNullOrEmpty(componentIdentifier))
@@ -174,6 +200,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
+        /// <summary>
+        /// Chain for WithUser or WithRole method for defining policy as a Form
+        /// </summary>
+        /// <param name="formIdentifier">Form Identifier</param>
+        /// <returns>Chain of Form Access</returns>
         public IEmegenlerPolicyFormAccess AddForm(string formIdentifier)
         {
             if (String.IsNullOrEmpty(formIdentifier))
@@ -185,6 +216,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
+        /// <summary>
+        /// Chain for WithUser or WithRole method for defining policy as a Input
+        /// </summary>
+        /// <param name="inputIdentifier">Input Identifier</param>
+        /// <returns>Chain of Input Access</returns>
         public IEmegenlerPolicyInputAccess AddInput(string inputIdentifier)
         {
             if (String.IsNullOrEmpty(inputIdentifier))
@@ -196,6 +232,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
+        /// <summary>
+        /// Chain for WithUser or WithRole method for defining policy as a Link
+        /// </summary>
+        /// <param name="linkIdentifier">Link Identifier</param>
+        /// <returns>Chain of Link Access</returns>
         public IEmegenlerPolicyLinkAccess AddLink(string linkIdentifier)
         {
             if(String.IsNullOrEmpty(linkIdentifier))
@@ -207,6 +248,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return this;
         }
 
+        /// <summary>
+        /// Chain for WithUser or WithRole method for defining policy as a Page
+        /// </summary>
+        /// <param name="pathIdentifier">Path Identifier</param>
+        /// <returns>Chain of Page Access</returns>
         public IEmegenlerPolicyPageAccess AddPage(string pathIdentifier)
         {
             if(string.IsNullOrEmpty(pathIdentifier))
@@ -219,50 +265,72 @@ namespace Guard.Emegenler.FluentInterface.Policy
         }
 
 
-
+        /// <summary>
+        /// AccessDenied option for Policies
+        /// </summary>
         public void AccessDenied()
         {
             EmegenlerPolicy.AccessProtocol = "AccessDenied";
             Save();
         }
 
+        /// <summary>
+        /// AccessGranted option for Policies
+        /// </summary>
         public void AccessGranted()
         {
             EmegenlerPolicy.AccessProtocol = "AccessGranted";
             Save();
         }
 
+        /// <summary>
+        /// ActionGranted option for Policies
+        /// </summary>
         public void ActionGranted()
         {
             EmegenlerPolicy.AccessProtocol = "ActionGranted";
             Save();
         }
 
+        /// <summary>
+        /// Editable option for Policies
+        /// </summary>
         public void Editable()
         {
             EmegenlerPolicy.AccessProtocol = "Editable";
             Save();
         }
 
+        /// <summary>
+        /// Readonly option for Policies
+        /// </summary>
         public void Readonly()
         {
             EmegenlerPolicy.AccessProtocol = "Readonly";
             Save();
         }
 
+        /// <summary>
+        /// Show option for Policies
+        /// </summary>
         public void Show()
         {
             EmegenlerPolicy.AccessProtocol = "Show";
             Save();
         }
 
+        /// <summary>
+        /// Hide options for Policies
+        /// </summary>
         public void Hide()
         {
             EmegenlerPolicy.AccessProtocol = "Hide";
             Save();
         }
 
-
+        /// <summary>
+        /// Save policiy to Source
+        /// </summary>
         private void Save()
         {
             var result = UWork.Policies.Insert(EmegenlerPolicy);
@@ -272,6 +340,11 @@ namespace Guard.Emegenler.FluentInterface.Policy
             }
         }
 
+        /// <summary>
+        /// Injection for Policy entities
+        /// </summary>
+        /// <param name="listOfPolicies">List of Policy entites</param>
+        /// <returns>List of Decorated entities</returns>
         private IList<EmegenlerPolicyDecorator> ListOfPoliciesDecoratorInjection(IList<EmegenlerPolicy> listOfPolicies)
         {
             List<EmegenlerPolicyDecorator> ExtendedPolicies = new List<EmegenlerPolicyDecorator>();
@@ -282,6 +355,10 @@ namespace Guard.Emegenler.FluentInterface.Policy
             return ExtendedPolicies;
         }
 
+        /// <summary>
+        /// Count of Policies in Source
+        /// </summary>
+        /// <returns>Policies count from source</returns>
         public long Count()
         {
             var result = UWork.Policies.Count();
@@ -300,7 +377,6 @@ namespace Guard.Emegenler.FluentInterface.Policy
             
         }
 
-        ///IEmegenlerPolicyElement end
 
     }
 }

@@ -5,6 +5,9 @@ using Guard.Emegenler.UnitOfWork;
 
 namespace Guard.Emegenler.FluentInterface
 {
+    /// <summary>
+    /// Fluent api design constructer for accessing Emegenler features
+    /// </summary>
     public class FluentApi: IEmegenlerFluentApi
     {
         public IFluentPolicy Policy { get; set; }

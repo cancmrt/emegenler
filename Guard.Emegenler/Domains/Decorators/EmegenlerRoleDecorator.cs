@@ -5,6 +5,9 @@ using Guard.Emegenler.UnitOfWork;
 
 namespace Guard.Emegenler.Domains.Decorators
 {
+    /// <summary>
+    /// Decorate EmegenlerRole adding Update and Delete method on returning entity
+    /// </summary>
     public static class EmegenlerRoleExtension
     {
         public static EmegenlerRoleDecorator Extend(this EmegenlerRole role, IEmegenlerUWork UWork)

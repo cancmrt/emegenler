@@ -8,6 +8,10 @@ namespace Guard.Emegenler.Services.General
 {
     public static class GeneralServices
     {
+        /// <summary>
+        /// This is general service injection for Emegenler which need every condition
+        /// </summary>
+        /// <param name="services"></param>
         public static void Inject(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

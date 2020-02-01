@@ -16,6 +16,12 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Insert new Emegenler Policy to datasource
+        /// </summary>
+        /// <param name="newEmegenlerPolicy"></param>
+        /// <returns></returns>
         public Returner<EmegenlerPolicy> Insert(EmegenlerPolicy newEmegenlerPolicy)
         {
             try
@@ -50,6 +56,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Getting Emegenler Policy from datasource
+        /// </summary>
+        /// <param name="policyId"></param>
+        /// <returns></returns>
         public Returner<EmegenlerPolicy> Get(int policyId)
         {
             try
@@ -79,6 +90,12 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Getting Emegenler Policies in spesific range from datasource
+        /// </summary>
+        /// <param name="page">Start page</param>
+        /// <param name="pageSize">List Range</param>
+        /// <returns>List of Policies</returns>
         public Returner<IList<EmegenlerPolicy>> Take(int page, int pageSize)
         {
             if(page > 0 && pageSize > 0)
@@ -109,6 +126,11 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             }
         }
 
+        /// <summary>
+        /// Delete Emegenler Policy
+        /// </summary>
+        /// <param name="deleteThisPolicy">Emegenler Policy desired for delete</param>
+        /// <returns></returns>
         public Returner<EmegenlerPolicy> Delete(EmegenlerPolicy deleteThisPolicy)
         {
             try
@@ -139,7 +161,12 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
                 return Returner<EmegenlerPolicy>.FailReturn(exception);
             }
         }
-
+        /// <summary>
+        /// Getting Emegenler Policies by using Authbase and Identifier
+        /// </summary>
+        /// <param name="AuthType">Which User type you desire to get policy</param>
+        /// <param name="identifier">Identifier for User type</param>
+        /// <returns></returns>
         public Returner<IList<EmegenlerPolicy>> TakePolicies(AuthBase AuthType, string identifier)
         {
             if(!string.IsNullOrEmpty(identifier))
@@ -162,6 +189,10 @@ namespace Guard.Emegenler.UnitOfWork.Repositories
             
         }
 
+        /// <summary>
+        /// Total Count of EMegenler Policies in source
+        /// </summary>
+        /// <returns>Count of Emegenler Policies in source</returns>
         public Returner<long> Count()
         {
             try

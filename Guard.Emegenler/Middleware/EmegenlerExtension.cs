@@ -9,6 +9,11 @@ namespace Guard.Emegenler.Middleware
 {
     public static class EmegenlerExtension
     {
+        /// <summary>
+        /// Extend your application builder auto migrate options from emegenler and assign middleware
+        /// </summary>
+        /// <param name="applicationBuilder">Application builder</param>
+        /// <returns>Configurated ApplicationBuilder</returns>
         public static IApplicationBuilder UseEmegenler(this IApplicationBuilder applicationBuilder)
         {
             IServiceProvider serviceProvider = applicationBuilder.ApplicationServices;
