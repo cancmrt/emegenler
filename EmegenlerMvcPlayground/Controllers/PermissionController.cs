@@ -103,6 +103,22 @@ namespace EmegenlerMvcPlayground.Controllers
                     FormPolicy.Hide();
                 }
             }
+            else if (form["SelectedElementType"] == "4")
+            {
+                var LinkPolicy = AuthBase.AddLink(form["SelectedLink"]);
+                if (form["SelectedLinkRule"] == "ActionGranted")
+                {
+                    LinkPolicy.ActionGranted();
+                }
+                else if (form["SelectedLinkRule"] == "Readonly")
+                {
+                    LinkPolicy.Readonly();
+                }
+                else if (form["SelectedLinkRule"] == "Hide")
+                {
+                    LinkPolicy.Hide();
+                }
+            }
 
             return RedirectToAction("Index");
         }
@@ -203,10 +219,13 @@ namespace EmegenlerMvcPlayground.Controllers
 
             Dictionary<string, string> Pages = new Dictionary<string, string>
             {
-                { "Add Permissions", "permission/add" },
-                { "Edit Permissions", "permission/edit" },
-                { "Remove Permissions", "permission/delete" },
-                { "Permissions All", "permission/*" }
+                { "Add Permissions", "permission/add/*" },
+                { "Edit Permissions", "permission/edit/*" },
+                { "Remove Permissions", "permission/delete/*" },
+                { "Permissions All", "permission/*" },
+                { "It List Forms", "form/itlist/*" },
+                { "Hr List Forms", "form/hrlist/*" },
+                { "Sale List Forms", "form/salelist/*" }
             };
 
             Dictionary<string, string> Reports = new Dictionary<string, string>
@@ -222,19 +241,28 @@ namespace EmegenlerMvcPlayground.Controllers
                 { "It Report Form", "#ItReportForm" },
                 { "HR Report Form", "#HrReportForm" }
             };
+            Dictionary<string, string> Links = new Dictionary<string, string>
+            {
+                { "Hr List Forms Link", "#ListHrForm" },
+                { "It List Forms Link", "#ListItForm" },
+                { "Sale List Forms Link", "#ListSalesForm" }
+            };
 
 
             string[] PageAccessRules = new string[] { "AccessGranted", "AccessDenied" };
             string[] ReportsAccessRules = new string[] { "Show", "Hide" };
             string[] FormAccessRules = new string[] { "ActionGranted", "Readonly", "Hide" };
+            string[] LinkAccessRules = new string[] { "ActionGranted", "Readonly", "Hide" };
 
             ViewData["Pages"] = Pages;
             ViewData["Reports"] = Reports;
             ViewData["Forms"] = Forms;
+            ViewData["Links"] = Links;
 
             ViewData["PageRules"] = PageAccessRules;
             ViewData["ReportRules"] = ReportsAccessRules;
             ViewData["FormRules"] = FormAccessRules;
+            ViewData["LinkRules"] = LinkAccessRules;
         }
 
         private List<PolicyView> MapEmegenlerPolicy_TO_PolictView(IList<EmegenlerPolicyDecorator> Policies)

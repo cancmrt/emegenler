@@ -6,78 +6,80 @@
 @{
     ViewData["Title"] = "It";
 }
-
+@addTagHelper Guard.Emegenler.TagOperations.TagHelpers.*, Guard.Emegenler
 <br />
 <br />
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <a class="btn btn-outline-info" href="/form/itlist"><i class="fas fa-laptop"></i> It Forms List</a>
+        <a id="ListItForm" class="btn btn-outline-info" href="/form/itlist" emegenler-guard><i class="fas fa-laptop"></i> It Forms List</a>
         <br />
         <br />
         <div class="card">
-            <div class="card-body">
-                <div class="row" style="margin-bottom:15px;">
-                    <div class="col-6">
-                        <img src="~/img/emegenler-crop-logo.png" width="200" />
+            <form id="ItReportForm" emegenler-guard>
+                <div class="card-body">
+                    <div class="row" style="margin-bottom:15px;">
+                        <div class="col-6">
+                            <img src="~/img/emegenler-crop-logo.png" width="200" />
+                        </div>
+                        <div class="col-6" style="text-align:right;">
+                            <br />
+                            <h1>IT Form</h1>
+                        </div>
                     </div>
-                    <div class="col-6" style="text-align:right;">
-                        <br />
-                        <h1>IT Form</h1>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Serial Number:</label>
+                            <input name="SerialNumber" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <label>Service Type:</label>
+                            <select class="form-control product">
+                                <option selected value="Broken">Broken</option>
+                                <option value="Update">Update</option>
+                                <option value="Upgrade">Upgrade</option>
+                                <option value="Installation">Installation</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>Serial Number:</label>
-                        <input name="SerialNumber" class="form-control" />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Name Surname:</label>
+                            <input name="NameSurname" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label>Department:</label>
+                            <select class="form-control">
+                                <option value="Sales">Sales</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label>Telephone:</label>
+                            <input name="Telephone" class="form-control" />
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <label>Service Type:</label>
-                        <select class="form-control product">
-                            <option selected value="Broken">Broken</option>
-                            <option value="Update">Update</option>
-                            <option value="Upgrade">Upgrade</option>
-                            <option value="Installation">Installation</option>
-                        </select>
+                    <div class="row">
+                        <div class="col-5">
+                            <label>Short Summary:</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <div class="col-7">
+                            <label>Long Description:</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label>Name Surname:</label>
-                        <input name="NameSurname" class="form-control" />
+                    <div class="row">
+                        <div class="col-12">
+                            <br />
+                            <br />
+                            <button class="btn btn-block btn-success">Save</button>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <label>Department:</label>
-                        <select class="form-control">
-                            <option value="Sales">Sales</option>
-                            <option value="IT">IT</option>
-                            <option value="HR">HR</option>
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <label>Telephone:</label>
-                        <input name="Telephone" class="form-control" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-5">
-                        <label>Short Summary:</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                    <div class="col-7">
-                        <label>Long Description:</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <br />
-                        <br />
-                        <button class="btn btn-block btn-success">Save</button>
-                    </div>
-                </div>
 
-            </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="col-md-1"></div>
