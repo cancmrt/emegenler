@@ -10,9 +10,11 @@
     var AccessPages = ViewData["Pages"] as Dictionary<string, string>;
     var AccessReports = ViewData["Reports"] as Dictionary<string, string>;
     var AccessForms = ViewData["Forms"] as Dictionary<string, string>;
+    var AccessLinks = ViewData["Links"] as Dictionary<string, string>;
     var PageRules = ViewData["PageRules"] as string[];
     var ReportRules = ViewData["ReportRules"] as string[];
     var FormRules = ViewData["FormRules"] as string[];
+    var LinkRules = ViewData["LinkRules"] as string[];
 }
 
 <br />
@@ -64,6 +66,7 @@
                                 <option value="1">Pages</option>
                                 <option value="2">Reports</option>
                                 <option value="3">Forms</option>
+                                <option value="4">Links</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -94,6 +97,15 @@
                                     }
                                 </select>
                             </div>
+                            <div class="LinksArea Areas">
+                                <label>Select Link</label>
+                                <select class="form-control" name="SelectedLink">
+                                    @foreach (var accessLink in AccessLinks)
+                                    {
+                                        <option value="@accessLink.Value">@accessLink.Key</option>
+                                    }
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-4">
                             <div class="PageAreaRules Rules">
@@ -120,6 +132,15 @@
                                     @foreach (var formRule in FormRules)
                                     {
                                         <option value="@formRule">@formRule</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="LinkAreaRules Rules">
+                                <label>Select Rule</label>
+                                <select class="form-control" name="SelectedLinkRule">
+                                    @foreach (var linkRule in LinkRules)
+                                    {
+                                        <option value="@linkRule">@linkRule</option>
                                     }
                                 </select>
                             </div>
@@ -173,6 +194,10 @@
                 else if (selectedType === "3") {
                     $(".FormsArea").show();
                     $(".FormAreaRules").show();
+                }
+                else if (selectedType === "4") {
+                    $(".LinksArea").show();
+                    $(".LinkAreaRules").show();
                 }
             });
 

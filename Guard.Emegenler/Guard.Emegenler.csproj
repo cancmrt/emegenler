@@ -8,6 +8,17 @@
     <DebugType>Full</DebugType>
     <!-- SonarQube needs this -->
     <ProjectGuid>{1F1CACC9-F479-4F46-819E-0C78EF8A29E5}</ProjectGuid>
+    <PackageId>Emegenler</PackageId>
+    <Authors>cancmrt</Authors>
+    <Product>Emegenler</Product>
+    <Description>Emegenler is RBAC(Role Base Access Control) for Views. You can create policies and connect policies with your Any user system. Package need db for store policies.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cancmrt/emegenler</RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <PackageTags>RBAC, Security, Views</PackageTags>
+    <PackageIcon>emegenler-crop-logo.png</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
     <PackageReference Include="Microsoft.EntityFrameworkCore">
@@ -43,6 +54,23 @@
       <Version>3.0.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore">
+      <Version>3.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">
+      <Version>3.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <Version>3.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version>3.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory">
+      <Version>3.1.2</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.16" />
@@ -56,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\Migrations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\EmegenlerMvcPlayground\wwwroot\img\emegenler-crop-logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 

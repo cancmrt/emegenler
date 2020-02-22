@@ -6,90 +6,92 @@
 @{
     ViewData["Title"] = "Sales";
 }
-
+@addTagHelper Guard.Emegenler.TagOperations.TagHelpers.*, Guard.Emegenler
 <br />
 <br />
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <a class="btn btn-outline-info" href="/form/salelist"><i class="fas fa-dollar-sign"></i> Sale Forms List</a>
+        <a id="ListSalesForm" class="btn btn-outline-info" href="/form/salelist" emegenler-guard><i class="fas fa-dollar-sign"></i> Sale Forms List</a>
         <br />
         <br />
         <div class="card">
-            <div class="card-body">
-                <div class="row" style="margin-bottom:15px;">
-                    <div class="col-6">
-                        <img src="~/img/emegenler-crop-logo.png" width="200" />
+            <form id="SaleReportForm" emegenler-guard>
+                <div class="card-body">
+                    <div class="row" style="margin-bottom:15px;">
+                        <div class="col-6">
+                            <img src="~/img/emegenler-crop-logo.png" width="200" />
+                        </div>
+                        <div class="col-6" style="text-align:right;">
+                            <br />
+                            <h1>Sale Form</h1>
+                        </div>
                     </div>
-                    <div class="col-6" style="text-align:right;">
-                        <br />
-                        <h1>Sale Form</h1>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Sales Amount:</label>
+                            <input name="SalesAmount" type="number" class="form-control salesamount" />
+                        </div>
+                        <div class="col-md-8">
+                            <label>Product:</label>
+                            <select class="form-control product">
+                                <option selected value="999">Acme Product 1000</option>
+                                <option value="1599"> Acme  Super Product 1100</option>
+                                <option value="599">Acme Half Product 800</option>
+                                <option value="1999">Acme Product 2000</option>
+                                <option value="2599"></option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>Sales Amount:</label>
-                        <input name="SalesAmount" type="number" class="form-control salesamount" />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Company Name:</label>
+                            <input name="CompanyName" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label>Company Address:</label>
+                            <input name="CompanyAddress" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label>Company Telephone:</label>
+                            <input name="CompanyTelephone" class="form-control" />
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <label>Product:</label>
-                        <select class="form-control product">
-                            <option selected value="999">Acme Product 1000</option>
-                            <option value="1599"> Acme  Super Product 1100</option>
-                            <option value="599">Acme Half Product 800</option>
-                            <option value="1999">Acme Product 2000</option>
-                            <option value="2599"></option>
-                        </select>
+                    <div class="row">
+                        <div class="col-5">
+                            <label>Special Desire:</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <div class="col-7">
+                            <label>Calculations:</label>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Tax</td>
+                                        <td>Tax Rate(%)</td>
+                                        <td>Shipping</td>
+                                        <td>Total</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="Tax"></td>
+                                        <td class="TaxRate"></td>
+                                        <td class="Shipping"></td>
+                                        <td class="Total"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label>Company Name:</label>
-                        <input name="CompanyName" class="form-control" />
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-block btn-success">Save</button>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <label>Company Address:</label>
-                        <input name="CompanyAddress" class="form-control" />
-                    </div>
-                    <div class="col-4">
-                        <label>Company Telephone:</label>
-                        <input name="CompanyTelephone" class="form-control" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-5">
-                        <label>Special Desire:</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                    <div class="col-7">
-                        <label>Calculations:</label>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <td>Tax</td>
-                                    <td>Tax Rate(%)</td>
-                                    <td>Shipping</td>
-                                    <td>Total</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="Tax"></td>
-                                    <td class="TaxRate"></td>
-                                    <td class="Shipping"></td>
-                                    <td class="Total"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <button class="btn btn-block btn-success">Save</button>
-                    </div>
-                </div>
 
-            </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="col-md-1"></div>
@@ -114,7 +116,7 @@
 
         $(".product").on("change", function () {
             var ProductPrize = parseInt($(this).val(), 10);
-            var SalesAmount = parseInt($(".salesamount").val(),10);
+            var SalesAmount = parseInt($(".salesamount").val(), 10);
             CalculationOfPays(TaxRate, ProductPrize, SalesAmount, Shipping);
         });
         $(".salesamount").on("keyup", function () {
