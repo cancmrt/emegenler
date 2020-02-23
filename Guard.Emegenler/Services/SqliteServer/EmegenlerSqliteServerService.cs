@@ -17,7 +17,7 @@ namespace Guard.Emegenler.Services.SqliteServer
         /// <param name="SqlServerConnectionString">Sqlite server connection string</param>
         /// <param name="GuardOptions">Emegenler Options for unclassified access management</param>
         /// <returns></returns>
-        public static IServiceCollection AddEmegenlerToSqlServer(this IServiceCollection services, string SqlServerConnectionString, EmegenlerOptions GuardOptions)
+        public static IServiceCollection AddEmegenlerToSqliteServer(this IServiceCollection services, string SqlServerConnectionString, EmegenlerOptions GuardOptions)
         {
             services.AddDbContext<EmegenlerDbContext>(options => options.UseSqlite(SqlServerConnectionString,
                                                                 x => x.MigrationsHistoryTable("__EmegenlerMigrationsHistory", "Emegenler-Guard")));//orginal line
