@@ -1,17 +1,26 @@
-# Welcome to MkDocs
+# Welcome to Emegenler
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+![](https://i.ibb.co/dbm6P7f/emegenler-crop-logo.png")
 
-## Commands
+## Overview
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+Emegenler is **RBAC(Role Base Access Control)** for Views on Asp.Net Core Mvc projects. Simply you can restrict element (html tags) based on users and groups. 
+Emegenler is **flexiable**,
 
-## Project layout
+If you **have already users groups logic**, you can integrate that to Emegenler using Emegenler Fluent Api.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+or
+
+If you **don't have users groups logic**, you can use directly to Emegenler users group logic on Emegenler Fluent Api
+
+Let's get started!
+
+## Installation
+
+You can easily install Emegenler using Nuget
+
+`Nuget package install command here`
+
+## Getting Started
+
+After install Nuget package to your Mvc project.....
