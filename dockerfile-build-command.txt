@@ -1,0 +1,1 @@
+docker build -f "EmegenlerMvcPlayGround\dockerfile" -t cancmrt/emegenler_mvc_playground:1.0.0 .
