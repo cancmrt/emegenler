@@ -2,7 +2,7 @@
 
 namespace EmegenlerMvcPlayground.Migrations
 {
-    public partial class playgroundinit : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace EmegenlerMvcPlayground.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -24,7 +24,7 @@ namespace EmegenlerMvcPlayground.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
                     Surname = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -63,35 +63,62 @@ namespace EmegenlerMvcPlayground.Migrations
             migrationBuilder.InsertData(
                 table: "Groups",
                 columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Admin" },
-                    { 2, "IT" },
-                    { 3, "Human Resources" },
-                    { 4, "Sales" }
-                });
+                values: new object[] { 1, "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "Groups",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 2, "IT" });
+
+            migrationBuilder.InsertData(
+                table: "Groups",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 3, "Human Resources" });
+
+            migrationBuilder.InsertData(
+                table: "Groups",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 4, "Sales" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Email", "Name", "Password", "Surname" },
-                values: new object[,]
-                {
-                    { 1, "anderson@followwhiterabbit.com", "Thomas A.", "1234", "Anderson" },
-                    { 2, "jack@pritesparrow.com", "Jack", "1234", "Sparrow" },
-                    { 3, "hacker@warning.com", "Elliot", "1234", "Alderson" },
-                    { 4, "walter@chemistrymaster.com", "Walter", "1234", "White" }
-                });
+                values: new object[] { 1, "anderson@followwhiterabbit.com", "Thomas A.", "1234", "Anderson" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Email", "Name", "Password", "Surname" },
+                values: new object[] { 2, "jack@pritesparrow.com", "Jack", "1234", "Sparrow" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Email", "Name", "Password", "Surname" },
+                values: new object[] { 3, "hacker@warning.com", "Elliot", "1234", "Alderson" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Email", "Name", "Password", "Surname" },
+                values: new object[] { 4, "walter@chemistrymaster.com", "Walter", "1234", "White" });
 
             migrationBuilder.InsertData(
                 table: "UsersGroup",
                 columns: new[] { "UserId", "GroupId", "Id" },
-                values: new object[,]
-                {
-                    { 1, 1, 1 },
-                    { 2, 4, 2 },
-                    { 3, 2, 3 },
-                    { 4, 3, 4 }
-                });
+                values: new object[] { 1, 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "UsersGroup",
+                columns: new[] { "UserId", "GroupId", "Id" },
+                values: new object[] { 2, 4, 2 });
+
+            migrationBuilder.InsertData(
+                table: "UsersGroup",
+                columns: new[] { "UserId", "GroupId", "Id" },
+                values: new object[] { 3, 2, 3 });
+
+            migrationBuilder.InsertData(
+                table: "UsersGroup",
+                columns: new[] { "UserId", "GroupId", "Id" },
+                values: new object[] { 4, 3, 4 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsersGroup_GroupId",

@@ -3,7 +3,7 @@ using EmegenlerMvcPlayground.Context;
 using Guard.Emegenler.Middleware;
 using Guard.Emegenler.Options;
 using Guard.Emegenler.Options.DefaultBehaviours;
-using Guard.Emegenler.Services.MssqlServer;
+using Guard.Emegenler.Services.SqliteServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,8 +27,8 @@ namespace EmegenlerMvcPlayground
         public void ConfigureServices(IServiceCollection services)
         {
            
-            services.AddDbContext<PlaygroundContext>(options => options.UseSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;"));
-            services.AddEmegenlerToSqlServer("Data Source=localhost;Initial Catalog=EmegenlerTryDB; User Id=sa; Password=1234;",
+            services.AddDbContext<PlaygroundContext>(options => options.UseSqlite("Data Source="+ AppDomain.CurrentDomain.BaseDirectory + "EmegenlerTryDB.db;"));
+            services.AddEmegenlerToSqliteServer("Data Source="+ AppDomain.CurrentDomain.BaseDirectory + "EmegenlerTryDB.db;",
                 new EmegenlerOptions
                 {
                     PageAccessDeniedUrl = "/home/accessdenied",
@@ -50,6 +50,7 @@ namespace EmegenlerMvcPlayground
                 });
 
             services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,6 +79,12 @@ namespace EmegenlerMvcPlayground
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using(var service = app.ApplicationServices.CreateScope())
+            {
+                var context =  service.ServiceProvider.GetService<PlaygroundContext>();
+                context.Database.Migrate();
+            }
         }
     }
 }

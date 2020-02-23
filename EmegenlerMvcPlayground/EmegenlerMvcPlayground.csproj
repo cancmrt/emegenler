@@ -2,26 +2,43 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191124082158_playgroundinit.cs" />
+    <Compile Remove="Migrations\20191124082158_playgroundinit.Designer.cs" />
     <Compile Remove="Migrations\20200222080602_init-playground.cs" />
     <Compile Remove="Migrations\20200222080602_init-playground.Designer.cs" />
+    <Compile Remove="Migrations\20200223080830_EmegenlerSqlPoliciesInsert.cs" />
+    <Compile Remove="Migrations\20200223080830_EmegenlerSqlPoliciesInsert.Designer.cs" />
+    <Compile Remove="Migrations\20200223080947_EmegenlerSqliteMigration.cs" />
+    <Compile Remove="Migrations\20200223080947_EmegenlerSqliteMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200223081020_EmegenlerSqlScriptPolicies.cs" />
+    <Compile Remove="Migrations\20200223081020_EmegenlerSqlScriptPolicies.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Bogus" Version="29.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Guard.Emegenler\Guard.Emegenler.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Migrations\PolicySql\script.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
