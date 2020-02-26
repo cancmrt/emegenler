@@ -23,4 +23,32 @@ You can easily install Emegenler using Nuget
 
 ## Getting Started
 
-After install Nuget package to your Mvc project.....
+After install Nuget package to your Mvc project. **You need to set some Configuration on Startup.cs**
+First of all, you should define **data source for Emegenler**, in ConfigureServices method we define that.
+
+> *This examples show usage on Sqlite db*
+
+``` c#
+services.AddEmegenlerToSqliteServer("Data Source=EmegenlerTryDB.db;",
+                new EmegenlerOptions
+                {
+                    PageAccessDeniedUrl = "/home/accessdenied",
+                    ComponentDefaultBehaviour = ComponentDefaultBehaviour.Hide,
+                    FormDefaultBehaviour = FormDefaultBehaviour.Hide
+
+                }
+);
+```
+
+**EmegenlerOptions class parameters define default behaviors for policies**. You can change that behaviors when you are adding Emegenler to data source.
+
+After that in Configure method on Startup.cs you should use 
+
+
+```c#
+app.UseEmegenler();
+```
+
+This commands achieve migration operations and inject EmegenlerMiddleware controller to out application.
+
+Now you ready for use Emegenler in action!
