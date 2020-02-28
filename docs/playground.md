@@ -39,3 +39,27 @@ docker run -p 9090:80 cancmrt/emegenler_mvc_playground:1.0.0
 ```
 
 Open http://localhost:9090
+
+
+
+> **Playground user info's**
+
+Name :Thomas A. Anderson
+Email: anderson@followwhiterabbit.com
+Password:1234
+Group: Admin
+
+Name: Jack Sparrow
+Email: jack@pritesparrow.com
+Password: 1234
+Group: Sales
+
+Name: Elliot Alderson
+Email: hacker@warning.com
+Password: 1234
+Group: IT
+
+Name: Walter White
+Email: walter@chemistrymaster.com
+Password: 1234
+Group: HR
