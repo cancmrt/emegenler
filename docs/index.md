@@ -21,7 +21,7 @@ Let's get started!
 
 You can easily install Emegenler using Nuget
 
-`Nuget package install command here`
+`Install-Package Emegenler -Version 1.0.0`
 
 ## Getting Started
 
@@ -128,9 +128,15 @@ This parameter should contain all Policies actions. Policy actions is:
 
 
 
-#### Policy->Count method
+#### Policy->Count
 
 This method should give you a Count of Policies in Emegenler system. For example you can use that method for pagination while Taking Policies as a List on system.
+
+```c#
+API.Policy.Count()
+```
+
+
 
 #### Policy->Create
 
@@ -312,6 +318,138 @@ After choose identifier type, you should decide which html tag you want to restr
 
   
 
-#### Policy->Create()->WithIdenfier(User or Role)(Identifier)
+#### Policy->Get
 
-After decide that 
+If you **want get known policy by id**, you can use Get method for that.  Get method take int Id for getting specific Policy. 
+
+```c#
+API.Policy.Get(1)
+```
+
+#### Policy->Take
+
+Alright you create policy now y**ou should take policies by users or roles**. You can use Take method for that. Take method have two sub reflection:
+
+- **FromRole(Identifier):** This method getting policies by specified role identifier. Method give List of Policies.
+
+  ```c#
+  API.Policy.Take().FromRole(Identifier)
+  ```
+
+- **FromUser():** This method getting policies by specified user identifier. Method give List of Policies.
+
+  ```c#
+  API.Policy.Take().FromUser(Identifier)
+  ```
+
+
+
+#### Policy->TakeList
+
+If you **want take all policies in emegenler system**, you can use that method. TakeList method **have two parameter:**
+
+- *Page :* This is current page of Policies
+- *PageSize:* This is size of row on Page
+
+Method give List of Policies without any restriction. 
+
+
+
+### #Role
+
+This parameter should contain all Role actions. Role actions is:
+
+- Count
+- Create
+- Get
+- Take
+
+#### Role->Count
+
+This method should give you a Count of Roles in Emegenler system. For example you can use that method for pagination while Taking Roles as a List on system.
+
+```c#
+API.Role.Count()
+```
+
+#### Role->Create
+
+This method give ability to **create role in Emegenler system.** You can use this method **if you don't have any group(role) logic you own system.** If you **have already group(role) logic you don't need to use this method**, you can use own group(role) identifier on policy creation process.
+
+```c#
+API.Role.Create(Identifier)
+```
+
+#### Role->Get
+
+If you **want get known role by id**, you can use Get method for that.  Get method take int Id for getting specific Role. 
+
+```c#
+API.Role.Get(1)
+```
+
+#### Role->Take
+
+If you **want take all roles in emegenler system**, you can use that method. Take method **have two parameter:**
+
+- *Page :* This is current page of Roles
+- *PageSize:* This is size of row on Page
+
+Method give List of Roles without any restriction. 
+
+
+
+### #UserRole
+
+This parameter should contain all User-Role relations actions. User-Role actions is:
+
+- AssociateRole
+- AssociateUser
+- Count
+- Get
+- Take
+
+#### UserRole->AssociateRole
+
+If you want **associate role to user.**  You can use this method. AssociateRole method have one sub reflection:
+
+- ToUser(Identifier): This method create relationship between role and user. 
+
+  ```c#
+  API.UserRole.AssociateRole(RoleIdentifier).ToUser(UserIdentifier)
+  ```
+
+#### UserRole->AssociateUser
+
+If you want **associate user to role.**  You can use this method. AssociateUser method have one sub reflection:
+
+- ToRole(Identifier): This method create relationship between user and role. 
+
+  ```c#
+  API.UserRole.AssociateUser(UserIdentifier).ToRole(RoleIdentifier)
+  ```
+
+#### UserRole->Count
+
+This method should give you a Count of User-Role relations in Emegenler system. For example you can use that method for pagination while Taking User-Role relations as a List on system.
+
+```c#
+API.UserRole.Count()
+```
+
+#### UserRole->Get
+
+If you **want get known user-role relation by id**, you can use Get method for that.  Get method take int Id for getting specific User-Role relations. 
+
+```c#
+API.UserRole.Get(1)
+```
+
+#### UserRole->Take
+
+If you **want take all user-role relations in emegenler system**, you can use that method. Take method **have two parameter:**
+
+- *Page :* This is current page of User-Roles
+- *PageSize:* This is size of row on Page
+
+Method give List of User-Roles without any restriction. 

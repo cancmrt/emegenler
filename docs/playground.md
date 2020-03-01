@@ -3,7 +3,7 @@
 Playground purpose see Emegenler usage on working example and also real project example for usage Emegenler. 
 
 You can access project code in here
-http://www.burayaadresgelecek.com
+https://github.com/cancmrt/emegenlerplayground
 
 If you wanna see Emegenler in action, you have 2 option.
 
@@ -12,7 +12,7 @@ If you wanna see Emegenler in action, you have 2 option.
 
 ### Build and Run manually
 
-Clone project in here http://www.burayaadresgelecek.com
+Clone project in here https://github.com/cancmrt/emegenlerplayground
 
 After that go inside of clone folder.
 
