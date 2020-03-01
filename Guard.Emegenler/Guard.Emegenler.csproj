@@ -19,6 +19,7 @@
     <PackageTags>RBAC, Security, Views</PackageTags>
     <PackageIcon>emegenler-crop-logo.png</PackageIcon>
     <PackageIconUrl />
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
     <PackageReference Include="Microsoft.EntityFrameworkCore">
