@@ -1,1 +1,5 @@
-site_name: My Docs
+site_name: Emegenler
+nav:
+    - Home: index.md
+    - Playground: playground.md
+theme: readthedocs
