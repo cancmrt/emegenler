@@ -1,4 +1,5 @@
 [![.NET Build](https://github.com/cancmrt/emegenler/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cancmrt/emegenler/actions/workflows/dotnet.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cancmrt_emegenler&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cancmrt_emegenler)
 [![Documentation Status](https://readthedocs.org/projects/emegenler/badge/?version=latest)](https://emegenler.readthedocs.io/en/latest/?badge=latest)
 
 # Welcome to Emegenler
