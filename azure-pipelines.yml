@@ -1,13 +1,8 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
@@ -15,13 +10,20 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
 
+# Add this Command to Include the .NET 6 SDK
 - task: UseDotNet@2
   displayName: Use .NET 6.0
   inputs:
     packageType: 'sdk'
     version: '6.0.x'
+
+# Add a Command To List the Current .NET SDKs (Sanity Check)
+- task: CmdLine@2
+  inputs:
+    script: 'dotnet --list-sdks'
+
+- task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
